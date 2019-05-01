@@ -1,0 +1,12 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: elasticsearch
+  namespace: kubeaddons
+spec:
+  chartReference:
+    chart: stable/elasticsearch
+    values: |
+      ---
+      # we currently provide no configuration options for elasticsearch

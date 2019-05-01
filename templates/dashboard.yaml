@@ -1,0 +1,16 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: dashboard
+  namespace: kubeaddons
+spec:
+  chartReference:
+    chart: stable/kubernetes-dashboard
+    values: |
+      ---
+      # so that kubectl proxy works
+      fullnameOverride: 'kubernetes-dashboard'
+      enableInsecureLogin: true
+      service:
+        externalPort: 9090

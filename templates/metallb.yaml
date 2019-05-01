@@ -1,0 +1,11 @@
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: metallb
+  namespace: kubeaddons
+spec:
+  chartReference:
+    chart: stable/metallb
+    values: |
+      ---
+      # we currently provide no additional configuration for metallb

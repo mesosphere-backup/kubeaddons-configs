@@ -1,0 +1,42 @@
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: prometheus
+  namespace: kubeaddons
+spec:
+  chartReference:
+    chart: stable/prometheus-operator
+    values: |
+      ---
+      grafana:
+        grafana.ini:
+          server:
+            protocol: http
+            enable_gzip: true
+            root_url: "%(protocol)s://%(domain)s:%(http_port)s/ops/portal/grafana"
+          auth.proxy:
+            enabled: true
+            header_name: X-WEBAUTH-USER
+            auto-sign-up: true
+          auth.basic:
+            enabled: false
+          users:
+            auto_assign_role: Admin
+        service:
+          type: ClusterIP
+          port: 3000
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 3000
+            scheme: HTTP
+        livenessProbe:
+          httpGet:
+            path: /api/health
+            port: 3000
+            scheme: HTTP
+          initialDelaySeconds: 60
+          timeoutSeconds: 30
+          failureThreshold: 10
+      kubeEtcd:
+        enabled: false

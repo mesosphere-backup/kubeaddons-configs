@@ -1,0 +1,23 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: kibana
+  namespace: kubeaddons
+spec:
+  chartReference:
+    chart: stable/kibana
+    values: |
+      ---
+      files:
+        kibana.yml:
+          ## Default Kibana configuration from kibana-docker.
+          elasticsearch.url: http://elasticsearch-kubeaddons-client:9200
+          ## Ref: https://www.elastic.co/guide/en/kibana/current/settings.html
+          server.basePath: /ops/portal/kibana
+      serviceAccount:
+        create: true
+      service:
+        type: ClusterIP
+        externalPort: 5601
+        internalPort: 5601

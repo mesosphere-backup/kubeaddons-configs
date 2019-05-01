@@ -1,0 +1,12 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: telegraf
+  namespace: kubeaddons
+spec:
+  chartReference:
+    chart: stable/telegraf
+    values: |
+      ---
+      # we currently provide no configuration options for telegraf

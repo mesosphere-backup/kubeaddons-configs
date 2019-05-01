@@ -1,0 +1,26 @@
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: traefik
+  namespace: kubeaddons
+spec:
+  chartReference:
+    chart: stable/traefik
+    values: |
+      ---
+      rbac:
+        enabled: true
+      metrics:
+        prometheus:
+          enabled: true
+      dashboard:
+        enabled: true
+        domain: traefik.localhost.localdomain
+        serviceType: ClusterIP
+      ssl:
+        enabled: true
+        enforced: true
+        generateTLS: true
+        defaultCN: traefik.localhost.localdomain
+        defaultSANList:
+          - "*"

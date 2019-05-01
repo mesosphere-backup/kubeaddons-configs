@@ -1,0 +1,45 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: fluentbit
+  namespace: kubeaddons
+spec:
+  chartReference:
+    chart: stable/fluent-bit
+    values: |
+      ---
+      backend:
+        es:
+          host: elasticsearch-kubeaddons-client
+          time_key: '@ts'
+        type: es
+      filter:
+        mergeJSONLog: false
+      input:
+        tail:
+          parser: cri
+        systemd:
+          enabled: true
+          filters:
+            systemdUnit: []
+      metrics:
+        enabled: true
+        service:
+          annotations:
+            prometheus.io/path: /api/v1/metrics/prometheus
+            prometheus.io/port: "2020"
+            prometheus.io/scrape: "true"
+      tolerations:
+        - effect: NoSchedule
+          operator: Exists
+      extraEntries:
+        input: |-
+         Strip_Underscores true
+      resources:
+        requests:
+          # values extracted from a 1 output/1 input setup here:
+          # https://github.com/fluent/fluent-bit-kubernetes-logging/blob/master/fluent-bit-daemonset-kafka-rest.yml
+          # we double it for 1 output (es)/2 input (tail, systemd) as an approximation
+          cpu: 200m
+          memory: 200Mi
