@@ -22,9 +22,11 @@ spec:
           properties:
             chartReference:
               properties:
-                chart:
+                release:
                   type: string
                 repo:
+                  type: string
+                chart:
                   type: string
                 values:
                   type: string
