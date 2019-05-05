@@ -40,3 +40,6 @@ spec:
           failureThreshold: 10
       kubeEtcd:
         enabled: false
+      prometheus:
+        prometheusSpec:
+          externalUrl: "/ops/portal/prometheus"
