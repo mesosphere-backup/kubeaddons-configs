@@ -3,7 +3,7 @@ apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
   name: dashboard
-  namespace: kubeaddons
+  namespace: kube-system
 spec:
   chartReference:
     chart: stable/kubernetes-dashboard
