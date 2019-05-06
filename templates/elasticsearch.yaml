@@ -9,4 +9,32 @@ spec:
     chart: stable/elasticsearch
     values: |
       ---
-      # we currently provide no configuration options for elasticsearch
+      client:
+        heapSize: 1024m
+        resources:
+          limits:
+            cpu: 500m
+            memory: 2048Mi
+          requests:
+            cpu: 100m
+            memory: 1536Mi
+      master:
+        heapSize: 1024m
+        resources:
+          # need more cpu upon initialization, therefore burstable class
+          limits:
+            cpu: 1000m
+            memory: 2048Mi
+          requests:
+            cpu: 250m
+            memory: 1536Mi
+      data:
+        heapSize: 1536m
+        resources:
+          # need more cpu upon initialization, therefore burstable class
+          limits:
+            cpu: 1000m
+            memory: 4096Mi
+          requests:
+            cpu: 250m
+            memory: 2048Mi
