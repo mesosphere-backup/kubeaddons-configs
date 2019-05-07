@@ -32,3 +32,5 @@ spec:
                   type: string
             manifest:
               type: string
+            namespace:
+              type: string
