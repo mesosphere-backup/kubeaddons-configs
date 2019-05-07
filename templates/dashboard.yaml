@@ -5,6 +5,7 @@ metadata:
   name: dashboard
   namespace: kubeaddons
 spec:
+  namespace: kube-system
   chartReference:
     chart: stable/kubernetes-dashboard
     values: |
