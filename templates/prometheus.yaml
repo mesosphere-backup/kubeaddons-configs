@@ -21,7 +21,7 @@ spec:
           auth.basic:
             enabled: false
           users:
-            auto_assign_role: Admin
+            auto_assign_org_role: Admin
         service:
           type: ClusterIP
           port: 3000
