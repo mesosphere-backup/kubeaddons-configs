@@ -8,6 +8,9 @@ spec:
     chart: stable/prometheus-operator
     values: |
       ---
+      prometheus:
+        prometheusSpec:
+          retention: 7d
       grafana:
         grafana.ini:
           server:
