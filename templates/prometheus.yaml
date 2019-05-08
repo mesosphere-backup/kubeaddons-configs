@@ -8,6 +8,25 @@ spec:
     chart: stable/prometheus-operator
     values: |
       ---
+      prometheus:
+        prometheusSpec:
+          resources:
+            # based on 10 running nodes with 30 pods each
+            limits:
+              cpu: 200m
+              memory: 1000Mi
+            requests:
+              cpu: 200m
+              memory: 1000Mi
+      alertmanager:
+        alertmanagerSpec:
+          resources:
+            limits:
+              cpu: 10m
+              memory: 50Mi
+            requests:
+              cpu: 10m
+              memory: 50Mi
       grafana:
         grafana.ini:
           server:
@@ -25,6 +44,14 @@ spec:
         service:
           type: ClusterIP
           port: 3000
+        resources:
+          # keep request = limit to keep this container in guaranteed class
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
         readinessProbe:
           httpGet:
             path: /api/health

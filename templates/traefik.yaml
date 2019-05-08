@@ -8,6 +8,11 @@ spec:
     chart: stable/traefik
     values: |
       ---
+      resources:
+        limits:
+          cpu: 300m
+        requests:
+          cpu: 150m
       rbac:
         enabled: true
       metrics:

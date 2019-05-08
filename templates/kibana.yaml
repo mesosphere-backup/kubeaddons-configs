@@ -21,3 +21,9 @@ spec:
         type: ClusterIP
         externalPort: 5601
         internalPort: 5601
+      resources:
+        # need more cpu upon initialization, therefore burstable class
+        limits:
+          cpu: 1000m
+        requests:
+          cpu: 100m

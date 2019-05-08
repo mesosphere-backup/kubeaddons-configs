@@ -15,3 +15,10 @@ spec:
       enableInsecureLogin: true
       service:
         externalPort: 9090
+      resources:
+        limits:
+          cpu: 100m
+          memory: 300Mi
+        requests:
+          cpu: 50m
+          memory: 100Mi
