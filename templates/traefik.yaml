@@ -10,9 +10,9 @@ spec:
       ---
       resources:
         limits:
-          cpu: 300m
+          cpu: 2000m
         requests:
-          cpu: 150m
+          cpu: 1000m
       rbac:
         enabled: true
       metrics:
