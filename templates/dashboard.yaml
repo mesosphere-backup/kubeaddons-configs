@@ -17,8 +17,8 @@ spec:
         externalPort: 9090
       resources:
         limits:
-          cpu: 100m
+          cpu: 1000m
           memory: 300Mi
         requests:
-          cpu: 50m
+          cpu: 500m
           memory: 100Mi
