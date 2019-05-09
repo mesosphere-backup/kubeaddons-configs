@@ -5,6 +5,8 @@ metadata:
   name: awsebscsidriver
   namespace: kubeaddons
 spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
   manifest: |
     ---
     apiVersion: v1

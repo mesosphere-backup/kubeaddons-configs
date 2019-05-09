@@ -5,6 +5,8 @@ metadata:
   name: dashboard
   namespace: kubeaddons
 spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
   namespace: kube-system
   chartReference:
     chart: stable/kubernetes-dashboard

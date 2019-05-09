@@ -20,6 +20,10 @@ spec:
       properties:
         spec:
           properties:
+            kubernetes:
+              properties:
+                minSupportedVersion: string
+                maxSupportedVersion: string
             chartReference:
               properties:
                 release:

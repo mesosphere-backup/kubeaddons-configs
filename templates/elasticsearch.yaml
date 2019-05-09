@@ -5,6 +5,8 @@ metadata:
   name: elasticsearch
   namespace: kubeaddons
 spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
   chartReference:
     chart: stable/elasticsearch
     values: |
