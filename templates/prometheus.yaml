@@ -65,6 +65,8 @@ spec:
           initialDelaySeconds: 60
           timeoutSeconds: 30
           failureThreshold: 10
+        rbac:
+          pspUseAppArmor: false
       kubeEtcd:
         enabled: false
       prometheus:
