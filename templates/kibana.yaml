@@ -5,6 +5,8 @@ metadata:
   name: kibana
   namespace: kubeaddons
 spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
   chartReference:
     chart: stable/kibana
     values: |

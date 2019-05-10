@@ -4,6 +4,8 @@ metadata:
   name: prometheus
   namespace: kubeaddons
 spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
   chartReference:
     chart: stable/prometheus-operator
     values: |

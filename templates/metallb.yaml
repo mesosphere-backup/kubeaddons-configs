@@ -4,6 +4,8 @@ metadata:
   name: metallb
   namespace: kubeaddons
 spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
   chartReference:
     chart: stable/metallb
     values: |
