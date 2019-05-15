@@ -28,7 +28,7 @@ spec:
         resources:
           # need more cpu upon initialization, therefore burstable class
           limits:
-            cpu: 1000m
+            cpu: 2000m
             memory: 2048Mi
           requests:
             cpu: 250m
@@ -39,12 +39,12 @@ spec:
         hooks:
           drain:
             enabled: false
-        heapSize: 1536m
+        heapSize: 3072m
         resources:
           # need more cpu upon initialization, therefore burstable class
           limits:
-            cpu: 1000m
-            memory: 4096Mi
+            cpu: 4000m
+            memory: 8192Mi
           requests:
             cpu: 250m
-            memory: 2048Mi
+            memory: 8000Mi
