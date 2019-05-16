@@ -2,7 +2,7 @@
 apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
-  name: opsPortal
+  name: opsportal
   namespace: kubeaddons
 spec:
   kubernetes:
