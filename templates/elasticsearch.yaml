@@ -21,6 +21,8 @@ spec:
             cpu: 100m
             memory: 1536Mi
       master:
+        updateStrategy:
+          type: RollingUpdate
         heapSize: 1024m
         resources:
           # need more cpu upon initialization, therefore burstable class
@@ -31,6 +33,8 @@ spec:
             cpu: 250m
             memory: 1536Mi
       data:
+        updateStrategy:
+          type: RollingUpdate
         hooks:
           drain:
             enabled: false
