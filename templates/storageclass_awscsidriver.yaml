@@ -1,0 +1,20 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: awsebscsidriverstorageclass
+  namespace: kubeaddons
+sepc:
+  kubernetes:
+    minSupportedVersion: v1.14.0
+  manifest: |
+    ---
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: ebs-csi-driver
+      annotations:
+        kubernetes.io/description: AWS EBS CSI Driver StorageClass
+        storageclass.beta.kubernetes.io/is-default-class: "false"
+    provisioner: ebs.csi.aws.com
+    volumeBindingMode: WaitForFirstConsumer
