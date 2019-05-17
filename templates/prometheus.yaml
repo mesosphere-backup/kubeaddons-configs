@@ -12,6 +12,15 @@ spec:
       ---
       prometheus:
         prometheusSpec:
+          externalUrl: "/ops/portal/prometheus"
+          storageSpec:
+            volumeClaimTemplate:
+              spec:
+                accessModes: ["ReadWriteOnce"]
+                # 50Gi is the default size for the chart
+                resources:
+                  requests:
+                    storage: 50Gi
           resources:
             # based on 10 running nodes with 30 pods each
             limits:
@@ -71,6 +80,3 @@ spec:
           pspUseAppArmor: false
       kubeEtcd:
         enabled: false
-      prometheus:
-        prometheusSpec:
-          externalUrl: "/ops/portal/prometheus"
