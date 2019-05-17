@@ -10,6 +10,9 @@ spec:
     chart: stable/traefik
     values: |
       ---
+      metrics:
+        prometheus:
+          enabled: true
       resources:
         limits:
           cpu: 2000m
