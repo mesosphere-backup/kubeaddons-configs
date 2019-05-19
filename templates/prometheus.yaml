@@ -11,7 +11,19 @@ spec:
     values: |
       ---
       prometheus:
+        additionalServiceMonitors:
+          - name: traefik-monitor
+            selector:
+              matchLabels:
+                release: traefik-kubeaddons
+            namespaceSelector:
+              matchNames:
+                - kubeaddons
+            endpoints:
+              - port: metrics
+                interval: 10s
         prometheusSpec:
+          externalUrl: "/ops/portal/prometheus"
           resources:
             # based on 10 running nodes with 30 pods each
             limits:
@@ -71,6 +83,3 @@ spec:
           pspUseAppArmor: false
       kubeEtcd:
         enabled: false
-      prometheus:
-        prometheusSpec:
-          externalUrl: "/ops/portal/prometheus"
