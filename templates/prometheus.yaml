@@ -12,6 +12,17 @@ spec:
     values: |
       ---
       prometheus:
+        additionalServiceMonitors:
+          - name: traefik-monitor
+            selector:
+              matchLabels:
+                release: traefik-kubeaddons
+            namespaceSelector:
+              matchNames:
+                - kubeaddons
+            endpoints:
+              - port: metrics
+                interval: 10s
         prometheusSpec:
           externalUrl: "/ops/portal/prometheus"
           storageSpec:
