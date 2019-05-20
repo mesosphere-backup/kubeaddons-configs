@@ -27,6 +27,7 @@ spec:
       - kind: ServiceAccount
         name: ops-portal-admin
         namespace: kubeaddons
+    ---
     apiVersion: apps/v1
     kind: Deployment
     metadata:
