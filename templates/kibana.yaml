@@ -9,6 +9,7 @@ spec:
     minSupportedVersion: v1.14.0
   chartReference:
     chart: stable/kibana
+    version: 3.0.0
     values: |
       ---
       files:

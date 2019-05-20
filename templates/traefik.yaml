@@ -8,6 +8,7 @@ spec:
     minSupportedVersion: v1.14.0
   chartReference:
     chart: stable/traefik
+    version: 1.68.4
     values: |
       ---
       metrics:
