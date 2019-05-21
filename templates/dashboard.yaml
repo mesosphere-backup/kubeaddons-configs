@@ -10,6 +10,7 @@ spec:
   namespace: kube-system
   chartReference:
     chart: stable/kubernetes-dashboard
+    version: 1.5.2
     values: |
       ---
       # so that kubectl proxy works

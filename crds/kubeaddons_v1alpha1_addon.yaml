@@ -30,6 +30,8 @@ spec:
               properties:
                 release:
                   type: string
+                version:
+                  type: string
                 repo:
                   type: string
                 chart:
