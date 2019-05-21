@@ -4,7 +4,7 @@ kind: Addon
 metadata:
   name: awsebscsidriverstorageclassdefault
   namespace: kubeaddons
-sepc:
+spec:
   kubernetes:
     minSupportedVersion: v1.14.0
   manifest: |
