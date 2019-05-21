@@ -1,0 +1,16 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: elasticsearchexporter
+  namespace: kubeaddons
+spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
+  chartReference:
+    chart: stable/elasticsearch-exporter
+    values: |
+      ---
+      serviceMonitor:
+        enabled: true
+        interval: 30s
