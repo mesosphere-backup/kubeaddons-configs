@@ -12,6 +12,17 @@ spec:
     values: |
       ---
       prometheus:
+        additionalServiceMonitors:
+          - name: kubeaddons-service-monitor
+            selector:
+              matchLabels:
+                kubeaddons.mesosphere.io/servicemonitor: "true"
+            namespaceSelector:
+              matchNames:
+                - kubeaddons
+            endpoints:
+              - port: metrics
+                interval: 30s
         prometheusSpec:
           externalUrl: "/ops/portal/prometheus"
           storageSpec:

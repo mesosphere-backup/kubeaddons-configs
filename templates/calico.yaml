@@ -3,7 +3,7 @@ apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
   name: calico
-  namespace: kube-system
+  namespace: kubeaddons
 spec:
   manifest: |
     ---
