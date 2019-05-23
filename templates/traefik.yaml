@@ -11,6 +11,9 @@ spec:
     version: 1.68.4
     values: |
       ---
+      service:
+        labels:
+          kubeaddons.mesosphere.io/servicemonitor: "true"
       metrics:
         prometheus:
           enabled: true
