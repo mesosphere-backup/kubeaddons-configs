@@ -11,7 +11,7 @@ spec:
     version: 1.68.4
     values: |
       ---
-      replicas: 3
+      replicas: 2
       service:
         labels:
           kubeaddons.mesosphere.io/servicemonitor: "true"
