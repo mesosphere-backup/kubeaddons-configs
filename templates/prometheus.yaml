@@ -24,6 +24,8 @@ spec:
               - port: metrics
                 interval: 30s
         prometheusSpec:
+          secrets:
+            - etcd-certs
           externalUrl: "/ops/portal/prometheus"
           storageSpec:
             volumeClaimTemplate:
@@ -91,4 +93,9 @@ spec:
         rbac:
           pspUseAppArmor: false
       kubeEtcd:
-        enabled: false
+        enabled: true
+        serviceMonitor:
+          scheme: "https"
+          caFile: "/etc/prometheus/secrets/etcd-certs/ca.crt"
+          certFile: "/etc/prometheus/secrets/etcd-certs/server.crt"
+          keyFile: "/etc/prometheus/secrets/etcd-certs/server.key"
