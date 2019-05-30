@@ -225,6 +225,16 @@ spec:
                 mountPath: "/storage"
               - name: config
                 mountPath: "/config"
+              resources:
+                # these resources are currently kept relatively low, as this minio
+                # instance is ONLY being used by Velero at this time. Feel free
+                # to change these based on new metric information from test clusters.
+                requests:
+                  memory: 256Mi
+                  cpu: 250m
+                limits:
+                  memory: 512Mi
+                  cpu: 500m
     - apiVersion: v1
       kind: Service
       metadata:
@@ -358,7 +368,15 @@ spec:
               ports:
               - containerPort: 8085
                 name: metrics
-              resources: {}
+              resources:
+                # by default velero uses around 1.5Mi while idle, so we give 50Mi of breathing room for scheduling
+                # due to the nature of the work Velero does, and a desire to minimize disruptions to it, we provide relatively high resource limits.
+                requests:
+                  memory: 200Mi
+                  cpu: 250m
+                limits:
+                  memory: 1000Mi
+                  cpu: 1000m
               volumeMounts:
               - mountPath: /plugins
                 name: plugins
