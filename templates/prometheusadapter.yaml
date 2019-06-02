@@ -9,7 +9,7 @@ spec:
     minSupportedVersion: v1.14.0
   chartReference:
     chart: stable/prometheus-adapter
-    version: 1.0.2
+    version: 1.0.3
     values: |
       ---
       prometheus:
