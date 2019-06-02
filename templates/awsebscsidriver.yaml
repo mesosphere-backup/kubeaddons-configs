@@ -281,6 +281,11 @@ spec:
           tolerations:
             - key: CriticalAddonsOnly
               operator: Exists
+            # Make sure ebs-csi-node gets scheduled on all nodes.
+            - effect: NoSchedule
+              operator: Exists
+            - effect: NoExecute
+              operator: Exists
           containers:
             - name: ebs-plugin
               securityContext:
