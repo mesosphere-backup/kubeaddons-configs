@@ -9,7 +9,7 @@ spec:
     minSupportedVersion: v1.14.0
   chartReference:
     chart: stable/elasticsearch-exporter
-    version: 1.2.0
+    version: 1.3.0
     values: |
       ---
       es:
@@ -18,6 +18,8 @@ spec:
         repository: justwatch/elasticsearch_exporter
         tag: 1.0.2
         pullPolicy: IfNotPresent
-      serviceMonitor:
-        enabled: true
-        interval: 30s
+      service:
+        labels:
+          kubeaddons.mesosphere.io/servicemonitor: "true"
+        metricsPort:
+          name: metrics
