@@ -13,20 +13,20 @@ spec:
       ---
       prometheus:
         additionalServiceMonitors:
-          - name: kubeaddons-service-monitor
+          - name: kubeaddons-service-monitor-metrics
             selector:
               matchLabels:
-                kubeaddons.mesosphere.io/servicemonitor: "true"
+                servicemonitor.kubeaddons.mesosphere.io/path: "metrics"
             namespaceSelector:
               matchNames:
                 - kubeaddons
             endpoints:
               - port: metrics
                 interval: 30s
-          - name: fluentbit-service-monitor
+          - name: kubeaddons-service-monitor-api-v1-metrics-prometheus
             selector:
               matchLabels:
-                kubeaddons.mesosphere.io/fluentbitservicemonitor: "true"
+                servicemonitor.kubeaddons.mesosphere.io/path: "api__v1__metrics__prometheus"
             namespaceSelector:
               matchNames:
                 - kubeaddons

@@ -20,6 +20,6 @@ spec:
         pullPolicy: IfNotPresent
       service:
         labels:
-          kubeaddons.mesosphere.io/servicemonitor: "true"
+          servicemonitor.kubeaddons.mesosphere.io/path: "metrics"
         metricsPort:
           name: metrics

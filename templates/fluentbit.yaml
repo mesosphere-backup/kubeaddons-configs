@@ -30,7 +30,7 @@ spec:
         enabled: true
         service:
           labels:
-            kubeaddons.mesosphere.io/fluentbitservicemonitor: "true"
+            servicemonitor.kubeaddons.mesosphere.io/path: "api__v1__metrics__prometheus"
       tolerations:
         - effect: NoSchedule
           operator: Exists

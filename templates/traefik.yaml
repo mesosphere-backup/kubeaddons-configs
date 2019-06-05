@@ -14,7 +14,7 @@ spec:
       replicas: 2
       service:
         labels:
-          kubeaddons.mesosphere.io/servicemonitor: "true"
+          servicemonitor.kubeaddons.mesosphere.io/path: "metrics"
       metrics:
         prometheus:
           enabled: true
