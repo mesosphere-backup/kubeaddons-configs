@@ -24,6 +24,7 @@ spec:
               - port: metrics
                 interval: 30s
         prometheusSpec:
+          enableAdminAPI: true
           secrets:
             - etcd-certs
           externalUrl: "/ops/portal/prometheus"
