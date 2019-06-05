@@ -21,7 +21,17 @@ spec:
               matchNames:
                 - kubeaddons
             endpoints:
-              - port: metrics
+              - path: metrics
+                interval: 30s
+          - name: fluentbit-service-monitor
+            selector:
+              matchLabels:
+                kubeaddons.mesosphere.io/fluentbitservicemonitor: "true"
+            namespaceSelector:
+              matchNames:
+                - kubeaddons
+            endpoints:
+              - path: api/v1/metrics/prometheus
                 interval: 30s
         prometheusSpec:
           enableAdminAPI: true

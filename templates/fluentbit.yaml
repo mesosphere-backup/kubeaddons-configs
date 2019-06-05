@@ -30,7 +30,7 @@ spec:
         enabled: true
         service:
           labels:
-            kubeaddons.mesosphere.io/servicemonitor: "true"
+            kubeaddons.mesosphere.io/fluentbitservicemonitor: "true"
           annotations:
             prometheus.io/path: /api/v1/metrics/prometheus
             prometheus.io/port: "2020"
