@@ -1,3 +1,5 @@
+# Rules for alerting against etcd, without the etcd alerts: etcdHighNumberOfFailedGRPCRequests
+# Which at the moment are false positives at a rate of 100%
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
