@@ -1,0 +1,57 @@
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: dex
+  namespace: kubeaddons
+spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
+  chartReference:
+    chart: stable/dex
+    version: 1.4.0
+    values: |
+      ---
+      config:
+        issuer: http://172.17.0.3/dex
+        storage:
+          type: kubernetes
+          config:
+            inCluster: true
+        logger:
+          level: debug
+        web:
+          http: 0.0.0.0:8080
+      #   tlsCert: /etc/dex/tls/https/server/tls.crt
+      #   tlsKey: /etc/dex/tls/https/server/tls.key
+        grpc:
+          addr: 0.0.0.0:5000
+          tlsCert: /etc/dex/tls/grpc/server/tls.crt
+          tlsKey: /etc/dex/tls/grpc/server/tls.key
+          tlsClientCA: /etc/dex/tls/grpc/ca/tls.crt
+        connectors:
+      # TODO(mh): Figure out the way of passing client configuration
+      #  - type: github
+      #    id: github
+      #    name: GitHub
+      #    config:
+      #      clientID: xxxxxxxxxxxxxxx
+      #      clientSecret: yyyyyyyyyyyyyyyyyyyyy
+      #      redirectURI: https://dex.minikube.local:5556/callback
+      #      org: kubernetes
+        oauth2:
+          skipApprovalScreen: true
+
+        staticClients:
+        - id: dex-k8s-authenticator
+          redirectURIs:
+            - 'http://172.17.0.3/dex-k8s-authenticator/callback/konvoy-cluster'
+          name: 'Konvoy CLI authenticator'
+          secret: ZXhhbXBsZS1hcHAtc2VjcmV0
+
+        enablePasswordDB: true
+        staticPasswords:
+          - email: "admin@example.com"
+            # bcrypt hash of the string "password"
+            hash: "$2a$10$2b2cU8CPhOTaGrs1HRQuAueS7JTT5ZHsHSzYiFPm1leZck7Mc8T4W"
+            username: "admin"
+            userID: "08a8684b-db88-4b73-90a9-3cd1661f5466"
