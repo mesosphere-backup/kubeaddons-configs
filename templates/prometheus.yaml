@@ -36,6 +36,12 @@ spec:
                 interval: 30s
         prometheusSpec:
           enableAdminAPI: true
+          additionalScrapeConfigs:
+            - job_name: containerd
+              scrape_interval: 30s
+              static_configs:
+              - targets:
+                - localhost:1338
           secrets:
             - etcd-certs
           externalUrl: "/ops/portal/prometheus"
