@@ -11,6 +11,13 @@ spec:
     version: 1.4.0
     values: |
       ---
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: traefik
+        path: /dex
+        hosts:
+          - ""
       certs:
         web:
           create: false
