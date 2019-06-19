@@ -56,8 +56,9 @@ spec:
         staticClients:
         - id: dex-k8s-authenticator
           redirectURIs:
-            - 'http://172.17.0.3/dex-k8s-authenticator/callback/konvoy-cluster'
+            - 'https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local/dex-k8s-authenticator/callback/konvoy-cluster'
           name: 'Konvoy CLI authenticator'
+          # TODO(mh): Generate this randmly per cluster
           secret: ZXhhbXBsZS1hcHAtc2VjcmV0
 
         enablePasswordDB: true

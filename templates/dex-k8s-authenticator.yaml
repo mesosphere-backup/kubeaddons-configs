@@ -1,0 +1,40 @@
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: dex-k8s-authenticator
+  namespace: kubeaddons
+spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
+  chartReference:
+    chart: raw.githubusercontent.com/dex-k8s-authenticator
+    # TODO(mh): If this is going to be used figure out the production URL
+    # See: https://github.com/mintel/dex-k8s-authenticator/issues/70
+    repo: https://raw.githubusercontent.com/mintel/dex-k8s-authenticator/feat-helm-repo/charts/repo/stable
+    version: 1.0.0
+    values: |
+      ---
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: nginx
+        path: /dex-k8s-authenticator
+        hosts:
+      dexK8sAuthenticator:
+        port: 5555
+        debug: false
+        web_path_prefix: /dex-k8s-authenticator
+        #logoUrl: http://<path-to-your-logo.png>
+        #tlsCert: /path/to/dex-client.crt
+        #tlsKey: /path/to/dex-client.key
+        clusters:
+        - name: konvoy-cluster
+          short_description: "Konvoy Cluster"
+          description: "Konvoy cluster authenticator"
+          # TODO(mh): Generate automatically
+          client_secret: ZXhhbXBsZS1hcHAtc2VjcmV0
+          client_id: dex-k8s-authenticator
+          issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local/dex
+          redirect_uri: https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local/dex-k8s-authenticator/callback/konvoy-cluster
+          # k8s_master_uri: TODO
+          # k8s_ca_uri: TODO
