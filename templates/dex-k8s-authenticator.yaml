@@ -17,7 +17,7 @@ spec:
       ingress:
         enabled: true
         annotations:
-          kubernetes.io/ingress.class: nginx
+          kubernetes.io/ingress.class: traefik
           ingress.kubernetes.io/ssl-redirect: "false"
         path: /dex-k8s-authenticator
         hosts:

@@ -37,7 +37,9 @@ spec:
           publishedService: "kubeaddons/traefik-kubeaddons"
       ssl:
         enabled: true
-        enforced: true
+        # TODO(mh): This temporarily switched off to get dex auth working without
+        # TLS.
+        enforced: false
         generateTLS: true
         defaultCN: traefik.localhost.localdomain
         defaultSANList:
