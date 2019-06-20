@@ -15,6 +15,7 @@ spec:
         enabled: true
         annotations:
           kubernetes.io/ingress.class: traefik
+          ingress.kubernetes.io/ssl-redirect: "false"
         path: /dex
         hosts:
           - ""
