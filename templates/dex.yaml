@@ -33,6 +33,7 @@ spec:
         logger:
           level: debug
         web:
+          http: 127.0.0.1:8081
           https: 0.0.0.0:8080
           tlsCert: /etc/dex/tls/https/server/tls.crt
           tlsKey: /etc/dex/tls/https/server/tls.key
