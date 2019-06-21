@@ -41,6 +41,10 @@ spec:
         # TLS.
         enforced: false
         generateTLS: true
+        # dex service is exposed with TLS certificate signed by self signed root
+        # Dex CA certificate.
+        # TODO(mh): Figure out if we can configure CA certs per endpoint/ingress
+        insecureSkipVerify: true
         defaultCN: traefik.localhost.localdomain
         defaultSANList:
           - "*"
