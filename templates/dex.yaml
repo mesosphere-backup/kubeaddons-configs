@@ -19,13 +19,17 @@ spec:
         path: /dex
         hosts:
           - ""
+      ports:
+        - name: https
+          containerPort: 8080
+          protocol: TCP
       certs:
         web:
           create: false
           secret:
             tlsName: dex
       config:
-        issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local/dex
+        issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex
         storage:
           type: kubernetes
           config:
@@ -58,7 +62,7 @@ spec:
         staticClients:
         - id: dex-k8s-authenticator
           redirectURIs:
-            - 'https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local/dex-k8s-authenticator/callback/konvoy-cluster'
+            - 'https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/konvoy-cluster'
           name: 'Konvoy CLI authenticator'
           # TODO(mh): Generate this randmly per cluster
           secret: ZXhhbXBsZS1hcHAtc2VjcmV0

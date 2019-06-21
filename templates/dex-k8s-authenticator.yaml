@@ -36,7 +36,7 @@ spec:
           # TODO(mh): Generate automatically
           client_secret: ZXhhbXBsZS1hcHAtc2VjcmV0
           client_id: dex-k8s-authenticator
-          issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local/dex
-          redirect_uri: https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local/dex-k8s-authenticator/callback/konvoy-cluster
+          issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex
+          redirect_uri: https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/konvoy-cluster
           # k8s_master_uri: TODO
           # k8s_ca_uri: TODO
