@@ -61,7 +61,9 @@ spec:
           skipApprovalScreen: true
 
         staticClients:
-        - id: dex-k8s-authenticator
+        # This `id` must by in sync with `dex-k8s-authenticator.yaml` value as well as
+        # kube-apiserver flag `oidc-client-id`.
+        - id: kube-apiserver
           redirectURIs:
             - 'https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/konvoy-cluster'
           name: 'Konvoy CLI authenticator'
