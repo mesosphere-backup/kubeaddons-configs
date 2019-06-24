@@ -55,3 +55,8 @@ spec:
         defaultCN: traefik.localhost.localdomain
         defaultSANList:
           - "*"
+      forwardAuth:
+        entryPoints:
+        - https
+        address: http://traefik-forward-auth-kubeaddons.kubeaddons.svc.cluster.local:4181/
+        trustForwardHeader: false
