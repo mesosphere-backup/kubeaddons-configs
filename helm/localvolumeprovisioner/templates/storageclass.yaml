@@ -1,0 +1,13 @@
+{{- range .Values.classes }}
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: {{ .name }}
+  annotations:
+    storageclass.beta.kubernetes.io/is-default-class: {{ .default | default "false" | quote }}
+    kubernetes.io/description: Local volume Storage class
+provisioner: kubernetes.io/no-provisioner
+volumeBindingMode: WaitForFirstConsumer
+reclaimPolicy: Delete
+{{- end }}
