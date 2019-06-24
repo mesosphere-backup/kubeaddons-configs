@@ -1,0 +1,51 @@
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: traefik-forward-auth
+  namespace: kubeaddons
+spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
+  chartReference:
+    chart: https://github.com/jongiddy/traefik-forward-auth-chart/archive/oidc-issuer.tar.gz
+    version: 0.1.1
+    values: |
+      ---
+      replicaCount: 1
+
+      image:
+        repository: jongiddy/traefik-forward-auth
+        tag: latest
+        pullPolicy: Always
+
+      service:
+        type: ClusterIP
+        port: 4181
+
+      traefikForwardAuth:
+        oidcUri: "https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex"
+        clientId: traefik-forward-auth
+        clientSecret:
+          valueFrom:
+            secretKeyRef:
+              name: dex-client-secret-traefik-forward-auth
+              key: client_secret
+        # https only?
+        cookieSecure: false
+        whitelist: ["admin@example.com"]
+        extraConfig: |
+          rule.path.action = allow
+          rule.path.rule = Path(`/favicon.ico`)
+          rule.prefix.action = allow
+          rule.prefix.rule = PathPrefix(`/dex/`, `/dex-k8s-authenticator`)
+
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: traefik
+          ingress.kubernetes.io/protocol: https
+        paths:
+          - /_oauth
+        hosts:
+          - ""
+        tls: []
