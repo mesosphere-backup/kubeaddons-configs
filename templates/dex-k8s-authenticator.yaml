@@ -29,17 +29,18 @@ spec:
         #tlsCert: /path/to/dex-client.crt
         #tlsKey: /path/to/dex-client.key
         clusters:
-        - name: konvoy-cluster
-          short_description: "Konvoy Cluster"
-          description: "Konvoy cluster authenticator"
+        - name: kubernetes-cluster
+          short_description: "Kubernetes cluster"
+          description: "Kubernetes cluster authenticator"
           # TODO(mh): Generate automatically
           client_secret: ZXhhbXBsZS1hcHAtc2VjcmV0
           # This `client_id` must by in sync with `dex.yaml` value as well as
           # kube-apiserver flag `oidc-client-id`.
           client_id: kube-apiserver
           issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex
-          redirect_uri: https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/konvoy-cluster
+          redirect_uri: https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/kubernetes-cluster
           # TODO(mh): Make this dynamic. This URL must be injected by kubeaddons
-          # caller, in our case `konvoy`.
-          k8s_master_uri: https://localhost:46000
+          # caller, in our case `konvoy` app.
+          # https://jira.mesosphere.com/browse/DCOS-55112
           # k8s_ca_uri: TODO
+          k8s_master_uri: https://localhost:46000

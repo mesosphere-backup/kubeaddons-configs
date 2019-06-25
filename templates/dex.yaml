@@ -66,8 +66,8 @@ spec:
         # kube-apiserver flag `oidc-client-id`.
         - id: kube-apiserver
           redirectURIs:
-            - 'https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/konvoy-cluster'
-          name: 'Konvoy CLI authenticator'
+            - 'https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/kubernetes-cluster'
+          name: 'Kubernetes CLI authenticator'
           # TODO(mh): Generate this randmly per cluster
           secret: ZXhhbXBsZS1hcHAtc2VjcmV0
 
