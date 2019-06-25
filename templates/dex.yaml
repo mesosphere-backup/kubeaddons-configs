@@ -12,7 +12,7 @@ spec:
     values: |
       ---
       image: mhrabovcin/dex
-      imageTag: "8279d40cf6120175bae3dc2a9cec3032e49bb0d1"
+      imageTag: "a46d30b7107c147cd6f58cfd5f20eb9797f639e5"
       ingress:
         enabled: true
         annotations:
