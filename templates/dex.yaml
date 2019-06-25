@@ -32,6 +32,9 @@ spec:
             tlsName: dex
       config:
         issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex
+        frontend:
+          issuer: Kubernetes
+          theme: mesosphere
         storage:
           type: kubernetes
           config:
