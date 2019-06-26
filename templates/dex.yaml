@@ -52,15 +52,16 @@ spec:
           tlsKey: /etc/dex/tls/grpc/server/tls.key
           tlsClientCA: /etc/dex/tls/grpc/ca/tls.crt
         connectors:
-      # TODO(mh): Figure out the way of passing client configuration
-      #  - type: github
-      #    id: github
-      #    name: GitHub
-      #    config:
-      #      clientID: xxxxxxxxxxxxxxx
-      #      clientSecret: yyyyyyyyyyyyyyyyyyyyy
-      #      redirectURI: https://dex.minikube.local:5556/callback
-      #      org: kubernetes
+          # TODO(mh): Figure out the way of passing client configuration
+          - type: github
+            id: github
+            name: GitHub
+            config:
+              clientID: b4b2556573d6287c9be4
+              clientSecret: cea7dcd582c91df8a8ab62d2348a385a1339ebca
+              redirectURI: https://172.17.0.200/dex/callback
+              orgs:
+                - name: a3c42423-e2e8-4ec4-beeb-754b61495266
         oauth2:
           skipApprovalScreen: true
 
@@ -72,11 +73,3 @@ spec:
             - 'https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/kubernetes-cluster'
           name: 'Kubernetes CLI authenticator'
           # secret: value is generated automatically
-
-        enablePasswordDB: true
-        staticPasswords:
-          - email: "admin@example.com"
-            # bcrypt hash of the string "password"
-            hash: "$2a$10$2b2cU8CPhOTaGrs1HRQuAueS7JTT5ZHsHSzYiFPm1leZck7Mc8T4W"
-            username: "admin"
-            userID: "08a8684b-db88-4b73-90a9-3cd1661f5466"
