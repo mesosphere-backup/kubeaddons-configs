@@ -32,7 +32,7 @@ spec:
         - name: kubernetes-cluster
           short_description: "Kubernetes cluster"
           description: "Kubernetes cluster authenticator"
-          # client_secret: value is generated automatically
+          # client_secret: value is generated automatically - see `setupDexK8sAuthenticator()`
           # This `client_id` must by in sync with `dex.yaml` value as well as
           # kube-apiserver flag `oidc-client-id`.
           client_id: kube-apiserver

@@ -12,7 +12,7 @@ spec:
     values: |
       ---
       image: mhrabovcin/dex
-      imageTag: "88e16b26d8dd411dea6203bfd901f70092dfafef"
+      imageTag: "d2f240c9c72682913eaff4fd85d119d7d2d0f240"
       ingress:
         enabled: true
         annotations:
@@ -72,4 +72,4 @@ spec:
           redirectURIs:
             - 'https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/kubernetes-cluster'
           name: 'Kubernetes CLI authenticator'
-          # secret: value is generated automatically
+          # secret: value is generated automatically - see `setupDex()`
