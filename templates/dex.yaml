@@ -51,17 +51,6 @@ spec:
           tlsCert: /etc/dex/tls/grpc/server/tls.crt
           tlsKey: /etc/dex/tls/grpc/server/tls.key
           tlsClientCA: /etc/dex/tls/grpc/ca/tls.crt
-        connectors:
-          # TODO(mh): Figure out the way of passing client configuration
-          - type: github
-            id: github
-            name: GitHub
-            config:
-              clientID: b4b2556573d6287c9be4
-              clientSecret: cea7dcd582c91df8a8ab62d2348a385a1339ebca
-              redirectURI: https://172.17.0.200/dex/callback
-              orgs:
-                - name: a3c42423-e2e8-4ec4-beeb-754b61495266
         oauth2:
           skipApprovalScreen: true
 
