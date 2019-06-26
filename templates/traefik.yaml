@@ -37,9 +37,7 @@ spec:
           publishedService: "kubeaddons/traefik-kubeaddons"
       ssl:
         enabled: true
-        # TODO(mh): This temporarily switched off to get dex auth working without
-        # TLS.
-        enforced: false
+        enforced: true
         generateTLS: true
         # dex service is exposed with TLS certificate signed by self signed root
         # Dex CA certificate.
