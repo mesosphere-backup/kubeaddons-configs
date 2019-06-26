@@ -32,16 +32,9 @@ spec:
         - name: kubernetes-cluster
           short_description: "Kubernetes cluster"
           description: "Kubernetes cluster authenticator"
-          # TODO(mh): Generate automatically
-          client_secret: ZXhhbXBsZS1hcHAtc2VjcmV0
+          # client_secret: value is generated automatically
           # This `client_id` must by in sync with `dex.yaml` value as well as
           # kube-apiserver flag `oidc-client-id`.
           client_id: kube-apiserver
           issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex
           redirect_uri: https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/kubernetes-cluster
-          # TODO(mh): Make this dynamic. This URL must be injected by kubeaddons
-          # caller, in our case `konvoy` app.
-          # https://jira.mesosphere.com/browse/DCOS-55112
-          # These values are replaced in kubeaddons `setupDexK8sAuthenticator`
-          k8s_ca_pem: k8s_ca_pem
-          k8s_master_uri: https://k8s_master_uri
