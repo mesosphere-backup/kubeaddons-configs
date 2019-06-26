@@ -41,6 +41,8 @@ spec:
           externalUrl: "/ops/portal/prometheus"
           storageSpec:
             volumeClaimTemplate:
+              metadata:
+                name: db
               spec:
                 accessModes: ["ReadWriteOnce"]
                 # 50Gi is the default size for the chart
