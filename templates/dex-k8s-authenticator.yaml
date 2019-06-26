@@ -42,5 +42,6 @@ spec:
           # TODO(mh): Make this dynamic. This URL must be injected by kubeaddons
           # caller, in our case `konvoy` app.
           # https://jira.mesosphere.com/browse/DCOS-55112
-          # k8s_ca_uri: TODO
-          k8s_master_uri: https://localhost:46000
+          # These values are replaced in kubeaddons `setupDexK8sAuthenticator`
+          k8s_ca_pem: k8s_ca_pem
+          k8s_master_uri: https://k8s_master_uri
