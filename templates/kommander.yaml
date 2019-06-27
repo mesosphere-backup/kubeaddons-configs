@@ -41,7 +41,7 @@ spec:
                   type: string
                   minLength: 1
                   pattern: ^https?://
-                tokenSecretName:
+                authenticationSecretName:
                   type: string
                   minLength: 1
                 displayName:
@@ -50,7 +50,7 @@ spec:
                   maxLength: 64
               required:
                 - apiServer
-                - tokenSecretName
+                - authenticationSecretName
                 - displayName
           required:
             - spec
@@ -63,10 +63,10 @@ spec:
           type: string
           description: The URL of the Kubernetes API server
           JSONPath: .spec.apiServer
-        - name: Token Secret
+        - name: Authentication Secret
           type: string
-          description: Secret holding the token to authenticate against the Kubernetes API server
-          JSONPath: .spec.tokenSecretName
+          description: Secret holding the data to authenticate against the Kubernetes API server
+          JSONPath: .spec.authenticationSecretName
         - name: Age
           type: date
           JSONPath: .metadata.creationTimestamp
@@ -131,7 +131,7 @@ spec:
             - name: dockerhub
           containers:
             - name: kommander
-              image: mesosphere/kommander:latest
+              image: mesosphere/kommander:1.24.2
               ports:
                 - name: http
                   containerPort: 4000
