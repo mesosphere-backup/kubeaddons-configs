@@ -32,6 +32,9 @@ spec:
         enabled: true
         domain: traefik.localhost.localdomain
         serviceType: ClusterIP
+      kubernetes:
+        ingressEndpoint:
+          publishedService: "kubeaddons/traefik-kubeaddons"
       ssl:
         enabled: true
         enforced: true
