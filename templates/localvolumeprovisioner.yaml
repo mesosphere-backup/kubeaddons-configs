@@ -8,5 +8,7 @@ spec:
   kubernetes:
     minSupportedVersion: v1.14.0
   chartReference:
-    chart: ../helm/localvolumeprovisioner
+    # chart: ./helm/localvolumeprovisioner
+    # HACK! workaround until local helm charts are supported:
+    chart: https://localvolumeprovisioner.s3-us-west-2.amazonaws.com/artifacts/localvolumeprovisioner-0.1.0.tgz
     version: 0.1.0
