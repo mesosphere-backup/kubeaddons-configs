@@ -45,7 +45,7 @@ metadata:
   namespace: kubeaddons
 data:
   storageClassMap: |
-    {{- range .Values.classes }}
+    {{- range .Values.storageclasses }}
     {{ .name }}:
        hostDir: /mnt/{{ .name }}
        mountDir: /mnt/{{ .name }}
@@ -98,7 +98,7 @@ spec:
               readOnly: true
             - name: local-volume-provisioner-dev
               mountPath: /dev
-            {{- range .Values.classes }}
+            {{- range .Values.storageclasses }}
             - name: {{ .name }}
               mountPath: /mnt/{{ .name }}
               mountPropagation: "HostToContainer"
@@ -110,7 +110,7 @@ spec:
         - name: local-volume-provisioner-dev
           hostPath:
             path: /dev
-        {{- range .Values.classes }}
+        {{- range .Values.storageclasses }}
         - name: {{ .name }}
           hostPath:
             path: /mnt/{{ .name }}
