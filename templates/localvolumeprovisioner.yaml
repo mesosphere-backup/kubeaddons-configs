@@ -8,8 +8,6 @@ spec:
   kubernetes:
     minSupportedVersion: v1.14.0
   chartReference:
-    chart: https://mesosphere.github.io/charts/stable/localvolumeprovisioner-0.1.0.tgz
-    # FIXME: Use the repo instead, once the index issues are resolved.
-    #chart: localvolumeprovisioner
-    #repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.0
+    repo: https://gpaul.github.io/charts/stable
+    chart: localvolumeprovisioner
+    version: 0.1.1
