@@ -35,6 +35,19 @@ spec:
                 port: metrics
                 interval: 30s
         prometheusSpec:
+          additionalScrapeConfigs:
+            - job_name: 'kubernetes-nodes-containerd'
+              metrics_path: /v1/metrics
+              tls_config:
+                ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+              bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+              kubernetes_sd_configs:
+                - role: node
+              relabel_configs:
+                - source_labels: [__address__]
+                  regex: '(.*):10250'
+                  replacement: '${1}:1338'
+                  target_label: __address__
           enableAdminAPI: true
           secrets:
             - etcd-certs
