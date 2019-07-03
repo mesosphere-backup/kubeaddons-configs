@@ -7,11 +7,9 @@ spec:
   kubernetes:
     minSupportedVersion: v1.14.0
   chartReference:
-    chart: raw.githubusercontent.com/dex-k8s-authenticator
-    # TODO(mh): If this is going to be used figure out the production URL
-    # See: https://github.com/mintel/dex-k8s-authenticator/issues/70
-    repo: https://raw.githubusercontent.com/mintel/dex-k8s-authenticator/feat-helm-repo/charts/repo/stable
-    version: 1.0.0
+    chart: dex-k8s-authenticator
+    repo: https://mesosphere.github.io/charts/staging
+    version: 1.1.1
     values: |
       ---
       ingress:

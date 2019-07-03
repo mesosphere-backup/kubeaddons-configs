@@ -11,8 +11,10 @@ spec:
     version: 1.4.0
     values: |
       ---
-      image: mhrabovcin/dex
-      imageTag: "cac330ca6a5d30da3b33a7f269f005da4228b72f"
+      # Temprarily we're going to use our custom built container. Documentation
+      # for how to build a new version: https://github.com/mesosphere/dex/blob/v2.17.0-mesosphere/README.mesosphere.md
+      image: mesosphere/dex
+      imageTag: v2.17.0-3-g9a1ad-mesosphere
       ingress:
         enabled: true
         annotations:
