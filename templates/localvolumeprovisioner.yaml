@@ -1,0 +1,13 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: localvolumeprovisioner
+  namespace: kubeaddons
+spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
+  chartReference:
+    chart: mesosphere.github.io/localvolumeprovisioner
+    repo: https://mesosphere.github.io/charts/stable
+    version: 0.1.0
