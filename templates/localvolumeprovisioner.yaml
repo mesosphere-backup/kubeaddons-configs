@@ -7,6 +7,10 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
+  cloudProvider:
+    aws: disabled
+    docker: enabled
+    none: enabled
   chartReference:
     chart: localvolumeprovisioner
     repo: https://mesosphere.github.io/charts/stable
