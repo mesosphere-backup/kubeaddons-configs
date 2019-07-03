@@ -3,6 +3,8 @@ kind: Addon
 metadata:
   name: traefik
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.com/provides: ingresscontroller
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

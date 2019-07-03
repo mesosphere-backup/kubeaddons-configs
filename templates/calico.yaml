@@ -4,6 +4,8 @@ kind: Addon
 metadata:
   name: calico
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.com/provides: cni
 spec:
   manifest: |
     ---
