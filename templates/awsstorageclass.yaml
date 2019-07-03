@@ -5,6 +5,7 @@ metadata:
   name: awsstorageclass
   namespace: kubeaddons
   labels:
+    kubeaddons.mesosphere.io/name: awsstorageclass
     kubeaddons.mesosphere.com/provides: storageclass
 spec:
   kubernetes:

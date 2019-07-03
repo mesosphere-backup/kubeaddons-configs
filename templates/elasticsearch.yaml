@@ -4,6 +4,8 @@ kind: Addon
 metadata:
   name: elasticsearch
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: elasticsearch
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

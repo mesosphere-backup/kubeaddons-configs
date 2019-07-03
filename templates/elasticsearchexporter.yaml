@@ -4,6 +4,8 @@ kind: Addon
 metadata:
   name: elasticsearchexporter
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: elasticsearchexporter
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

@@ -5,6 +5,7 @@ metadata:
   name: awsebscsidriverstorageclass
   namespace: kubeaddons
   labels:
+    kubeaddons.mesosphere.io/name: awsebscsidriverstorageclass
     kubeaddons.mesosphere.com/provides: storageclass
 spec:
   kubernetes:

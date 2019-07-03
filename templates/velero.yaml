@@ -4,6 +4,8 @@ kind: Addon
 metadata:
   name: velero
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: velero
 spec:
   manifest: |
     ---
