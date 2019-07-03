@@ -8,6 +8,6 @@ spec:
   kubernetes:
     minSupportedVersion: v1.14.0
   chartReference:
-    chart: mesosphere.github.io/localvolumeprovisioner
+    chart: localvolumeprovisioner
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.0
+    version: 0.1.1
