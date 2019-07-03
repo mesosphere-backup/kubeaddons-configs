@@ -1,0 +1,41 @@
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: dex-k8s-authenticator
+  namespace: kubeaddons
+spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
+  chartReference:
+    chart: dex-k8s-authenticator
+    repo: https://mesosphere.github.io/charts/staging
+    version: 1.1.1
+    values: |
+      ---
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: traefik
+        path: /dex-k8s-authenticator
+        hosts:
+          - ""
+      dexK8sAuthenticator:
+        port: 5555
+        debug: false
+        web_path_prefix: /dex-k8s-authenticator
+        #logoUrl: http://<path-to-your-logo.png>
+        #tlsCert: /path/to/dex-client.crt
+        #tlsKey: /path/to/dex-client.key
+        clusters:
+        - name: kubernetes-cluster
+          short_description: "Kubernetes cluster"
+          description: "Kubernetes cluster authenticator"
+          # client_secret: value is generated automatically - see `setupDexK8sAuthenticator()`
+          # This `client_id` must by in sync with `dex.yaml` value as well as
+          # kube-apiserver flag `oidc-client-id`.
+          client_id: kube-apiserver
+          issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex
+          # This URI is just a placeholder and it will be replaced during the
+          # deployment with URL pointing to the traefik ingress public
+          # load balancer.
+          redirect_uri: https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/kubernetes-cluster

@@ -1,0 +1,68 @@
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: dex
+  namespace: kubeaddons
+spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
+  chartReference:
+    chart: stable/dex
+    version: 1.4.0
+    values: |
+      ---
+      # Temprarily we're going to use our custom built container. Documentation
+      # for how to build a new version: https://github.com/mesosphere/dex/blob/v2.17.0-mesosphere/README.mesosphere.md
+      image: mesosphere/dex
+      imageTag: v2.17.0-3-g9a1ad-mesosphere
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: traefik
+          ingress.kubernetes.io/protocol: https
+        path: /dex
+        hosts:
+          - ""
+      ports:
+        - name: https
+          containerPort: 8080
+          protocol: TCP
+      certs:
+        web:
+          create: false
+          secret:
+            tlsName: dex
+      config:
+        issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex
+        frontend:
+          issuer: Kubernetes
+          theme: mesosphere
+        storage:
+          type: kubernetes
+          config:
+            inCluster: true
+        logger:
+          level: debug
+        web:
+          http: 127.0.0.1:8081
+          https: 0.0.0.0:8080
+          tlsCert: /etc/dex/tls/https/server/tls.crt
+          tlsKey: /etc/dex/tls/https/server/tls.key
+        grpc:
+          addr: 0.0.0.0:5000
+          tlsCert: /etc/dex/tls/grpc/server/tls.crt
+          tlsKey: /etc/dex/tls/grpc/server/tls.key
+          tlsClientCA: /etc/dex/tls/grpc/ca/tls.crt
+        oauth2:
+          skipApprovalScreen: true
+        staticClients:
+        # This `id` must by in sync with `dex-k8s-authenticator.yaml` value as well as
+        # kube-apiserver flag `oidc-client-id`.
+        - id: kube-apiserver
+          redirectURIs:
+            # This URI is just a placeholder and it will be replaced during the
+            # deployment with URL pointing to the traefik ingress public
+            # load balancer.
+            - 'https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/kubernetes-cluster'
+          name: 'Kubernetes CLI authenticator'
+          # secret: value is generated automatically - see `setupDex()`
