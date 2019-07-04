@@ -1,0 +1,16 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: localpathprovisioner
+  namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: localpathprovisioner
+    kubeaddons.mesosphere.com/provides: storageclass
+spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
+  chartReference:
+    chart: localpathprovisioner
+    repo: https://gpaul.github.io/charts/stable
+    version: 0.1.0
