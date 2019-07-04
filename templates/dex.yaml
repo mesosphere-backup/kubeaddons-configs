@@ -17,6 +17,9 @@ spec:
       enabled: false
     - name: none
       enabled: false
+  requires:
+    matchLabels:
+      kubeaddons.mesosphere.io/provides: ingresscontroller
   chartReference:
     chart: stable/dex
     version: 1.4.0
