@@ -14,46 +14,7 @@ spec:
     values: |
       ---
       prometheus:
-        additionalServiceMonitors:
-          - name: kubeaddons-service-monitor-metrics
-            selector:
-              matchLabels:
-                servicemonitor.kubeaddons.mesosphere.io/path: "metrics"
-            namespaceSelector:
-              matchNames:
-                - kubeaddons
-            endpoints:
-              - port: metrics
-                interval: 30s
-          - name: kubeaddons-service-monitor-api-v1-metrics-prometheus
-            selector:
-              matchLabels:
-                servicemonitor.kubeaddons.mesosphere.io/path: "api__v1__metrics__prometheus"
-            namespaceSelector:
-              matchNames:
-                - kubeaddons
-            endpoints:
-              - path: /api/v1/metrics/prometheus
-                port: metrics
-                interval: 30s
         prometheusSpec:
-          additionalScrapeConfigs:
-            - job_name: 'kubernetes-nodes-containerd'
-              metrics_path: /v1/metrics
-              tls_config:
-                ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
-              bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
-              kubernetes_sd_configs:
-                - role: node
-              relabel_configs:
-                - source_labels: [__address__]
-                  regex: '(.*):10250'
-                  replacement: '${1}:1338'
-                  target_label: __address__
-          enableAdminAPI: true
-          secrets:
-            - etcd-certs
-          externalUrl: "/ops/portal/prometheus"
           storageSpec:
             volumeClaimTemplate:
               metadata:
@@ -63,7 +24,7 @@ spec:
                 # 50Gi is the default size for the chart
                 resources:
                   requests:
-                    storage: 50Gi
+                    storage: 1Gi
           resources:
             limits:
               cpu: 1000m
