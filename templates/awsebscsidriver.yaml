@@ -4,6 +4,8 @@ kind: Addon
 metadata:
   name: awsebscsidriver
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: awsebscsidriver
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
@@ -34,7 +36,7 @@ spec:
         verbs: ["get", "list", "watch"]
       - apiGroups: [""]
         resources: ["nodes"]
-        verbs: ["get", "list", "watch"]        
+        verbs: ["get", "list", "watch"]
       - apiGroups: [""]
         resources: ["events"]
         verbs: ["get", "list", "watch", "create", "update", "patch"]

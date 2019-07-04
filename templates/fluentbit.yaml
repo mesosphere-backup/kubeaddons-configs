@@ -4,6 +4,8 @@ kind: Addon
 metadata:
   name: fluentbit
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: fluentbit
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

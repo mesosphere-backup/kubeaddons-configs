@@ -3,6 +3,8 @@ kind: Addon
 metadata:
   name: dex-k8s-authenticator
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: dex-k8s-authenticator
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

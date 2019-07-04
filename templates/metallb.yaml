@@ -3,6 +3,9 @@ kind: Addon
 metadata:
   name: metallb
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: metallb
+    kubeaddons.mesosphere.com/provides: loadbalancer
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

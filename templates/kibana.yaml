@@ -4,6 +4,8 @@ kind: Addon
 metadata:
   name: kibana
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: kibana
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

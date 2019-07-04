@@ -4,6 +4,9 @@ kind: Addon
 metadata:
   name: localvolumeprovisioner
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: localvolumeprovisioner
+    kubeaddons.mesosphere.com/provides: storageclass
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

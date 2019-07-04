@@ -4,6 +4,7 @@ metadata:
   name: traefik
   namespace: kubeaddons
   labels:
+    kubeaddons.mesosphere.io/name: traefik
     kubeaddons.mesosphere.com/provides: ingresscontroller
 spec:
   kubernetes:

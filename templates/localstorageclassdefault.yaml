@@ -5,6 +5,7 @@ metadata:
   name: localstorageclassdefault
   namespace: kubeaddons
   labels:
+    kubeaddons.mesosphere.io/name: localstorageclassdefault
     kubeaddons.mesosphere.com/provides: storageclass
 spec:
   kubernetes:
