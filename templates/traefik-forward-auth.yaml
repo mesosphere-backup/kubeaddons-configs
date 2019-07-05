@@ -30,8 +30,7 @@ spec:
             secretKeyRef:
               name: dex-client-secret-traefik-forward-auth
               key: client_secret
-        # https only?
-        cookieSecure: false
+        cookieSecure: true
         whitelist: ["admin@example.com"]
         extraConfig: |
           rule.path.action = allow
