@@ -1,3 +1,5 @@
+### DEPRECATED ###
+# This Addon is deprecated in favor of localvolumeprovisioner
 ---
 apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
@@ -10,6 +12,8 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
+  cloudProvider:
+    all: disabled
   manifest: |
     ---
     apiVersion: v1

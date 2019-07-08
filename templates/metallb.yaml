@@ -9,6 +9,9 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
+  cloudProvider:
+    docker: enabled
+    none: enabled
   chartReference:
     chart: stable/metallb
     version: 0.9.5

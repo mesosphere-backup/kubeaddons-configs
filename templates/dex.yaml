@@ -8,6 +8,8 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
+  cloudProvider:
+    all: disabled
   chartReference:
     chart: stable/dex
     version: 1.4.0
