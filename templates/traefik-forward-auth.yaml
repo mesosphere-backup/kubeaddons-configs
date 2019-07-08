@@ -30,9 +30,18 @@ spec:
             secretKeyRef:
               name: dex-client-secret-traefik-forward-auth
               key: client_secret
+        caCertificate:
+          valueFrom:
+            secretKeyRef:
+              name: dex-root-ca
+              key: tls.crt
         cookieSecure: true
         userCookieName: "konvoy_profile_name"
-        whitelist: ["admin@example.com"]
+        allowedUser:
+          valueFrom:
+            secretKeyRef:
+              name: ops-portal-credentials
+              key: username
         extraConfig: |
           rule.path.action = allow
           rule.path.rule = Path(`/favicon.ico`)
