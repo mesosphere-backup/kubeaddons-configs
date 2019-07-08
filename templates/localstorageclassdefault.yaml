@@ -13,7 +13,12 @@ spec:
   kubernetes:
     minSupportedVersion: v1.14.0
   cloudProvider:
-    all: disabled
+    - name: aws
+      enabled: false
+    - name: docker
+      enabled: false
+    - name: none
+      enabled: false
   manifest: |
     ---
     apiVersion: v1
