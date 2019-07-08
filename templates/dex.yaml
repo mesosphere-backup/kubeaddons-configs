@@ -65,6 +65,6 @@ spec:
             # This URI is just a placeholder and it will be replaced during the
             # deployment with URL pointing to the traefik ingress public
             # load balancer.
-            - 'https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/dex-k8s-authenticator/callback/kubernetes-cluster'
+            - 'https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/token/callback/kubernetes-cluster'
           name: 'Kubernetes CLI authenticator'
           # secret: value is generated automatically - see `setupDex()`
