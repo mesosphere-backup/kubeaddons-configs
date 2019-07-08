@@ -12,5 +12,5 @@ spec:
     minSupportedVersion: v1.14.0
   chartReference:
     chart: awsebsprovisioner
-    repo: https://gpaul.github.io/charts/stable
+    repo: https://mesosphere.github.io/charts/stable
     version: 0.1.0
