@@ -6,6 +6,8 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: metallb
     kubeaddons.mesosphere.com/provides: loadbalancer
+  annotations:
+    kubeaddons.mesosphere.io/appVersion: "0.7.3"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

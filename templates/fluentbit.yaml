@@ -6,6 +6,8 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: fluentbit
+  annotations:
+    kubeaddons.mesosphere.io/appVersion: "1.2.1"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

@@ -7,6 +7,8 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: awsebscsiprovisioner
     kubeaddons.mesosphere.com/provides: storageclass
+  annotations:
+    kubeaddons.mesosphere.io/appVersion: "0.3.0"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
