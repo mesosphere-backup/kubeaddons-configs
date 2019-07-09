@@ -10,9 +10,12 @@ spec:
   kubernetes:
     minSupportedVersion: v1.14.0
   cloudProvider:
-    aws: enabled
-    docker: disabled
-    none: enabled
+    - name: aws
+      enabled: true
+    - name: docker
+      enabled: false
+    - name: none
+      enabled: true
   chartReference:
     chart: stable/kibana
     version: 3.0.0

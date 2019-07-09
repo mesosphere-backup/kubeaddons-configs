@@ -11,9 +11,12 @@ spec:
   kubernetes:
     minSupportedVersion: v1.14.0
   cloudProvider:
-    aws: disabled
-    docker: enabled
-    none: enabled
+    - name: aws
+      enabled: false
+    - name: docker
+      enabled: true
+    - name: none
+      enabled: true
   chartReference:
     chart: localvolumeprovisioner
     repo: https://mesosphere.github.io/charts/stable
