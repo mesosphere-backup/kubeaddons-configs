@@ -8,6 +8,7 @@ metadata:
     kubeaddons.mesosphere.io/name: kibana
   annotations:
     kubeaddons.mesosphere.io/appVersion: "6.7.0"
+    kubeaddons.mesosphere.io/endpoint: "/ops/portal/kibana"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

@@ -8,6 +8,7 @@ metadata:
     kubeaddons.mesosphere.com/provides: ingresscontroller
   annotations:
     kubeaddons.mesosphere.io/appVersion: "1.68.4"
+    kubeaddons.mesosphere.io/endpoint: "/ops/portal/traefik"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
