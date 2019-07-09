@@ -10,9 +10,12 @@ spec:
   kubernetes:
     minSupportedVersion: v1.14.0
   cloudProvider:
-    aws: enabled
-    docker: enabled
-    none: enabled
+    - name: aws
+      enabled: true
+    - name: docker
+      enabled: true
+    - name: none
+      enabled: true
   chartReference:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
