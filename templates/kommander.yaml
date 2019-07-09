@@ -6,6 +6,8 @@ metadata:
   namespace: kommander
   labels:
     kubeaddons.mesosphere.io/name: kommander
+  annotations:
+    kubeaddons.mesosphere.io/appVersion: "1.24.2"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

@@ -6,6 +6,8 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: elasticsearch
+  annotations:
+    kubeaddons.mesosphere.io/appVersion: "6.7.0"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
