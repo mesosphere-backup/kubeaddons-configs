@@ -3,150 +3,17 @@ apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
   name: kommander
-  namespace: kubeaddons
+  namespace: kommander
   labels:
     kubeaddons.mesosphere.io/name: kommander
 spec:
-  manifest: |
-    ---
-    apiVersion: v1
-    kind: Namespace
-    metadata:
-      name: kommander
-    spec:
-      finalizers:
-      - kubernetes
-    ---
-    apiVersion: apiextensions.k8s.io/v1beta1
-    kind: CustomResourceDefinition
-    metadata:
-      name: observableclusters.stable.mesosphere.com
-    spec:
-      group: stable.mesosphere.com
-      versions:
-        - name: v1
-          served: true
-          storage: true
-      scope: Cluster
-      names:
-        plural: observableclusters
-        singular: observablecluster
-        kind: ObservableCluster
-        shortNames:
-          - oc
-      validation:
-        openAPIV3Schema:
-          properties:
-            spec:
-              properties:
-                apiServer:
-                  type: string
-                  minLength: 1
-                  pattern: ^https?://
-                authenticationSecretName:
-                  type: string
-                  minLength: 1
-                displayName:
-                  type: string
-                  minLength: 1
-                  maxLength: 64
-              required:
-                - apiServer
-                - authenticationSecretName
-                - displayName
-          required:
-            - spec
-      additionalPrinterColumns:
-        - name: Display Name
-          type: string
-          description: Cluster display name
-          JSONPath: .spec.displayName
-        - name: API Server
-          type: string
-          description: The URL of the Kubernetes API server
-          JSONPath: .spec.apiServer
-        - name: Authentication Secret
-          type: string
-          description: Secret holding the data to authenticate against the Kubernetes API server
-          JSONPath: .spec.authenticationSecretName
-        - name: Age
-          type: date
-          JSONPath: .metadata.creationTimestamp
-    ---
-    apiVersion: v1
-    kind: ServiceAccount
-    metadata:
-      name: admin-user-kommander
-      namespace: kommander
-    ---
-    apiVersion: rbac.authorization.k8s.io/v1
-    kind: ClusterRoleBinding
-    metadata:
-      name: admin-user-binding
-    roleRef:
-      apiGroup: rbac.authorization.k8s.io
-      kind: ClusterRole
-      name: cluster-admin
-    subjects:
-      - kind: ServiceAccount
-        name: admin-user-kommander
-        namespace: kommander
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      labels:
-        app: kommander
-      name: kommander-svc
-      namespace: kommander
-    spec:
-      ports:
-        - name: metrics
-          port: 80
-          protocol: TCP
-          targetPort: 4000
-      selector:
-        app: kommander
-      sessionAffinity: None
-      type: ClusterIP
-    ---
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
-      name: kommander-deployment
-      namespace: kommander
-      labels:
-        app: kommander
-    spec:
-      replicas: 1
-      selector:
-        matchLabels:
-          app: kommander
-      template:
-        metadata:
-          labels:
-            app: kommander
-          namespace: kommander
-        spec:
-          serviceAccountName: admin-user-kommander
-          imagePullSecrets:
-            - name: dockerhub
-          containers:
-            - name: kommander
-              image: mesosphere/kommander:1.24.2
-              ports:
-                - name: http
-                  containerPort: 4000
-              resources:
-                requests:
-                  memory: "128Mi"
-                  cpu: "1000m"
-                limits:
-                  memory: "512Mi"
-                  cpu: "4000m"
-              livenessProbe:
-                httpGet:
-                  path: /health
-                  port: 4000
-                initialDelaySeconds: 15
-                periodSeconds: 3
+  kubernetes:
+    minSupportedVersion: v1.14.0
+  cloudProvider:
+    aws: enabled
+    docker: enabled
+    none: enabled
+  chartReference:
+    chart: kommander
+    repo: https://mesosphere.github.io/charts/stable
+    version: 0.1.1
