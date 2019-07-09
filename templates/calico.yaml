@@ -8,7 +8,7 @@ metadata:
     kubeaddons.mesosphere.io/name: calico
     kubeaddons.mesosphere.com/provides: cni
   annotations:
-    kubeaddons.mesosphere.io/appVersion: "0.3.0"
+    appversion.kubeaddons.mesosphere.io: "0.3.0"
 spec:
   manifest: |
     ---
