@@ -6,7 +6,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: dex
   annotations:
-    kubeaddons.mesosphere.io/appVersion: "2.16.0"
+    appversion.kubeaddons.mesosphere.io: "2.16.0"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

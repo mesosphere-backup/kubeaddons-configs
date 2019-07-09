@@ -6,10 +6,10 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: prometheus
   annotations:
-    kubeaddons.mesosphere.io/appVersion: "0.31.1"
-    kubeaddons.mesosphere.io/endpoint/prometheus: "/ops/portal/prometheus"
-    kubeaddons.mesosphere.io/endpoint/alertmanager: "/ops/portal/alertmanager"
-    kubeaddons.mesosphere.io/endpoint/grafana: "/ops/portal/grafana"
+    appversion.kubeaddons.mesosphere.io: "0.31.1"
+    endpoint.kubeaddons.mesosphere.io/prometheus: "/ops/portal/prometheus"
+    endpoint.kubeaddons.mesosphere.io/alertmanager: "/ops/portal/alertmanager"
+    endpoint.kubeaddons.mesosphere.io/grafana: "/ops/portal/grafana"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
