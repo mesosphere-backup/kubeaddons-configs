@@ -5,6 +5,8 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: prometheus
+  annotations:
+    kubeaddons.mesosphere.io/appVersion: "0.31.1"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
