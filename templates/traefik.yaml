@@ -7,7 +7,7 @@ metadata:
     kubeaddons.mesosphere.io/name: traefik
     kubeaddons.mesosphere.com/provides: ingresscontroller
   annotations:
-    appversion.kubeaddons.mesosphere.io: "1.68.4"
+    appversion.kubeaddons.mesosphere.io/traefik: "1.68.4"
     endpoint.kubeaddons.mesosphere.io/traefik: "/ops/portal/traefik"
     docs.kubeaddons.mesosphere.io/traefik: "https://docs.traefik.io/"
 spec:

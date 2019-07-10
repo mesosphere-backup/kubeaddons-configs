@@ -7,7 +7,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: dashboard
   annotations:
-    appversion.kubeaddons.mesosphere.io: "1.10.1"
+    appversion.kubeaddons.mesosphere.io/dashboard: "1.10.1"
     endpoint.kubeaddons.mesosphere.io/dashboard: "/ops/portal/kubernetes/"
     docs.kubeaddons.mesosphere.io/dashboard: "https://github.com/kubernetes/dashboard/blob/master/README.md"
 spec:
