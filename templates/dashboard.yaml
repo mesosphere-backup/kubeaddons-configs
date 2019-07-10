@@ -9,6 +9,7 @@ metadata:
   annotations:
     appversion.kubeaddons.mesosphere.io: "1.10.1"
     endpoint.kubeaddons.mesosphere.io/dashboard: "/ops/portal/kubernetes/"
+    docs.kubeaddons.mesosphere.io/dashboard: "https://github.com/kubernetes/dashboard/blob/master/README.md"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

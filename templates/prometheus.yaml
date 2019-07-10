@@ -10,6 +10,9 @@ metadata:
     endpoint.kubeaddons.mesosphere.io/prometheus: "/ops/portal/prometheus"
     endpoint.kubeaddons.mesosphere.io/alertmanager: "/ops/portal/alertmanager"
     endpoint.kubeaddons.mesosphere.io/grafana: "/ops/portal/grafana"
+    docs.kubeaddons.mesosphere.io/prometheus: "https://prometheus.io/docs/"
+    docs.kubeaddons.mesosphere.io/grafana: "https://grafana.com/docs/"
+    docs.kubeaddons.mesosphere.io/alertmanager: "https://prometheus.io/docs/alerting/alertmanager/"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
