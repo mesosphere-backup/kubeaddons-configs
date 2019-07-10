@@ -23,7 +23,7 @@ spec:
       # Temprarily we're going to use our custom built container. Documentation
       # for how to build a new version: https://github.com/mesosphere/dex/blob/v2.17.0-mesosphere/README.mesosphere.md
       image: mesosphere/dex
-      imageTag: v2.17.0-3-g9a1ad-mesosphere
+      imageTag: v2.17.0-5-gcf38-mesosphere
       ingress:
         enabled: true
         annotations:
