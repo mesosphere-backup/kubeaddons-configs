@@ -39,6 +39,6 @@ spec:
       resources:
         # need more cpu upon initialization, therefore burstable class
         limits:
-          cpu: 1000m
+          cpu: 500m
         requests:
-          cpu: 100m
+          cpu: 50m

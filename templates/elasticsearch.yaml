@@ -24,38 +24,45 @@ spec:
     values: |
       ---
       client:
-        heapSize: 1024m
+        replicas: 1
+        heapSize: 512m
         resources:
           limits:
-            cpu: 500m
-            memory: 2048Mi
+            cpu: 1000m
+            memory: 1024Mi
           requests:
-            cpu: 100m
-            memory: 1536Mi
+            cpu: 200m
+            memory: 768Mi
       master:
+        replicas: 2
+        persistence:
+          size: "512Mi"
         updateStrategy:
           type: RollingUpdate
-        heapSize: 1024m
+        heapSize: 512m
         resources:
           # need more cpu upon initialization, therefore burstable class
           limits:
-            cpu: 2000m
-            memory: 2048Mi
+            cpu: 1000m
+            memory: 1024Mi
           requests:
-            cpu: 500m
-            memory: 1536Mi
+            cpu: 200m
+            memory: 768Mi
       data:
+        replicas: 1
+        persistence:
+          size: "2Gi"
         updateStrategy:
           type: RollingUpdate
         hooks:
           drain:
             enabled: false
-        heapSize: 3072m
+        heapSize: 768m
         resources:
           # need more cpu upon initialization, therefore burstable class
           limits:
-            cpu: 4000m
-            memory: 8192Mi
+            cpu: 2000m
+            memory: 1536Mi
           requests:
-            cpu: 1000m
-            memory: 4608Mi
+            cpu: 500m
+            memory: 1152Mi

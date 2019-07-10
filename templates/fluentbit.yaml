@@ -55,5 +55,5 @@ spec:
           # values extracted from a 1 output/1 input setup here:
           # https://github.com/fluent/fluent-bit-kubernetes-logging/blob/master/fluent-bit-daemonset-kafka-rest.yml
           # we double it for 1 output (es)/2 input (tail, systemd) as an approximation
-          cpu: 200m
+          cpu: 50m
           memory: 200Mi

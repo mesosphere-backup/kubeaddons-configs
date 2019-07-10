@@ -185,7 +185,7 @@ spec:
           - ReadWriteOnce
         resources:
           requests:
-            storage: 50Gi
+            storage: 1Gi
     - apiVersion: apps/v1beta1
       kind: Deployment
       metadata:

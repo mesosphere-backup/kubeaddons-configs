@@ -17,7 +17,7 @@ spec:
     version: 1.68.4
     values: |
       ---
-      replicas: 2
+      replicas: 1
       service:
         labels:
           servicemonitor.kubeaddons.mesosphere.io/path: "metrics"
@@ -26,9 +26,9 @@ spec:
           enabled: true
       resources:
         limits:
-          cpu: 2000m
-        requests:
           cpu: 1000m
+        requests:
+          cpu: 100m
       rbac:
         enabled: true
       metrics:
