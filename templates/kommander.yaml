@@ -3,7 +3,7 @@ apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
   name: kommander
-  namespace: kommander
+  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: kommander
   annotations:
