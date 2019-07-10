@@ -7,7 +7,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: opsportal
   annotations:
-    kubeaddons.mesosphere.io/appVersion/opsportal: "1.0.0"
+    kubeaddons.mesosphere.io/opsportal: "1.0.0"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
