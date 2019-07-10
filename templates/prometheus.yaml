@@ -141,6 +141,8 @@ spec:
           failureThreshold: 10
         rbac:
           pspUseAppArmor: false
+        plugins:
+          - grafana-piechart-panel
       kubeEtcd:
         enabled: true
         serviceMonitor:
