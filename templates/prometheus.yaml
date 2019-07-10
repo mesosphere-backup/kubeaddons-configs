@@ -26,6 +26,9 @@ spec:
       enabled: false
     - name: none
       enabled: true
+  requires:
+    matchLabels:
+      kubeaddons.mesosphere.io/provides: defaultstorageclass
   chartReference:
     chart: stable/prometheus-operator
     version: 5.10.0

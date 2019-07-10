@@ -18,6 +18,9 @@ spec:
       enabled: false
     - name: none
       enabled: true
+  requires:
+    matchLabels:
+      kubeaddons.mesosphere.io/provides: defaultstorageclass
   chartReference:
     chart: stable/elasticsearch
     version: 1.26.2

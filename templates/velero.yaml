@@ -7,6 +7,11 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: velero
 spec:
+  kubernetes:
+    minSupportedVersion: v1.14.0
+  requires:
+    matchLabels:
+      kubeaddons.mesosphere.io/provides: defaultstorageclass
   manifest: |
     ---
     apiVersion: v1

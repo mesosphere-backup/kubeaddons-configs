@@ -11,6 +11,9 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
+  requires:
+    matchLabels:
+      kubeaddons.mesosphere.io/name: prometheus
   chartReference:
     chart: stable/prometheus-adapter
     version: 1.1.0
