@@ -9,6 +9,7 @@ metadata:
   annotations:
     appversion.kubeaddons.mesosphere.io: "1.68.4"
     endpoint.kubeaddons.mesosphere.io/traefik: "/ops/portal/traefik"
+    docs.kubeaddons.mesosphere.io/traefik: "https://docs.traefik.io/"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0

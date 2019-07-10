@@ -9,6 +9,7 @@ metadata:
   annotations:
     appversion.kubeaddons.mesosphere.io: "6.7.0"
     endpoint.kubeaddons.mesosphere.io/kibana: "/ops/portal/kibana"
+    docs.kubeaddons.mesosphere.io/kibana: "https://www.elastic.co/guide/en/kibana/6.7/index.html"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
