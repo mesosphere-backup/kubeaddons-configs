@@ -371,7 +371,7 @@ data:
              "title": "Discovery duration",
              "tooltip": {
                 "show": true,
-                "showHistogram": false
+                "showHistogram": true
              },
              "type": "heatmap",
              "xAxis": {
