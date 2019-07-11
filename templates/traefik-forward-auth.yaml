@@ -45,9 +45,9 @@ spec:
               key: username
         extraConfig: |
           rule.path.action = allow
-          rule.path.rule = Path(`/favicon.ico`)
+          rule.path.rule = Path(`/favicon.ico`, `/token`)
           rule.prefix.action = allow
-          rule.prefix.rule = PathPrefix(`/dex/`, `/dex-k8s-authenticator`)
+          rule.prefix.rule = PathPrefix(`/dex/`, `/token/`)
 
       ingress:
         enabled: true
