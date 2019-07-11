@@ -12,6 +12,9 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
+  cloudProvider:
+    - name: aws
+      enabled: true
   chartReference:
     chart: awsebsprovisioner
     repo: https://mesosphere.github.io/charts/stable
