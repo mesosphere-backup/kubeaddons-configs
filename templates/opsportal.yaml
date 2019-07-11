@@ -88,6 +88,10 @@ spec:
       annotations:
         kubernetes.io/ingress.class: traefik
         traefik.frontend.rule.type: PathPrefixStrip
+        traefik.ingress.kubernetes.io/auth-type: forward
+        traefik.ingress.kubernetes.io/auth-url: http://traefik-forward-auth-kubeaddons.kubeaddons.svc.cluster.local:4181/
+        traefik.ingress.kubernetes.io/auth-trust-headers: false
+        traefik.ingress.kubernetes.io/auth-response-headers: X-Forwarded-User
       name: ops-portal
       namespace: kubeaddons
     spec:
@@ -132,6 +136,10 @@ spec:
         kubernetes.io/ingress.class: traefik
         traefik.ingress.kubernetes.io/rewrite-target: /
         traefik.ingress.kubernetes.io/priority: "1"
+        traefik.ingress.kubernetes.io/auth-type: forward
+        traefik.ingress.kubernetes.io/auth-url: http://traefik-forward-auth-kubeaddons.kubeaddons.svc.cluster.local:4181/
+        traefik.ingress.kubernetes.io/auth-trust-headers: false
+        traefik.ingress.kubernetes.io/auth-response-headers: X-Forwarded-User
       name: opsportal-landing
       namespace: kubeaddons
     spec:
