@@ -17,7 +17,6 @@ data:
       "gnetId": null,
       "graphTooltip": 0,
       "id": null,
-      "iteration": 1562840947028,
       "links": [],
       "panels": [
         {
@@ -159,7 +158,7 @@ data:
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 2,
           "points": false,
@@ -345,7 +344,7 @@ data:
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 2,
           "points": false,
@@ -528,7 +527,7 @@ data:
           "lines": true,
           "linewidth": 1,
           "links": [],
-          "nullPointMode": "null",
+          "nullPointMode": "null as zero",
           "percentage": false,
           "pointradius": 2,
           "points": false,
@@ -706,5 +705,5 @@ data:
       "timezone": "",
       "title": "Local Volume Provisioner",
       "uid": "YvfWbASZz",
-      "version": 23
+      "version": 1
     }
