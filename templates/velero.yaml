@@ -19,40 +19,6 @@
 #
 # WARNING: using the default (fallback) backend is for testing purposes only and should not be used in production.
 #
-#
-# Testing
-#
-#
-# If you would like to test this Addon without deploying the suite of Addons you can deploy it to any cluster with the following:
-#
-#   export VELERO_VALUES="$(perl -MYAML::XS -e 'local $/; $y = Load <>; print $y->{spec}{chartReference}{values}' templates/velero.yaml)"
-#   export VELERO_VERSION="$(perl -MYAML::XS -e 'local $/; $y = Load <>; print $y->{spec}{chartReference}{version}' templates/velero.yaml)"
-#   echo "$VELERO_VALUES" | helm install --name velero --namespace velero stable/velero --version $VELERO_VERSION -f -
-#
-# Watch the pods and wait for everything to fully come online with:
-#
-#   kubectl -n velero get pods -w
-#
-# To use Velero via its' CLI tool, you'll need to download the tool from the repo:
-#
-#  * https://github.com/heptio/velero/releases
-#
-# You can view the default schedules with:
-#
-#   velero get schedules
-#
-# And schedule an initial backup with:
-#
-#   velero backup create initial-backup
-#
-# NOTE: By default we do not expose Velero or any of its components (e.g. Minio) outside of the cluster for security reasons.
-#       You'll need to utilize a proxy like `kubectl -n velero port-forward svc/minio 9000:9000` in order to do things like
-#       `velero backup download initial-backup`.
-#
-# Clean up when you're done with:
-#
-#   helm delete --purge velero
-#
 # ------------------------------------------------------------------------------
 ---
 apiVersion: kubeaddons.mesosphere.io/v1alpha1
