@@ -39,12 +39,6 @@ data:
           "id": "table",
           "name": "Table",
           "version": ""
-        },
-        {
-          "type": "panel",
-          "id": "text",
-          "name": "Text",
-          "version": ""
         }
       ],
       "annotations": {
@@ -152,7 +146,7 @@ data:
           "tableColumn": "",
           "targets": [
             {
-              "expr": "up{job=\"grafana\"}",
+              "expr": "up{job=\"prometheus-kubeaddons-grafana\"}",
               "format": "time_series",
               "instant": true,
               "intervalFactor": 2,
@@ -477,19 +471,62 @@ data:
           "type": "table"
         },
         {
-          "content": "<br />\n<br />\n<center>\n<img src=\"public/img/grafana_icon.svg\"  style=\"height: 60px;\">\n<span style=\"color: red;font-size:3rem;line-height: 2rem;\">💖</span>\n<img src=\"public/app/plugins/datasource/prometheus/img/prometheus_logo.svg\" alt=\"Prometheus logo\" style=\"height: 60px;\">\n</center>",
+          "columns": [],
+          "datasource": "$datasource",
+          "fontSize": "100%",
           "gridPos": {
-            "h": 5,
+            "h": 15,
             "w": 4,
             "x": 20,
             "y": 0
           },
-          "id": 16,
+          "height": "",
+          "id": 12,
           "links": [],
-          "mode": "html",
-          "title": "",
-          "transparent": true,
-          "type": "text"
+          "pageSize": null,
+          "scroll": true,
+          "showHeader": true,
+          "sort": {
+            "col": 0,
+            "desc": true
+          },
+          "styles": [
+            {
+              "alias": "Time",
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "link": false,
+              "pattern": "Time",
+              "type": "hidden"
+            },
+            {
+              "alias": "",
+              "colorMode": null,
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "decimals": 0,
+              "pattern": "/.*/",
+              "thresholds": [],
+              "type": "number",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "sort(topk(8, sum by (handler) (http_request_total{job=\"prometheus-kubeaddons-grafana\"})))",
+              "format": "time_series",
+              "instant": true,
+              "intervalFactor": 10,
+              "legendFormat": "{{handler}}",
+              "refId": "A",
+              "step": 100
+            }
+          ],
+          "title": "Most used handlers",
+          "transform": "timeseries_to_rows",
+          "type": "table"
         },
         {
           "aliasColors": {
@@ -534,7 +571,7 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (statuscode) (irate(http_request_total{job='grafana'}[5m]))",
+              "expr": "sum by (statuscode) (irate(http_request_total{job=\"prometheus-kubeaddons-grafana\"}[5m]))",
               "format": "time_series",
               "intervalFactor": 3,
               "legendFormat": "{{statuscode}}",
@@ -691,64 +728,6 @@ data:
             "align": false,
             "alignLevel": null
           }
-        },
-        {
-          "columns": [],
-          "datasource": "$datasource",
-          "fontSize": "100%",
-          "gridPos": {
-            "h": 10,
-            "w": 4,
-            "x": 20,
-            "y": 5
-          },
-          "height": "",
-          "id": 12,
-          "links": [],
-          "pageSize": null,
-          "scroll": true,
-          "showHeader": true,
-          "sort": {
-            "col": 0,
-            "desc": true
-          },
-          "styles": [
-            {
-              "alias": "Time",
-              "dateFormat": "YYYY-MM-DD HH:mm:ss",
-              "link": false,
-              "pattern": "Time",
-              "type": "hidden"
-            },
-            {
-              "alias": "",
-              "colorMode": null,
-              "colors": [
-                "rgba(245, 54, 54, 0.9)",
-                "rgba(237, 129, 40, 0.89)",
-                "rgba(50, 172, 45, 0.97)"
-              ],
-              "decimals": 0,
-              "pattern": "/.*/",
-              "thresholds": [],
-              "type": "number",
-              "unit": "short"
-            }
-          ],
-          "targets": [
-            {
-              "expr": "sort(topk(8, sum by (handler) (http_request_total{job=\"grafana\"})))",
-              "format": "time_series",
-              "instant": true,
-              "intervalFactor": 10,
-              "legendFormat": "{{handler}}",
-              "refId": "A",
-              "step": 100
-            }
-          ],
-          "title": "Most used handlers",
-          "transform": "timeseries_to_rows",
-          "type": "table"
         },
         {
           "aliasColors": {
@@ -994,7 +973,7 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(go_goroutines{job=\"grafana\"})",
+              "expr": "sum(go_goroutines{job=\"prometheus-kubeaddons-grafana\"})",
               "format": "time_series",
               "hide": false,
               "intervalFactor": 4,
@@ -1005,7 +984,7 @@ data:
               "type": "timeserie"
             },
             {
-              "expr": "sum(process_resident_memory_bytes{job=\"grafana\"})",
+              "expr": "sum(process_resident_memory_bytes{job=\"prometheus-kubeaddons-grafana\"})",
               "format": "time_series",
               "intervalFactor": 4,
               "legendFormat": "memory usage",
@@ -1065,16 +1044,19 @@ data:
         "list": [
           {
             "current": {
-               "text": "Prometheus",
-               "value": "Prometheus"
+              "text": "Prometheus",
+              "value": "Prometheus"
             },
             "hide": 0,
+            "includeAll": false,
             "label": null,
+            "multi": false,
             "name": "datasource",
-            "options": [ ],
+            "options": [],
             "query": "prometheus",
             "refresh": 1,
             "regex": "",
+            "skipUrlSync": false,
             "type": "datasource"
           }
         ]
