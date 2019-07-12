@@ -93,6 +93,10 @@ spec:
       schedules:
         default:
           schedule: "0 0 * * *"
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
       initContainers:
         # initialize-velero manages deploying a fallback backend (e.g. Minio) for Velero if needed,
         # and also will manage the credentials and secrets for that backend and Velero automatically.
