@@ -44,10 +44,11 @@ spec:
               name: ops-portal-credentials
               key: username
         extraConfig: |
-          rule.path.action = allow
-          rule.path.rule = Path(`/favicon.ico`, `/token`)
-          rule.prefix.action = allow
-          rule.prefix.rule = PathPrefix(`/dex/`, `/token/`)
+          default-action = allow
+          rule.path.action = auth
+          rule.path.rule = Path(`/ops/portal`)
+          rule.prefix.action = auth
+          rule.prefix.rule = PathPrefix(`/ops/portal/`)
 
       ingress:
         enabled: true
