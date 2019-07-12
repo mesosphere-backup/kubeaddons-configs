@@ -88,9 +88,6 @@ spec:
       annotations:
         kubernetes.io/ingress.class: traefik
         traefik.frontend.rule.type: PathPrefixStrip
-        ingress.kubernetes.io/auth-secret: ops-portal-htpasswd
-        ingress.kubernetes.io/auth-type: basic
-        ingress.kubernetes.io/auth-header-field: X-WebAuth-User
       name: ops-portal
       namespace: kubeaddons
     spec:
@@ -135,8 +132,6 @@ spec:
         kubernetes.io/ingress.class: traefik
         traefik.ingress.kubernetes.io/rewrite-target: /
         traefik.ingress.kubernetes.io/priority: "1"
-        ingress.kubernetes.io/auth-secret: ops-portal-htpasswd
-        ingress.kubernetes.io/auth-type: basic
       name: opsportal-landing
       namespace: kubeaddons
     spec:
