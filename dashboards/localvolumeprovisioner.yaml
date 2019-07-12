@@ -38,12 +38,6 @@ data:
           "version": ""
         },
         {
-          "type": "panel",
-          "id": "heatmap",
-          "name": "Heatmap",
-          "version": ""
-        },
-        {
           "type": "datasource",
           "id": "prometheus",
           "name": "Prometheus",
@@ -210,17 +204,17 @@ data:
           "seriesOverrides": [],
           "spaceLength": 10,
           "stack": false,
-          "steppedLine": false,
+          "steppedLine": true,
           "targets": [
             {
-              "expr": "idelta(local_volume_provisioner_apiserver_requests_duration_seconds_sum{instance=\"$instance\", method=\"create\"}[1m]) / idelta(local_volume_provisioner_apiserver_requests_duration_seconds_count{instance=\"$instance\", method=\"create\"}[1m])",
+              "expr": "rate(local_volume_provisioner_apiserver_requests_duration_seconds_sum{instance=\"$instance\", method=\"create\"}[1m]) / rate(local_volume_provisioner_apiserver_requests_duration_seconds_count{instance=\"$instance\", method=\"create\"}[1m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "create request duration",
               "refId": "A"
             },
             {
-              "expr": "idelta(local_volume_provisioner_apiserver_requests_duration_seconds_sum{instance=\"$instance\", method=\"delete\"}[1m]) / idelta(local_volume_provisioner_apiserver_requests_duration_seconds_count{instance=\"$instance\", method=\"delete\"}[1m])",
+              "expr": "rate(local_volume_provisioner_apiserver_requests_duration_seconds_sum{instance=\"$instance\", method=\"delete\"}[1m]) / rate(local_volume_provisioner_apiserver_requests_duration_seconds_count{instance=\"$instance\", method=\"delete\"}[1m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "delete request duration",
@@ -390,10 +384,10 @@ data:
           "seriesOverrides": [],
           "spaceLength": 10,
           "stack": false,
-          "steppedLine": false,
+          "steppedLine": true,
           "targets": [
             {
-              "expr": "idelta(local_volume_provisioner_persistentvolume_discovery_duration_seconds_sum{instance=\"$instance\"}[1m]) / idelta(local_volume_provisioner_persistentvolume_discovery_duration_seconds_count{instance=\"$instance\"}[1m])",
+              "expr": "rate(local_volume_provisioner_persistentvolume_discovery_duration_seconds_sum{instance=\"$instance\"}[1m]) / rate(local_volume_provisioner_persistentvolume_discovery_duration_seconds_count{instance=\"$instance\"}[1m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "discovery duration",
@@ -569,10 +563,10 @@ data:
           "seriesOverrides": [],
           "spaceLength": 10,
           "stack": false,
-          "steppedLine": false,
+          "steppedLine": true,
           "targets": [
             {
-              "expr": "idelta(local_volume_provisioner_persistentvolume_delete_duration_seconds_sum{instance=\"$instance\"}[1m]) / idelta(local_volume_provisioner_persistentvolume_delete_duration_seconds_count{instance=\"$instance\"}[1m])",
+              "expr": "rate(local_volume_provisioner_persistentvolume_delete_duration_seconds_sum{instance=\"$instance\"}[1m]) / rate(local_volume_provisioner_persistentvolume_delete_duration_seconds_count{instance=\"$instance\"}[1m])",
               "format": "time_series",
               "intervalFactor": 1,
               "legendFormat": "delete duration",
