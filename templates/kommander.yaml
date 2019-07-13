@@ -8,6 +8,7 @@ metadata:
     kubeaddons.mesosphere.io/name: kommander
   annotations:
     appversion.kubeaddons.mesosphere.io/kommander: "1.24.2"
+    endpoint.kubeaddons.mesosphere.io/: /ops/portal/kommander
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
@@ -22,6 +23,16 @@ spec:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
     version: 0.1.0
+    values: |
+      service:
+        name: kommander
+      ingress:
+        paths:
+          # kommander
+          - backend:
+              serviceName: kommander
+              servicePort: 4000
+            path: /ops/portal/kommander
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: defaultstorageclass
