@@ -17,8 +17,9 @@ spec:
     matchLabels:
       kubeaddons.mesosphere.io/provides: defaultstorageclass
   chartReference:
-    chart: stable/traefik
-    version: 1.68.4
+    chart: traefik
+    repo: https://mesosphere.github.io/charts/staging
+    version: 1.71.3
     values: |
       ---
       replicas: 2
@@ -63,3 +64,4 @@ spec:
         - https
         address: http://traefik-forward-auth-kubeaddons.kubeaddons.svc.cluster.local:4181/
         trustForwardHeader: false
+        authResponseHeaders: ["X-Forwarded-User"]
