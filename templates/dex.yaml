@@ -12,11 +12,11 @@ spec:
     minSupportedVersion: v1.14.0
   cloudProvider:
     - name: aws
-      enabled: true
+      enabled: false
     - name: docker
-      enabled: true
+      enabled: false
     - name: none
-      enabled: true
+      enabled: flase
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: ingresscontroller
