@@ -109,7 +109,7 @@ spec:
             root_url: "%(protocol)s://%(domain)s:%(http_port)s/ops/portal/grafana"
           auth.proxy:
             enabled: true
-            header_name: X-WEBAUTH-USER
+            header_name: X-Forwarded-User
             auto-sign-up: true
           auth.basic:
             enabled: false
