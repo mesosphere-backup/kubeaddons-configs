@@ -16,7 +16,7 @@ spec:
     - name: docker
       enabled: false
     - name: none
-      enabled: flase
+      enabled: false
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: ingresscontroller
