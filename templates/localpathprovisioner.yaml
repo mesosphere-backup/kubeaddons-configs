@@ -6,7 +6,7 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: localpathprovisioner
-    kubeaddons.mesosphere.com/provides: storageclass
+    kubeaddons.mesosphere.io/provides: storageclass
   annotations:
     appversion.kubeaddons.mesosphere.io/localpathprovisioner: "1.0"
 spec:

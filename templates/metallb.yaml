@@ -5,7 +5,7 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: metallb
-    kubeaddons.mesosphere.com/provides: loadbalancer
+    kubeaddons.mesosphere.io/provides: loadbalancer
   annotations:
     appversion.kubeaddons.mesosphere.io/metallb: "0.7.3"
 spec:

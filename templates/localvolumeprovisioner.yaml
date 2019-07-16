@@ -6,9 +6,9 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: localvolumeprovisioner
-    kubeaddons.mesosphere.com/provides: defaultstorageclass
+    kubeaddons.mesosphere.io/provides: defaultstorageclass
   annotations:
-    appversion.kubeaddons.mesosphere.com/localvolumeprovisioner: "1.0"
+    appversion.kubeaddons.mesosphere.io/localvolumeprovisioner: "1.0"
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
