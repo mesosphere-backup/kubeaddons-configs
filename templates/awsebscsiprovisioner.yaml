@@ -6,7 +6,7 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: awsebscsiprovisioner
-    kubeaddons.mesosphere.com/provides: storageclass
+    kubeaddons.mesosphere.io/provides: storageclass
   annotations:
     appversion.kubeaddons.mesosphere.io/awsebscsiprovisioner: "0.3.0"
 spec:
