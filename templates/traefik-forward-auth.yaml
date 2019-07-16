@@ -13,16 +13,13 @@ spec:
     values: |
       ---
       replicaCount: 1
-
       image:
         repository: jongiddy/traefik-forward-auth
         tag: 1.0.0
         pullPolicy: IfNotPresent
-
       service:
         type: ClusterIP
         port: 4181
-
       traefikForwardAuth:
         oidcUri: "https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex"
         clientId: traefik-forward-auth
@@ -49,7 +46,6 @@ spec:
           rule.path.rule = Path(`/ops/portal`)
           rule.prefix.action = auth
           rule.prefix.rule = PathPrefix(`/ops/portal/`)
-
       ingress:
         enabled: true
         annotations:
@@ -60,3 +56,13 @@ spec:
         hosts:
           - ""
         tls: []
+      initContainers:
+        # initialize-traefik-forward-auth deploys credentials for use by the proxy
+        - name: initialize-traefik-forward-auth
+          image: kubeaddons/addon-initializer:v0.0.2-alpha
+          args: ["traefikForwardAuth"]
+          env:
+          - name: "TRAEFIK_FORWARD_AUTH_NAMESPACE"
+            value: "kubeaddons"
+          - name: "TRAEFIK_FORWARD_AUTH_SERVICE_NAME"
+            value: "ops-portal-credentials"
