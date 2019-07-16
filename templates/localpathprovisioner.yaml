@@ -12,6 +12,9 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.14.0
+  cloudProvider:
+    - name: none
+      enabled: false
   chartReference:
     chart: localpathprovisioner
     repo: https://mesosphere.github.io/charts/stable
