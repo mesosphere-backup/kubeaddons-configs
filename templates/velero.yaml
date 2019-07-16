@@ -37,10 +37,8 @@ spec:
   cloudProvider:
     - name: aws
       enabled: true
-    - name: docker
-      enabled: false
     - name: none
-      enabled: false
+      enabled: true
   chartReference:
     chart: stable/velero
     version: 2.1.1
