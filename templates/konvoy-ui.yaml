@@ -2,13 +2,13 @@
 apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
-  name: kommander
+  name: konvoy-ui
   namespace: kubeaddons
   labels:
-    kubeaddons.mesosphere.io/name: kommander
+    kubeaddons.mesosphere.io/name: konvoy-ui
   annotations:
     appversion.kubeaddons.mesosphere.io/kommander: "1.40.0"
-    endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal/kommander
+    #endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
@@ -24,15 +24,7 @@ spec:
     repo: https://mesosphere.github.io/charts/stable
     version: 0.1.6
     values: |
-      service:
-        name: kommander
-      ingress:
-        paths:
-          # kommander
-          - backend:
-              serviceName: kommander
-              servicePort: 4000
-            path: /ops/portal/kommander
+      ---
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: defaultstorageclass
