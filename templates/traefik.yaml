@@ -26,9 +26,6 @@ spec:
       service:
         labels:
           servicemonitor.kubeaddons.mesosphere.io/path: "metrics"
-      metrics:
-        prometheus:
-          enabled: true
       resources:
         limits:
           cpu: 2000m
