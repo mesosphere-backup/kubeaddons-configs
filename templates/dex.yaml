@@ -21,8 +21,9 @@ spec:
     matchLabels:
       kubeaddons.mesosphere.io/provides: ingresscontroller
   chartReference:
-    chart: stable/dex
-    version: 1.4.0
+    chart: dex
+    repo: https://mesosphere.github.io/charts/stable
+    version: 1.5.2
     values: |
       ---
       # Temprarily we're going to use our custom built container. Documentation
@@ -81,3 +82,21 @@ spec:
           name: 'Ops Portal authenticator'
           redirectURIs:
             - 'https://PUBLIC.URI/_oauth'
+      initContainers:
+        # initialize-dex modifies dex configuration
+        - name: initialize-dex
+          image: kubeaddons/addon-initializer:v0.0.3-alpha
+          args: ["dex"]
+          env:
+          - name: "DEX_NAMESPACE"
+            value: "kubeaddons"
+          - name: "DEX_SECRET_NAME"
+            value: "dex-kubeaddons"
+          - name: "OPS_PORTAL_NAMESPACE"
+            value: "kubeaddons"
+          - name: "OPS_PORTAL_SECRET_NAME"
+            value: "ops-portal-credentials"
+          - name: "TRAEFIK_NAMESPACE"
+            value: "kubeaddons"
+          - name: "TRAEFIK_SERVICE_NAME"
+            value: "traefik-kubeaddons"
