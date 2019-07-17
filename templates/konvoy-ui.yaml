@@ -8,7 +8,7 @@ metadata:
     kubeaddons.mesosphere.io/name: konvoy-ui
   annotations:
     appversion.kubeaddons.mesosphere.io/kommander: "1.40.0"
-    #endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal
+    endpoint.kubeaddons.mesosphere.io/landing: /landing
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
@@ -25,6 +25,15 @@ spec:
     version: 0.1.6
     values: |
       ---
+      service:
+        name: konvoy-ui
+      ingress:
+        paths:
+          # konvoy-ui
+          - backend:
+              serviceName: konvoy-ui
+              servicePort: 4000
+            path: /landing
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: defaultstorageclass
