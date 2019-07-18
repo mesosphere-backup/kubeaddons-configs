@@ -56,13 +56,14 @@ spec:
         hosts:
           - ""
         tls: []
-      initContainers:
-        # initialize-traefik-forward-auth deploys credentials for use by the proxy
-        - name: initialize-traefik-forward-auth
-          image: kubeaddons/addon-initializer:v0.0.2-alpha
-          args: ["traefikForwardAuth"]
-          env:
-          - name: "TRAEFIK_FORWARD_AUTH_NAMESPACE"
-            value: "kubeaddons"
-          - name: "TRAEFIK_FORWARD_AUTH_SECRET_NAME"
-            value: "ops-portal-credentials"
+      # TODO: re-enable once we've got opsportal related secret issues worked out
+      # initContainers:
+      #  # initialize-traefik-forward-auth deploys credentials for use by the proxy
+      #  - name: initialize-traefik-forward-auth
+      #    image: kubeaddons/addon-initializer:v0.0.2-alpha
+      #    args: ["traefikForwardAuth"]
+      #    env:
+      #    - name: "TRAEFIK_FORWARD_AUTH_NAMESPACE"
+      #      value: "kubeaddons"
+      #    - name: "TRAEFIK_FORWARD_AUTH_SECRET_NAME"
+      #      value: "ops-portal-credentials"
