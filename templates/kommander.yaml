@@ -23,16 +23,6 @@ spec:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
     version: 0.1.7
-    values: |
-      service:
-        name: kommander
-      ingress:
-        paths:
-          # kommander
-          - backend:
-              serviceName: kommander
-              servicePort: 4000
-            path: /ops/portal/kommander
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: defaultstorageclass
