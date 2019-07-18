@@ -46,6 +46,8 @@ spec:
           rule.path.rule = Path(`/ops/portal`)
           rule.prefix.action = auth
           rule.prefix.rule = PathPrefix(`/ops/portal/`)
+          rule.path.action = allow
+          rule.path.rule = Path(`/ops/portal/landing`)
       ingress:
         enabled: true
         annotations:
