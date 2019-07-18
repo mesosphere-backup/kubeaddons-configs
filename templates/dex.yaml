@@ -82,21 +82,22 @@ spec:
           name: 'Ops Portal authenticator'
           redirectURIs:
             - 'https://PUBLIC.URI/_oauth'
-      initContainers:
-        # initialize-dex modifies dex configuration
-        - name: initialize-dex
-          image: kubeaddons/addon-initializer:v0.0.3-alpha
-          args: ["dex"]
-          env:
-          - name: "DEX_NAMESPACE"
-            value: "kubeaddons"
-          - name: "DEX_SECRET_NAME"
-            value: "dex-kubeaddons"
-          - name: "OPS_PORTAL_NAMESPACE"
-            value: "kubeaddons"
-          - name: "OPS_PORTAL_SECRET_NAME"
-            value: "ops-portal-credentials"
-          - name: "TRAEFIK_NAMESPACE"
-            value: "kubeaddons"
-          - name: "TRAEFIK_SERVICE_NAME"
-            value: "traefik-kubeaddons"
+      # TODO: put this back once we've finished work to disconnect deprecated opsportal integrations
+      #initContainers:
+      #  # initialize-dex modifies dex configuration
+      #  - name: initialize-dex
+      #    image: kubeaddons/addon-initializer:v0.0.3-alpha
+      #    args: ["dex"]
+      #    env:
+      #    - name: "DEX_NAMESPACE"
+      #      value: "kubeaddons"
+      #    - name: "DEX_SECRET_NAME"
+      #      value: "dex-kubeaddons"
+      #    - name: "OPS_PORTAL_NAMESPACE"
+      #      value: "kubeaddons"
+      #    - name: "OPS_PORTAL_SECRET_NAME"
+      #      value: "ops-portal-credentials"
+      #    - name: "TRAEFIK_NAMESPACE"
+      #      value: "kubeaddons"
+      #    - name: "TRAEFIK_SERVICE_NAME"
+      #      value: "traefik-kubeaddons"
