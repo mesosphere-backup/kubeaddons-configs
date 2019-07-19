@@ -20,4 +20,4 @@ spec:
   chartReference:
     chart: opsportal
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.0.4
+    version: 0.0.5
