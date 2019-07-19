@@ -7,7 +7,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: konvoy-ui
   annotations:
-    appversion.kubeaddons.mesosphere.io/konvoy-ui: "1.47.2"
+    appversion.kubeaddons.mesosphere.io/konvoy-ui: "1.50.0"
     endpoint.kubeaddons.mesosphere.io/konvoy-ui: /ops/portal/
 spec:
   kubernetes:
@@ -22,7 +22,7 @@ spec:
   chartReference:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.12
+    version: 0.1.13
     values: |
       createObservableClusterCRD: false
       mode: konvoy

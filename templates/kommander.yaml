@@ -7,7 +7,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: kommander
   annotations:
-    appversion.kubeaddons.mesosphere.io/kommander: "1.47.2"
+    appversion.kubeaddons.mesosphere.io/kommander: "1.50.0"
     endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal/kommander
 spec:
   namespace: kommander
@@ -23,7 +23,7 @@ spec:
   chartReference:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.10
+    version: 0.1.13
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: defaultstorageclass
