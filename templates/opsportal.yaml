@@ -1,16 +1,13 @@
----
 apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
-  name: kommander
+  name: opsportal
   namespace: kubeaddons
   labels:
-    kubeaddons.mesosphere.io/name: kommander
+    kubeaddons.mesosphere.io/name: opsportal
   annotations:
-    appversion.kubeaddons.mesosphere.io/kommander: "1.47.2"
-    endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal/kommander
+    appversion.kubeaddons.mesosphere.io/opsportal: "1.0.0"
 spec:
-  namespace: kommander
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:
@@ -21,9 +18,6 @@ spec:
     - name: none
       enabled: true
   chartReference:
-    chart: kommander
+    chart: opsportal
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.10
-  requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/provides: defaultstorageclass
+    version: 0.0.3
