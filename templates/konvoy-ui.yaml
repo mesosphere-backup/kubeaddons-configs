@@ -24,8 +24,6 @@ spec:
     repo: https://mesosphere.github.io/charts/stable
     version: 0.1.10
     values: |
-      image:
-        tag: 1.47.2
       mode: konvoy
       logoutRedirectPath: /landing
       service:
