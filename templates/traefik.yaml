@@ -12,7 +12,7 @@ metadata:
     docs.kubeaddons.mesosphere.io/traefik: "https://docs.traefik.io/v1.7"
 spec:
   kubernetes:
-    minSupportedVersion: v1.14.0
+    minSupportedVersion: v1.15.0
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: defaultstorageclass

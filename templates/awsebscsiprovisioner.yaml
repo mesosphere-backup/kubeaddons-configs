@@ -11,7 +11,7 @@ metadata:
     appversion.kubeaddons.mesosphere.io/awsebscsiprovisioner: "0.3.0"
 spec:
   kubernetes:
-    minSupportedVersion: v1.14.0
+    minSupportedVersion: v1.15.0
   namespace: kube-system
   cloudProvider:
     - name: aws

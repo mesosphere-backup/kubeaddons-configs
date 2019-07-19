@@ -10,7 +10,7 @@ metadata:
     appversion.kubeaddons.mesosphere.io/prometheusadapter: "0.5.0"
 spec:
   kubernetes:
-    minSupportedVersion: v1.14.0
+    minSupportedVersion: v1.15.0
   cloudProvider:
     - name: aws
       enabled: true

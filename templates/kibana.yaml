@@ -12,7 +12,7 @@ metadata:
     docs.kubeaddons.mesosphere.io/kibana: "https://www.elastic.co/guide/en/kibana/6.7/index.html"
 spec:
   kubernetes:
-    minSupportedVersion: v1.14.0
+    minSupportedVersion: v1.15.0
   cloudProvider:
     - name: aws
       enabled: true
