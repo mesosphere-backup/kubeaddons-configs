@@ -18,7 +18,7 @@ metadata:
     docs.kubeaddons.mesosphere.io/alertmanager: "https://prometheus.io/docs/alerting/alertmanager/"
 spec:
   kubernetes:
-    minSupportedVersion: v1.14.0
+    minSupportedVersion: v1.15.0
   cloudProvider:
     - name: aws
       enabled: true

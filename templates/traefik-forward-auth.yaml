@@ -5,7 +5,7 @@ metadata:
   namespace: kubeaddons
 spec:
   kubernetes:
-    minSupportedVersion: v1.14.0
+    minSupportedVersion: v1.15.0
   chartReference:
     chart: traefik-forward-auth
     repo: https://mesosphere.github.io/charts/staging
