@@ -48,7 +48,7 @@ spec:
           cpu: 100m
       extraContainers: |-
         - name: initialize-kibana-indices
-          image: kubeaddons/addon-initializer:v0.0.1-alpha
+          image: kubeaddons/addon-initializer:v0.0.2-alpha
           args: ["kibana"]
           env:
           - name: "KIBANA_NAMESPACE"
