@@ -24,6 +24,9 @@ spec:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
     version: 0.1.14
+    values: |
+      # do not install the crd, kubeaddons will
+      createObservableClusterCRD: false
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: defaultstorageclass
