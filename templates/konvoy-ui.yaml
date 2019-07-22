@@ -22,7 +22,7 @@ spec:
   chartReference:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.13
+    version: 0.1.14
     values: |
       createObservableClusterCRD: false
       mode: konvoy
