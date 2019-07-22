@@ -14,7 +14,7 @@ spec:
       ---
       replicaCount: 1
       image:
-        repository: jongiddy/traefik-forward-auth
+        repository: mesosphere/traefik-forward-auth
         tag: 1.0.2
         pullPolicy: IfNotPresent
       service:
@@ -40,12 +40,6 @@ spec:
             secretKeyRef:
               name: ops-portal-credentials
               key: username
-        extraConfig: |
-          default-action = allow
-          rule.path.action = auth
-          rule.path.rule = Path(`/ops/portal`)
-          rule.prefix.action = auth
-          rule.prefix.rule = PathPrefix(`/ops/portal/`)
       ingress:
         enabled: true
         annotations:
