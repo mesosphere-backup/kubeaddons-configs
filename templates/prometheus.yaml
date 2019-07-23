@@ -43,6 +43,7 @@ spec:
             namespaceSelector:
               matchNames:
                 - kubeaddons
+                - kommander
             endpoints:
               - port: metrics
                 interval: 30s
