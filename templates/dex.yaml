@@ -29,7 +29,7 @@ spec:
       # Temprarily we're going to use our custom built container. Documentation
       # for how to build a new version: https://github.com/mesosphere/dex/blob/v2.17.0-mesosphere/README.mesosphere.md
       image: mesosphere/dex
-      imageTag: v2.17.0-5-gcf38-mesosphere
+      imageTag: v2.17.0-7-g2396-mesosphere
       ingress:
         enabled: true
         annotations:
@@ -51,7 +51,7 @@ spec:
         issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex
         frontend:
           issuer: Kubernetes
-          theme: mesosphere
+          theme: d2iq
         storage:
           type: kubernetes
           config:
