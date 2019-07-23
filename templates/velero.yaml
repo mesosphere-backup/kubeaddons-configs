@@ -40,8 +40,9 @@ spec:
     - name: none
       enabled: true
   chartReference:
-    chart: stable/velero
-    version: 2.1.1
+    chart: velero
+    repo: https://mesosphere.github.io/charts/staging
+    version: 2.1.2
     values: |
       ---
       configuration:
@@ -68,12 +69,4 @@ spec:
         # TODO: re-enable the serviceMonitor later, it doesn't work out of the box with the current stable velero chart (see DCOS-56470)
         # serviceMonitor:
         #   enabled: true
-      initContainers:
-        # initialize-velero manages deploying a fallback backend (e.g. Minio) for Velero if needed,
-        # and also will manage the credentials and secrets for that backend and Velero automatically.
-        - name: initialize-velero
-          image: kubeaddons/addon-initializer:v0.0.1-alpha
-          args: ["velero"]
-          env:
-          - name: "VELERO_MINIO_FALLBACK_SECRET_NAME"
-            value: "velero-kubeaddons"
+      minioBackend: true
