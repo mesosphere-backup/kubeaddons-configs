@@ -23,7 +23,7 @@ spec:
   chartReference:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.15
+    version: 0.1.17
     values: |
       # do not install the crd, kubeaddons will
       createObservableClusterCRD: false
