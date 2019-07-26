@@ -23,7 +23,7 @@ spec:
   chartReference:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.19
+    version: 0.1.20
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: defaultstorageclass
