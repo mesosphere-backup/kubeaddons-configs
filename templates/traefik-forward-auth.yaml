@@ -56,7 +56,7 @@ spec:
       # initContainers:
       #  # initialize-traefik-forward-auth deploys credentials for use by the proxy
       #  - name: initialize-traefik-forward-auth
-      #    image: kubeaddons/addon-initializer:v0.0.2-alpha
+      #    image: kubeaddons/addon-initializer:stable
       #    args: ["traefikForwardAuth"]
       #    env:
       #    - name: "TRAEFIK_FORWARD_AUTH_NAMESPACE"

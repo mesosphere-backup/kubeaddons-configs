@@ -58,5 +58,5 @@ spec:
           value: cGxhY2Vob2xkZXIK # b64 "placeholder" this will be updated by initcontainers
       initContainers:
       - name: initialize-dka-config
-        image: kubeaddons/addon-initializer:v0.0.5-alpha
+        image: kubeaddons/addon-initializer:stable
         args: ["dexK8sAuthenticator"]

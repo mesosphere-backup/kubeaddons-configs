@@ -84,7 +84,7 @@ spec:
             - 'https://PUBLIC.URI/_oauth'
       initContainers:
       - name: initialize-dex
-        image: kubeaddons/addon-initializer:v0.0.4-alpha
+        image: kubeaddons/addon-initializer:stable
         args: ["dex"]
         env:
         - name: "DEX_NAMESPACE"
