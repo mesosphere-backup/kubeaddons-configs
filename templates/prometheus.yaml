@@ -80,6 +80,38 @@ spec:
                   regex: '(.*):10250'
                   replacement: '${1}:1338'
                   target_label: __address__
+            - job_name: 'kubernetes-calico-node'
+              metrics_path: /metrics
+              tls_config:
+                ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+              bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+              kubernetes_sd_configs:
+                - role: pod
+                  namespaces:
+                    names:
+                    - kube-system
+              relabel_configs:
+              - source_labels: [__meta_kubernetes_pod_label_k8s_app]
+                regex: calico-node
+                action: keep
+              - source_labels: [__meta_kubernetes_pod_container_port_name]
+                regex: .*metrics
+                action: keep
+              - source_labels: [__meta_kubernetes_pod_label_k8s_app]
+                target_label: name
+                action: replace
+              - source_labels: [__meta_kubernetes_pod_container_port_name]
+                target_label: endpoint
+                action: replace
+              - source_labels: [__meta_kubernetes_pod_node_name]
+                target_label: node
+                action: replace
+              - source_labels: [__meta_kubernetes_pod_name]
+                target_label: pod
+                action: replace
+              - source_labels: [__meta_kubernetes_namespace]
+                target_label: namespace
+                action: replace
           enableAdminAPI: true
           secrets:
             - etcd-certs
