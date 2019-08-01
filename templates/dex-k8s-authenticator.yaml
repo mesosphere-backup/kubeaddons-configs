@@ -50,6 +50,10 @@ spec:
           # This URI is just a placeholder and it will be replaced during initContainers
           # with a URL pointing to the traefik ingress public load balancer.
           redirect_uri: https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/token/callback/kubernetes-cluster
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
       caCerts:
         enabled: true
         secrets:

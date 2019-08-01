@@ -30,6 +30,10 @@ spec:
       # for how to build a new version: https://github.com/mesosphere/dex/blob/v2.17.0-mesosphere/README.mesosphere.md
       image: mesosphere/dex
       imageTag: v2.17.0-21-g4386-mesosphere
+      resources:
+        requests:
+          cpu: 100m
+          memory: 50Mi
       ingress:
         enabled: true
         annotations:

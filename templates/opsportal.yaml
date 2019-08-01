@@ -22,4 +22,16 @@ spec:
   chartReference:
     chart: opsportal
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.0
+    version: 0.1.1
+    values: |
+      ---
+      bearerproxy:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+      landing:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
