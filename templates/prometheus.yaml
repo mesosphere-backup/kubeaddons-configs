@@ -75,8 +75,23 @@ spec:
                 - velero
             endpoints:
               - path: /minio/prometheus/metrics
+                scheme: https
                 targetPort: 9000
                 interval: 30s
+                bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+                tlsConfig:
+                  caFile: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+                  # If your node certificates are self-signed or use a different CA to the
+                  # master CA, then disable certificate verification below. Note that
+                  # certificate verification is an integral part of a secure infrastructure
+                  # so this should only be disabled in a controlled environment.
+                  #
+                  # insecureSkipVerify because we're creating certs here:
+                  # https://github.com/mesosphere/kubeaddons-extrasteps/blob/d3ec1a5894679d1237ee36e4c819a479e5d5bee7/pkg/minio/minio.go#L309-L315
+                  # which returns a `x509: certificate signed by unknown authority` error otherwise
+                  #
+                  # later we should install the CA necessary to establish full trust for this connection
+                  insecureSkipVerify: true
         prometheusSpec:
           additionalScrapeConfigs:
             - job_name: 'kubernetes-nodes-containerd'
@@ -123,7 +138,36 @@ spec:
                 - source_labels: [__meta_kubernetes_namespace]
                   target_label: namespace
                   action: replace
-            - job_name: 'kubernetes-velero-pods'
+            - job_name: 'kubernetes-velero-pod-velero'
+              kubernetes_sd_configs:
+                - role: pod
+                  namespaces:
+                    names:
+                    - velero
+              relabel_configs:
+                - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+                  action: keep
+                  regex: true
+                - source_labels: [__meta_kubernetes_pod_container_name]
+                  action: keep
+                  regex: velero
+                - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+                  action: replace
+                  target_label: __metrics_path__
+                  regex: (.+)
+                - source_labels: [__meta_kubernetes_pod_container_name]
+                  target_label: container
+                  action: replace
+                - source_labels: [__meta_kubernetes_pod_node_name]
+                  target_label: node
+                  action: replace
+                - source_labels: [__meta_kubernetes_pod_name]
+                  target_label: pod
+                  action: replace
+                - source_labels: [__meta_kubernetes_namespace]
+                  target_label: namespace
+                  action: replace
+            - job_name: 'kubernetes-velero-pod-minio'
               tls_config:
                 ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
                 # If your node certificates are self-signed or use a different CA to the
@@ -148,6 +192,9 @@ spec:
                 - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
                   action: keep
                   regex: true
+                - source_labels: [__meta_kubernetes_pod_container_name]
+                  action: keep
+                  regex: minio
                 - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
                   action: replace
                   target_label: __metrics_path__
