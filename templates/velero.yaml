@@ -67,6 +67,6 @@ spec:
       metrics:
         enabled: true
         # TODO: re-enable the serviceMonitor later, it doesn't work out of the box with the current stable velero chart (see DCOS-56470)
-        # serviceMonitor:
-        #   enabled: true
+        serviceMonitor:
+          enabled: true
       minioBackend: true

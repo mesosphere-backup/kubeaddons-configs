@@ -67,6 +67,8 @@ spec:
                 port: metrics
                 interval: 30s
         prometheusSpec:
+          serviceMonitorSelectorNilUsesHelmValues: false
+          serviceMonitorNamespaceSelector: {}
           additionalScrapeConfigs:
             - job_name: 'kubernetes-nodes-containerd'
               metrics_path: /v1/metrics
