@@ -52,8 +52,11 @@ spec:
               matchNames:
                 - kubeaddons
                 - kommander
+                - velero
             endpoints:
               - port: metrics
+                interval: 30s
+              - port: monitoring
                 interval: 30s
           - name: kubeaddons-service-monitor-api-v1-metrics-prometheus
             selector:
