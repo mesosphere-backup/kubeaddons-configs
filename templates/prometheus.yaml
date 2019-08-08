@@ -42,6 +42,9 @@ spec:
         create: true
         rules:
           etcd: true
+          # addon alert rules are defaulted to false to prevent potential misfires if addons
+          # are disabled.
+          velero: false
       prometheus:
         additionalServiceMonitors:
           - name: kubeaddons-service-monitor-metrics
