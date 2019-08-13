@@ -32,7 +32,7 @@ spec:
   chartReference:
     chart: prometheus-operator
     repo: https://mesosphere.github.io/charts/staging
-    version: 5.10.6
+    version: 5.10.8
     values: |
       ---
       defaultRules:
@@ -42,6 +42,9 @@ spec:
         create: true
         rules:
           etcd: true
+          # addon alert rules are defaulted to false to prevent potential misfires if addons
+          # are disabled.
+          velero: false
       prometheus:
         additionalServiceMonitors:
           - name: kubeaddons-service-monitor-metrics
