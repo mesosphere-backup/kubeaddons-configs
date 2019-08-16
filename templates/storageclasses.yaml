@@ -2,25 +2,25 @@
 apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
-  name: localvolumeprovisioner
+  name: storageclasses
   namespace: kubeaddons
   labels:
-    kubeaddons.mesosphere.io/name: localvolumeprovisioner
+    kubeaddons.mesosphere.io/name: storageclasses
     kubeaddons.mesosphere.io/provides: storageclass
   annotations:
-    appversion.kubeaddons.mesosphere.io/localvolumeprovisioner: "1.0"
+    appversion.kubeaddons.mesosphere.io/storageclasses: "1.0"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
   namespace: kube-system 
   cloudProvider:
     - name: aws
-      enabled: false
+      enabled: true
     - name: docker
       enabled: true
     - name: none
       enabled: true
   chartReference:
-    chart: localvolumeprovisioner
+    chart: storageclasses
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.4.0
+    version: 0.1.0
