@@ -6,6 +6,9 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
+  requires:
+    matchLabels:
+      kubeaddons.mesosphere.io/name: dex    
   chartReference:
     chart: traefik-forward-auth
     repo: https://mesosphere.github.io/charts/staging
