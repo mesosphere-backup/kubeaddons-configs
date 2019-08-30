@@ -1,3 +1,3 @@
-# Configs
+# Addon Repository
 
-Configurations for Kubernetes addons and their components
+This is a repository for `Addon` resources managed by `Kubeaddons`.
