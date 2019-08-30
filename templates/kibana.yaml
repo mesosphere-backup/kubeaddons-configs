@@ -40,12 +40,19 @@ spec:
         type: ClusterIP
         externalPort: 5601
         internalPort: 5601
+        labels:
+          servicemonitor.kubeaddons.mesosphere.io/path: "prometheus__metrics"
       resources:
         # need more cpu upon initialization, therefore burstable class
         limits:
           cpu: 1000m
         requests:
           cpu: 100m
+      plugins:
+        enabled: true
+        reset: true
+        values:
+          - kibana-prometheus-exporter,6.7.0,https://github.com/pjhampton/kibana-prometheus-exporter/releases/download/6.7.0/kibana-prometheus-exporter-6.7.0.zip
       extraContainers: |
         - name: initialize-kibana-index
           image: mesosphere/kubeaddons-addon-initializer:v0.0.4
