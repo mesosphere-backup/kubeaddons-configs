@@ -7,6 +7,7 @@ metadata:
     kubeaddons.mesosphere.io/name: opsportal
   annotations:
     appversion.kubeaddons.mesosphere.io/opsportal: "1.0.0"
+    endpoint.kubeaddons.mesosphere.io/opsportal: /ops/portal/
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
@@ -20,4 +21,16 @@ spec:
   chartReference:
     chart: opsportal
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.0.8
+    version: 0.1.2
+    values: |
+      ---
+      bearerproxy:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+      landing:
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi

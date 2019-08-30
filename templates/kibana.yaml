@@ -48,7 +48,7 @@ spec:
           cpu: 100m
       extraContainers: |
         - name: initialize-kibana-index
-          image: kubeaddons/addon-initializer:v0.0.4-alpha
+          image: mesosphere/kubeaddons-addon-initializer:v0.0.4
           command: ["/bin/bash", "-c", "addon-initializer kibana && while true; do sleep 86400; done"]
           env:
           - name: "KIBANA_NAMESPACE"

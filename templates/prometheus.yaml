@@ -13,7 +13,7 @@ metadata:
     endpoint.kubeaddons.mesosphere.io/prometheus: "/ops/portal/prometheus"
     endpoint.kubeaddons.mesosphere.io/alertmanager: "/ops/portal/alertmanager"
     endpoint.kubeaddons.mesosphere.io/grafana: "/ops/portal/grafana"
-    docs.kubeaddons.mesosphere.io/prometheus: "https://prometheus.io/docs/"
+    docs.kubeaddons.mesosphere.io/prometheus: "https://prometheus.io/docs/introduction/overview/"
     docs.kubeaddons.mesosphere.io/grafana: "https://grafana.com/docs/"
     docs.kubeaddons.mesosphere.io/alertmanager: "https://prometheus.io/docs/alerting/alertmanager/"
 spec:
@@ -32,7 +32,7 @@ spec:
   chartReference:
     chart: prometheus-operator
     repo: https://mesosphere.github.io/charts/staging
-    version: 5.10.1
+    version: 5.10.8
     values: |
       ---
       defaultRules:
@@ -42,6 +42,9 @@ spec:
         create: true
         rules:
           etcd: true
+          # addon alert rules are defaulted to false to prevent potential misfires if addons
+          # are disabled.
+          velero: false
       prometheus:
         additionalServiceMonitors:
           - name: kubeaddons-service-monitor-metrics
@@ -52,8 +55,11 @@ spec:
               matchNames:
                 - kubeaddons
                 - kommander
+                - velero
             endpoints:
               - port: metrics
+                interval: 30s
+              - port: monitoring
                 interval: 30s
           - name: kubeaddons-service-monitor-api-v1-metrics-prometheus
             selector:
@@ -80,6 +86,38 @@ spec:
                   regex: '(.*):10250'
                   replacement: '${1}:1338'
                   target_label: __address__
+            - job_name: 'kubernetes-calico-node'
+              metrics_path: /metrics
+              tls_config:
+                ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+              bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+              kubernetes_sd_configs:
+                - role: pod
+                  namespaces:
+                    names:
+                    - kube-system
+              relabel_configs:
+              - source_labels: [__meta_kubernetes_pod_label_k8s_app]
+                regex: calico-node
+                action: keep
+              - source_labels: [__meta_kubernetes_pod_container_port_name]
+                regex: .*metrics
+                action: keep
+              - source_labels: [__meta_kubernetes_pod_label_k8s_app]
+                target_label: name
+                action: replace
+              - source_labels: [__meta_kubernetes_pod_container_port_name]
+                target_label: endpoint
+                action: replace
+              - source_labels: [__meta_kubernetes_pod_node_name]
+                target_label: node
+                action: replace
+              - source_labels: [__meta_kubernetes_pod_name]
+                target_label: pod
+                action: replace
+              - source_labels: [__meta_kubernetes_namespace]
+                target_label: namespace
+                action: replace
           enableAdminAPI: true
           secrets:
             - etcd-certs

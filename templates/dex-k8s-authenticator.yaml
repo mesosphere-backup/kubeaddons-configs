@@ -20,6 +20,7 @@ spec:
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: ingresscontroller
+      kubeaddons.mesosphere.io/name: dex
   chartReference:
     chart: dex-k8s-authenticator
     repo: https://mesosphere.github.io/charts/staging
@@ -50,6 +51,10 @@ spec:
           # This URI is just a placeholder and it will be replaced during initContainers
           # with a URL pointing to the traefik ingress public load balancer.
           redirect_uri: https://dex-k8s-authenticator-kubeaddons.kubeaddons.svc.cluster.local:5555/token/callback/kubernetes-cluster
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
       caCerts:
         enabled: true
         secrets:
@@ -58,5 +63,5 @@ spec:
           value: cGxhY2Vob2xkZXIK # b64 "placeholder" this will be updated by initcontainers
       initContainers:
       - name: initialize-dka-config
-        image: kubeaddons/addon-initializer:v0.0.5-alpha
+        image: mesosphere/kubeaddons-addon-initializer:v0.0.4
         args: ["dexK8sAuthenticator"]

@@ -28,6 +28,13 @@ spec:
       ---
       prometheus:
         url: http://prometheus-kubeaddons-prom-prometheus
+      resources:
+        limits:
+           cpu: 2000m
+           memory: 2000Mi
+        requests:
+           cpu: 1000m
+           memory: 1000Mi
       metricsRelistInterval: 30s
       rules:
         resource:

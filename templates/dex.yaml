@@ -29,7 +29,11 @@ spec:
       # Temprarily we're going to use our custom built container. Documentation
       # for how to build a new version: https://github.com/mesosphere/dex/blob/v2.17.0-mesosphere/README.mesosphere.md
       image: mesosphere/dex
-      imageTag: v2.17.0-5-gcf38-mesosphere
+      imageTag: v2.17.0-21-g4386-mesosphere
+      resources:
+        requests:
+          cpu: 100m
+          memory: 50Mi
       ingress:
         enabled: true
         annotations:
@@ -51,7 +55,7 @@ spec:
         issuer: https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex
         frontend:
           issuer: Kubernetes
-          theme: mesosphere
+          theme: d2iq
         storage:
           type: kubernetes
           config:
@@ -84,7 +88,7 @@ spec:
             - 'https://PUBLIC.URI/_oauth'
       initContainers:
       - name: initialize-dex
-        image: kubeaddons/addon-initializer:v0.0.4-alpha
+        image: mesosphere/kubeaddons-addon-initializer:v0.0.4
         args: ["dex"]
         env:
         - name: "DEX_NAMESPACE"

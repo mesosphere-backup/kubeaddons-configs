@@ -6,10 +6,13 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
+  requires:
+    matchLabels:
+      kubeaddons.mesosphere.io/name: dex    
   chartReference:
     chart: traefik-forward-auth
     repo: https://mesosphere.github.io/charts/staging
-    version: 0.1.5
+    version: 0.1.6
     values: |
       ---
       replicaCount: 1
@@ -17,6 +20,10 @@ spec:
         repository: mesosphere/traefik-forward-auth
         tag: 1.0.2
         pullPolicy: IfNotPresent
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
       service:
         type: ClusterIP
         port: 4181
@@ -56,7 +63,7 @@ spec:
       # initContainers:
       #  # initialize-traefik-forward-auth deploys credentials for use by the proxy
       #  - name: initialize-traefik-forward-auth
-      #    image: kubeaddons/addon-initializer:v0.0.2-alpha
+      #    image: mesosphere/kubeaddons-addon-initializer:v0.0.4
       #    args: ["traefikForwardAuth"]
       #    env:
       #    - name: "TRAEFIK_FORWARD_AUTH_NAMESPACE"

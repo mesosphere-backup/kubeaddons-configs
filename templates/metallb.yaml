@@ -21,4 +21,11 @@ spec:
     version: 0.9.5
     values: |
       ---
-      # we currently provide no additional configuration for metallb
+      controller:
+        requests:
+          cpu: 100m
+          memory: 100Mi
+      speaker:
+        requests:
+          cpu: 100m
+          memory: 100Mi
