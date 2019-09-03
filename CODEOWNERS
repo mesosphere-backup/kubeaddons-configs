@@ -1,4 +1,4 @@
-# Reviewer and approver configuration for Konvoy-related repositories.
+# Reviewer and approver configuration for Addons.
 # Implemented using GitHub's CODEOWNERS file.
 # All repos are to require TWO approvals before merge.
 # Reference: https://help.github.com/en/articles/about-code-owners
