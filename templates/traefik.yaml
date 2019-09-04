@@ -14,8 +14,7 @@ spec:
   kubernetes:
     minSupportedVersion: v1.15.0
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/provides: defaultstorageclass
+    defaultStorageClass: true
   chartReference:
     chart: traefik
     repo: https://mesosphere.github.io/charts/staging

@@ -32,8 +32,7 @@ spec:
   kubernetes:
     minSupportedVersion: v1.15.0
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/provides: defaultstorageclass
+    defaultStorageClass: true
   cloudProvider:
     - name: aws
       enabled: true
