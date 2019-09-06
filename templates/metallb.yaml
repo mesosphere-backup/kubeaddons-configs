@@ -14,8 +14,22 @@ spec:
   cloudProvider:
     - name: docker
       enabled: true
+      values: |
+        configInline:
+          address-pools:
+          - name: default
+            protocol: layer2
+            addresses:
+            - 172.17.1.200-172.17.1.250
     - name: none
       enabled: true
+      values: |
+        configInline:
+          address-pools:
+          - name: default
+            protocol: layer2
+            # configure addresses for your network
+            addresses: []
   chartReference:
     chart: stable/metallb
     version: 0.9.5
