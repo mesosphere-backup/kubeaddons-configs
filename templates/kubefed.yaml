@@ -1,0 +1,19 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: kubefed
+  namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: kubefed
+  annotations:
+    appversion.kubeaddons.mesosphere.io/kubefed: "v0.1.0-rc6"
+    docs.kubeaddons.mesosphere.io/kubefed: "https://github.com/kubernetes-sigs/kubefed/blob/master/README.md"
+spec:
+  kubernetes:
+    minSupportedVersion: v1.15.0
+  namespace: kommander
+  chartReference:
+    chart: kubefed-charts/kubefed
+    repo: https://raw.githubusercontent.com/kubernetes-sigs/kubefed/master/charts
+    version: v0.1.0-rc6
