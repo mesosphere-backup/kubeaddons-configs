@@ -13,6 +13,13 @@ spec:
   kubernetes:
     minSupportedVersion: v1.15.0
   namespace: kommander
+  cloudProvider:
+    - name: aws
+      enabled: true
+    - name: docker
+      enabled: true
+    - name: none
+      enabled: true
   chartReference:
     chart: kubefed-charts/kubefed
     repo: https://raw.githubusercontent.com/kubernetes-sigs/kubefed/master/charts
