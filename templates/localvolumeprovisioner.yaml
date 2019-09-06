@@ -16,6 +16,9 @@ spec:
   cloudProvider:
     - name: aws
       enabled: false
+      values: |
+        storageclass:
+          isDefault: false
     - name: docker
       enabled: true
     - name: none

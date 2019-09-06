@@ -15,6 +15,9 @@ spec:
   cloudProvider:
     - name: aws
       enabled: false
+      values: |
+        storageclass:
+          isDefault: false
   chartReference:
     chart: awsebsprovisioner
     repo: https://mesosphere.github.io/charts/stable
