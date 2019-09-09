@@ -23,4 +23,4 @@ spec:
   chartReference:
     chart: kubefed-charts/kubefed
     repo: https://raw.githubusercontent.com/kubernetes-sigs/kubefed/master/charts
-    version: v0.1.0-rc6
+    version: 0.1.0-rc6
