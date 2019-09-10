@@ -1,0 +1,26 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: nvidia
+  namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: nvidia
+    kubeaddons.mesosphere.io/provides: nvidia
+  annotations:
+    appversion.kubeaddons.mesosphere.io/nvidia: "0.1"
+spec:
+  kubernetes:
+    minSupportedVersion: v1.15.0
+  namespace: kube-system 
+  cloudProvider:
+    - name: aws
+      enabled: true
+    - name: docker
+      enabled: false
+    - name: none
+      enabled: false
+  chartReference:
+    chart: nvidia
+    repo: https://mesosphere.github.io/charts/staging
+    version: 0.1.0
