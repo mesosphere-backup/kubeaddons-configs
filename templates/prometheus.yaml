@@ -88,6 +88,16 @@ spec:
           thanos:
             baseImage: thanosio/thanos
             version: v0.4.0
+          externalLabels:
+            cluster: konvoy-prom
+          additionalAlertManagerConfigs:
+            - scheme: https
+              path_prefix: /central/alertmanager
+              tls_config:
+                insecure_skip_verify: true
+              static_configs:
+              - targets:
+                - a701ea64bc4b2483993b225a4fddffdd-889654249.us-west-2.elb.amazonaws.com
           additionalScrapeConfigs:
             - job_name: 'kubernetes-nodes-containerd'
               metrics_path: /v1/metrics
