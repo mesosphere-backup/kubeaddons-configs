@@ -88,6 +88,8 @@ spec:
           thanos:
             baseImage: thanosio/thanos
             version: v0.4.0
+          externalLabels:
+            cluster: kommander-prom
           additionalScrapeConfigs:
             - job_name: 'kubernetes-nodes-containerd'
               metrics_path: /v1/metrics
