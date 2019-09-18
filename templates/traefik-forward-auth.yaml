@@ -11,7 +11,7 @@ spec:
       kubeaddons.mesosphere.io/name: dex    
   chartReference:
     chart: traefik-forward-auth
-    repo: https://mesosphere.github.io/charts/staging
+    repo: https://timaa2k.github.io/charts
     version: 0.1.6
     values: |
       ---
@@ -35,11 +35,6 @@ spec:
             secretKeyRef:
               name: dex-client-secret-traefik-forward-auth
               key: client_secret
-        caCertificate:
-          valueFrom:
-            secretKeyRef:
-              name: dex-root-ca
-              key: tls.crt
         cookieSecure: true
         userCookieName: "konvoy_profile_name"
         allowedUser:
