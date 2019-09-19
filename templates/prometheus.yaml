@@ -84,6 +84,9 @@ spec:
                 targetPort: 5601
                 interval: 30s
         prometheusSpec:
+          thanos:
+            baseImage: thanosio/thanos
+            version: v0.4.0
           additionalScrapeConfigs:
             - job_name: 'kubernetes-nodes-containerd'
               metrics_path: /v1/metrics
