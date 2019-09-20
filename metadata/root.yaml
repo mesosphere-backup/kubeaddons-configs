@@ -1,0 +1,27 @@
+prometheus:
+  display_name: Prometheus
+  description: Power your metrics and alerting with a leading open-source monitoring
+    solution.
+  logo: https://upload.wikimedia.org/wikipedia/en/3/38/Prometheus_software_logo.svg
+  category: monitoring
+  overview: https://gist.githubusercontent.com/s12chung/54e6bd862ba740abd665227a3a351293/raw/316941e7d0037e6b166052881dd52c44da6c2d8c/overview.md
+  resources:
+    provider:
+      title: Prometheus
+      link: https://prometheus.io
+    links:
+      - type: resources
+        title: Tutorials
+        link: https://prometheus.io/docs/prometheus/latest/getting_started/
+      - type: resources
+        title: Documentation
+        link: https://prometheus.io/docs/introduction/overview/
+      - type: release_notes
+        title: Release Notes
+        link: https://github.com/prometheus/prometheus/releases/tag/v2.9.1
+      - type: release_notes
+        title: Change Log
+        link: https://github.com/prometheus/prometheus/releases/tag/v2.9.1
+      - type: support
+        title: Submit a Support Request
+        link: https://www.google.com/search?q=help+me+i+have+no+idea+what+i%27m+doing
