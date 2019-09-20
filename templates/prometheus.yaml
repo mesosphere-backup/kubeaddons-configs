@@ -184,6 +184,8 @@ spec:
               memory: 1000Mi
       alertmanager:
         alertmanagerSpec:
+          image:
+            tag: v0.17.0
           resources:
             limits:
               cpu: 100m
