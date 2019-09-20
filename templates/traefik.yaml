@@ -18,8 +18,8 @@ spec:
       kubeaddons.mesosphere.io/provides: defaultstorageclass
   chartReference:
     chart: traefik
-    repo: https://timaa2k.github.io/charts
-    version: 1.71.3
+    repo: https://mesosphere.github.io/charts/staging
+    version: 1.72.0
     values: |
       ---
       replicas: 2
