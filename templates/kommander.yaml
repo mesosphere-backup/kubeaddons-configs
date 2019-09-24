@@ -39,10 +39,25 @@ spec:
       thanos:
         query:
           stores:
-            - "192.168.186.73:10901"
+            - "prometheus-kubeaddons-prom-prometheus.kubeaddons:10901"
             - "a749d33f342104bd08acfebd723f4e59-1454596863.us-west-2.elb.amazonaws.com:10901"
       karma:
         enabled: true
+        configMap:
+          rawConfig:
+            alertmanager:
+              interval: 30s
+              servers:
+                - name: kommander
+                  uri: http://prometheus-kubeaddons-prom-alertmanager.kubeaddons:9093/
+                  timeout: 10s
+                  tls:
+                    insecureSkipVerify: true
+                - name: konvoy
+                  uri: https://a61ae4f7008fd494dafc0354bdff1d32-2055828688.us-west-2.elb.amazonaws.com/konvoy/alertmanager
+                  timeout: 10s
+                  tls:
+                    insecureSkipVerify: true
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: defaultstorageclass
