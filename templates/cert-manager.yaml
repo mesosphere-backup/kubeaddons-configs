@@ -6,7 +6,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: cert-manager
   annotations:
-    appversion.kubeaddons.mesosphere.io/cert-manager: "0.1.0"
+    appversion.kubeaddons.mesosphere.io/cert-manager: "0.10.0"
     docs.kubeaddons.mesosphere.io/cert-manager: "https://docs.cert-manager.io/en/release-0.10/"
 spec:
   namespace: cert-manager
@@ -21,8 +21,8 @@ spec:
       enabled: true
   chartReference:
     chart: cert-manager-setup
-    repo: https://timaa2k.github.io/charts/
-    version: 0.1.0
+    repo: https://timaa2k.github.io/charts
+    version: 0.1.1
     values: |
       ---
       clusterissuer:
