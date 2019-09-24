@@ -21,7 +21,7 @@ spec:
       enabled: true
   chartReference:
     chart: cert-manager-setup
-    repo: https://timaa2k.github.io/charts
+    repo: https://mesosphere.github.io/charts/staging
     version: 0.1.1
     values: |
       ---
