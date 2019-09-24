@@ -54,13 +54,7 @@ spec:
         requests:
           cpu: 100m
           memory: 128Mi
-      caCerts:
-        enabled: true
-        secrets:
-        - name: dex-root-ca
-          filename: dex-root-ca.crt
-          value: cGxhY2Vob2xkZXIK # b64 "placeholder" this will be updated by initcontainers
       initContainers:
       - name: initialize-dka-config
-        image: mesosphere/kubeaddons-addon-initializer:v0.0.4
+        image: mesosphere/kubeaddons-addon-initializer:v0.0.6
         args: ["dexK8sAuthenticator"]

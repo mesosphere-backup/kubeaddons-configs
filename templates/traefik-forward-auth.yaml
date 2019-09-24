@@ -12,7 +12,7 @@ spec:
   chartReference:
     chart: traefik-forward-auth
     repo: https://mesosphere.github.io/charts/staging
-    version: 0.1.6
+    version: 0.2.0
     values: |
       ---
       replicaCount: 1
@@ -35,11 +35,6 @@ spec:
             secretKeyRef:
               name: dex-client-secret-traefik-forward-auth
               key: client_secret
-        caCertificate:
-          valueFrom:
-            secretKeyRef:
-              name: dex-root-ca
-              key: tls.crt
         cookieSecure: true
         userCookieName: "konvoy_profile_name"
         allowedUser:

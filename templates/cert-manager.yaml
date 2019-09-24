@@ -1,0 +1,32 @@
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: cert-manager
+  namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: cert-manager
+  annotations:
+    appversion.kubeaddons.mesosphere.io/cert-manager: "0.10.0"
+    docs.kubeaddons.mesosphere.io/cert-manager: "https://docs.cert-manager.io/en/release-0.10/"
+spec:
+  namespace: cert-manager
+  kubernetes:
+    minSupportedVersion: v1.15.0
+  cloudProvider:
+    - name: aws
+      enabled: true
+    - name: docker
+      enabled: true
+    - name: none
+      enabled: true
+  chartReference:
+    chart: cert-manager-setup
+    repo: https://mesosphere.github.io/charts/staging
+    version: 0.1.1
+    values: |
+      ---
+      clusterissuer:
+        name: kubernetes-ca
+        spec:
+          ca:
+            secretName: kubernetes-intermediate-ca

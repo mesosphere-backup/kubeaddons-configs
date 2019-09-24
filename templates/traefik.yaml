@@ -19,7 +19,7 @@ spec:
   chartReference:
     chart: traefik
     repo: https://mesosphere.github.io/charts/staging
-    version: 1.71.3
+    version: 1.72.1
     values: |
       ---
       replicas: 2
@@ -46,13 +46,10 @@ spec:
       ssl:
         enabled: true
         enforced: true
-        generateTLS: true
+        # TODO: This comment is no longer true.
         # dex service is exposed with TLS certificate signed by self signed root
         # Dex CA certificate. It is not clear if traefik supports configuring
         # trusted certificates per backend. This should be investiaged in a
         # separate issue.
         # See: https://jira.mesosphere.com/browse/DCOS-56033
         insecureSkipVerify: true
-        defaultCN: traefik.localhost.localdomain
-        defaultSANList:
-          - "*"
