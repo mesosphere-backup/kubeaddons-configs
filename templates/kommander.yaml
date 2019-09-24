@@ -24,6 +24,25 @@ spec:
     chart: kommander
     repo: https://gracedo.github.io/charts/stable
     version: 0.1.24
+    values: |
+      ---
+      grafana:
+        datasources:
+          datasources.yaml:
+            apiVersion: 1
+            datasources:
+            - name: ThanosQuery
+              type: prometheus
+              url: http://kommander-kubeaddons-thanos-query-http:10902/
+              access: proxy
+              isDefault: true
+      thanos:
+        query:
+          stores:
+            - "192.168.186.73:10901"
+            - "a749d33f342104bd08acfebd723f4e59-1454596863.us-west-2.elb.amazonaws.com:10901"
+      karma:
+        enabled: true
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: defaultstorageclass
