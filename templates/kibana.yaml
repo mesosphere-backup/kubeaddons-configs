@@ -10,6 +10,7 @@ metadata:
     appversion.kubeaddons.mesosphere.io/kibana: "6.7.0"
     endpoint.kubeaddons.mesosphere.io/kibana: "/ops/portal/kibana"
     docs.kubeaddons.mesosphere.io/kibana: "https://www.elastic.co/guide/en/kibana/6.7/index.html"
+    values.chart.helm.kubeaddons.mesosphere.io/kibana: "https://raw.githubusercontent.com/helm/charts/09004fa332094693e2e5fcffe474622ba15491ae/stable/kibana/values.yaml"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0

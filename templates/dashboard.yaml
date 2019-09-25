@@ -10,6 +10,7 @@ metadata:
     appversion.kubeaddons.mesosphere.io/dashboard: "1.10.1"
     endpoint.kubeaddons.mesosphere.io/dashboard: "/ops/portal/kubernetes/"
     docs.kubeaddons.mesosphere.io/dashboard: "https://github.com/kubernetes/dashboard/blob/master/README.md"
+    values.chart.helm.kubeaddons.mesosphere.io/dashboard: "https://raw.githubusercontent.com/helm/charts/5e7b6640dd6b566bb136fffaca1b54da392d3074/stable/kubernetes-dashboard/values.yaml"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
