@@ -8,6 +8,7 @@ metadata:
     kubeaddons.mesosphere.io/name: fluentbit
   annotations:
     appversion.kubeaddons.mesosphere.io/fluentbit: "1.2.1"
+    values.chart.helm.kubeaddons.mesosphere.io/fluentbit: "https://raw.githubusercontent.com/helm/charts/f9efc8de7dcd6f93ebacc4b321d01a5aa819cdaa/stable/fluent-bit/values.yaml"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
