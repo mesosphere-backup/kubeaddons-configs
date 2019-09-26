@@ -19,8 +19,8 @@ spec:
     minSupportedVersion: v1.15.0
   chartReference:
     chart: traefik
-    repo: https://mesosphere.github.io/charts/staging
-    version: 1.72.1
+    repo: https://timaa2k.github.io/charts
+    version: 1.72.2
     values: |
       ---
       replicas: 2
@@ -47,6 +47,7 @@ spec:
       ssl:
         enabled: true
         enforced: true
+        secretName: traefik-tls
         # TODO: This comment is no longer true.
         # dex service is exposed with TLS certificate signed by self signed root
         # Dex CA certificate. It is not clear if traefik supports configuring
