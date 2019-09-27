@@ -13,7 +13,7 @@ spec:
   chartReference:
     chart: traefik-forward-auth
     repo: https://mesosphere.github.io/charts/staging
-    version: 0.2.0
+    version: 0.2.2
     values: |
       ---
       replicaCount: 1
@@ -55,14 +55,9 @@ spec:
         hosts:
           - ""
         tls: []
-      # TODO: re-enable once we've got opsportal related secret issues worked out
-      # initContainers:
-      #  # initialize-traefik-forward-auth deploys credentials for use by the proxy
-      #  - name: initialize-traefik-forward-auth
-      #    image: mesosphere/kubeaddons-addon-initializer:v0.0.4
-      #    args: ["traefikForwardAuth"]
-      #    env:
-      #    - name: "TRAEFIK_FORWARD_AUTH_NAMESPACE"
-      #      value: "kubeaddons"
-      #    - name: "TRAEFIK_FORWARD_AUTH_SECRET_NAME"
-      #      value: "ops-portal-credentials"
+      TODO: re-enable once we've got opsportal related secret issues worked out
+      initContainers:
+       # initialize-traefik-forward-auth deploys credentials for use by the proxy
+       - name: initialize-traefik-forward-auth
+         image: timaa2k/kubeaddons-addon-initializer:v0.0.9
+         args: ["traefikforwardauth"]

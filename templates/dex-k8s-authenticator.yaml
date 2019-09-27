@@ -57,5 +57,5 @@ spec:
           memory: 128Mi
       initContainers:
       - name: initialize-dka-config
-        image: mesosphere/kubeaddons-addon-initializer:v0.0.6
+        image: timaa2k/kubeaddons-addon-initializer:v0.0.9
         args: ["dexK8sAuthenticator"]
