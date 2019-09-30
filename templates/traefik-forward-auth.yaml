@@ -29,6 +29,7 @@ spec:
         type: ClusterIP
         port: 4181
       traefikForwardAuth:
+        # oidcUri will be overridden by the init-container
         oidcUri: "https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex"
         clientId: traefik-forward-auth
         clientSecret:
@@ -57,7 +58,16 @@ spec:
         tls: []
       TODO: re-enable once we've got opsportal related secret issues worked out
       initContainers:
-       # initialize-traefik-forward-auth deploys credentials for use by the proxy
-       - name: initialize-traefik-forward-auth
-         image: timaa2k/kubeaddons-addon-initializer:v0.0.9
-         args: ["traefikforwardauth"]
+      # initialize-traefik-forward-auth deploys credentials for use by the proxy
+      - name: initialize-traefik-forward-auth
+        image: timaa2k/kubeaddons-addon-initializer:v0.0.8
+        args: ["traefikforwardauth"]
+        env:
+        - name: "TFA_CONFIGMAP_NAME"
+          value: "traefik-forward-auth-kubeaddons-configmap"
+        - name: "TFA_NAMESPACE"
+          value: "kubeaddons"
+        - name: "TFA_INGRESS_NAMESPACE"
+          value: "kubeaddons"
+        - name: "TFA_INGRESS_SERVICE_NAME"
+          value: "traefik-kubeaddons"
