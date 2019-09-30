@@ -23,7 +23,7 @@ spec:
       kubeaddons.mesosphere.io/name: dex
   chartReference:
     chart: dex-k8s-authenticator
-    repo: https://mesosphere.github.io/charts/staging
+    repo: https://timaa2k.github.io/charts
     version: 1.1.7
     values: |
       ---
