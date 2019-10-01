@@ -7,7 +7,7 @@ metadata:
     kubaddons.mesosphere.io/name: konvoyconfig
   annotations:
     appversion.kubeaddons.mesosphere.io/konvoyconfig: "0.0.1"
-    values.chart.helm.kubeaddons.mesosphere.io/konvoyconfig: "https://raw.githubusercontent.com/mesosphere/charts/360fcc627d014aca967404891fcd55da75ba0820/values.yaml"
+    values.chart.helm.kubeaddons.mesosphere.io/konvoyconfig: "https://raw.githubusercontent.com/mesosphere/charts/173f2200647defaf67e96b32cfdbb5b6932f1fa5/staging/konvoyconfig/values.yaml"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
@@ -21,11 +21,15 @@ spec:
   chartReference:
     chart: konvoyconfig
     repo: https://mesosphere.github.io/charts/staging
-    version: 0.0.1
+    version: 0.0.2
     values: |
       ---
       config:
         # clusterHostname should be a FQDN that resolves to the cluster's ingress VIP.
         # This value will be used to generate certificates for traefik and configure dex.
         clusterHostname: ""
+        # External Dex data for kube-oidc-proxy
+        # externalDex:
+        #  dexURL:
+        #  dexCA:
 
