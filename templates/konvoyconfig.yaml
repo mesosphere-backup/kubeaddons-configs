@@ -28,8 +28,3 @@ spec:
         # clusterHostname should be a FQDN that resolves to the cluster's ingress VIP.
         # This value will be used to generate certificates for traefik and configure dex.
         clusterHostname: ""
-        # External Dex data for kube-oidc-proxy
-        # externalDex:
-        #  dexURL:
-        #  dexCA:
-
