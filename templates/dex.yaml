@@ -21,7 +21,6 @@ spec:
   requires:
     matchLabels:
       kubeaddons.mesosphere.io/provides: ingresscontroller
-      kubeaddons.mesosphere.io/name: cert-manager
   chartReference:
     chart: dex
     repo: https://mesosphere.github.io/charts/stable
