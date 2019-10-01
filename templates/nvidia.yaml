@@ -12,7 +12,7 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
-  namespace: kube-system 
+  namespace: kube-system
   cloudProvider:
     - name: aws
       enabled: true
