@@ -22,10 +22,11 @@ spec:
       enabled: true
   chartReference:
     chart: cert-manager-setup
-    repo: https://mesosphere.github.io/charts/staging
-    version: 0.1.3
+    repo: https://timaa2k.github.io/charts
+    version: 0.1.4
     values: |
       ---
+      installCertManager: true
       clusterissuer:
         name: kubernetes-ca
         spec:
