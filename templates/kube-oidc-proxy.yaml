@@ -51,5 +51,5 @@ spec:
         caPEM: "placeholder"
       initContainers:
       - name: initialize-kube-oidc-proxy
-        image: jaredrodriguez/kubeaddons-addon-initializer:latest
+        image: mesosphere/kubeaddons-addon-initializer:v0.0.8
         args: ["kube-oidc-proxy"]
