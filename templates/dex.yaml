@@ -24,7 +24,7 @@ spec:
   chartReference:
     chart: dex
     repo: https://mesosphere.github.io/charts/stable
-    version: 1.6.4
+    version: 1.6.5
     values: |
       ---
       # Temprarily we're going to use our custom built container. Documentation
@@ -89,7 +89,7 @@ spec:
             - 'https://PUBLIC.URI/_oauth'
       initContainers:
       - name: initialize-dex
-        image: mesosphere/kubeaddons-addon-initializer:v0.0.7
+        image: mesosphere/kubeaddons-addon-initializer:v0.0.9
         args: ["dex"]
         env:
         - name: "DEX_NAMESPACE"
