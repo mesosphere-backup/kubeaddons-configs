@@ -44,7 +44,7 @@ spec:
   chartReference:
     chart: velero
     repo: https://mesosphere.github.io/charts/staging
-    version: 2.2.4
+    version: 2.2.5
     values: |
       ---
       configuration:
