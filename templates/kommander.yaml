@@ -27,4 +27,12 @@ spec:
   chartReference:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.26
+    version: 0.1.27
+    values: |
+      ---
+      kommander-cluster-lifecycle:
+        certificates:
+          selfsignedIssuer:
+            enable: false
+          # name should match what is found in the cert-manager.yaml addon
+          issuerName: kubernetes-ca
