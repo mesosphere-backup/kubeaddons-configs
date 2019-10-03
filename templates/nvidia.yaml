@@ -24,3 +24,29 @@ spec:
     chart: nvidia
     repo: https://mesosphere.github.io/charts/staging
     version: 0.1.0
+    values: |
+      ---
+      nvidia-driver:
+        resources:
+          limits:
+             cpu: 2000m
+             memory: 6144Mi
+          requests:
+             cpu: 200m
+             memory: 256Mi
+        nodeSelector:
+          konvoy.mesosphere.com/gpu-provider: NVIDIA
+      nvidia-device-plugin:
+        resources:
+          limits:
+             cpu: 200m
+             memory: 128Mi
+          requests:
+             cpu: 100m
+             memory: 128Mi
+        nodeSelector:
+          konvoy.mesosphere.com/gpu-provider: NVIDIA
+        initContainers:
+        - name: init-wait
+          image: busybox
+          command: ['sh', '-c', 'sleep 90']
