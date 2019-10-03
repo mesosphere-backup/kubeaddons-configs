@@ -15,7 +15,7 @@ spec:
   namespace: kube-system
   cloudProvider:
     - name: aws
-      enabled: true
+      enabled: false
     - name: docker
       enabled: false
     - name: none
