@@ -32,7 +32,6 @@ spec:
       ---
       kommander-cluster-lifecycle:
         certificates:
-          selfsignedIssuer:
-            enable: false
-          # name should match what is found in the cert-manager.yaml addon
-          issuerName: kubernetes-ca
+          issuer:
+            name: kubernetes-ca
+            kind: ClusterIssuer
