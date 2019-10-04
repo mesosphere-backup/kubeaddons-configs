@@ -19,7 +19,7 @@ metadata:
     docs.kubeaddons.mesosphere.io/prometheus: "https://prometheus.io/docs/introduction/overview/"
     docs.kubeaddons.mesosphere.io/grafana: "https://grafana.com/docs/"
     docs.kubeaddons.mesosphere.io/alertmanager: "https://prometheus.io/docs/alerting/alertmanager/"
-    values.chart.helm.kubeaddons.mesosphere.io/prometheus: "https://raw.githubusercontent.com/helm/charts/0459eb2bdade42a88a44ee115184ba584bd3131c/stable/prometheus-operator/values.yaml"
+    values.chart.helm.kubeaddons.mesosphere.io/prometheus: "https://raw.githubusercontent.com/mesosphere/charts/f295cf3f0aa5ae7b51fd5778f21babbd41e5377c/staging/prometheus-operator/values.yaml"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
