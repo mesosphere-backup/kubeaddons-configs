@@ -23,9 +23,7 @@ spec:
       kubeaddons.mesosphere.io/name: dex
   chartReference:
     chart: dex-k8s-authenticator
-    # TODO(mh): Point to main mesosphere repo once charts PR gets merged
-    # repo: https://mesosphere.github.io/charts/staging
-    repo: https://timaa2k.github.io/charts
+    repo: https://mesosphere.github.io/charts/staging
     version: 1.1.7
     values: |
       ---
