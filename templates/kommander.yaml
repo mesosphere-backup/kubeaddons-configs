@@ -33,6 +33,10 @@ spec:
     version: 0.1.29
     values: |
       ---
+      ingress:
+        extraAnnotations:
+          traefik.ingress.kubernetes.io/priority: "2"
+
       kommander-cluster-lifecycle:
         certificates:
           issuer:
