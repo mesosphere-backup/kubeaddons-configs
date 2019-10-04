@@ -19,7 +19,7 @@ spec:
     minSupportedVersion: v1.15.0
   requires:
     matchLabels:
-      kubeaddons.mesosphere.io/name: cert-manager    
+      kubeaddons.mesosphere.io/name: cert-manager
   chartReference:
     chart: traefik
     repo: https://mesosphere.github.io/charts/staging
@@ -57,3 +57,5 @@ spec:
         # separate issue.
         # See: https://jira.mesosphere.com/browse/DCOS-56033
         insecureSkipVerify: true
+
+      initCertJobImage: mesosphere/kubeaddons-addon-initializer:v0.0.9

@@ -12,7 +12,7 @@ spec:
   chartReference:
     chart: traefik-forward-auth
     repo: https://mesosphere.github.io/charts/staging
-    version: 0.2.0
+    version: 0.2.3
     values: |
       ---
       replicaCount: 1
@@ -28,6 +28,7 @@ spec:
         type: ClusterIP
         port: 4181
       traefikForwardAuth:
+        # oidcUri will be overridden by the init-container
         oidcUri: "https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex"
         clientId: traefik-forward-auth
         clientSecret:
@@ -54,14 +55,17 @@ spec:
         hosts:
           - ""
         tls: []
-      # TODO: re-enable once we've got opsportal related secret issues worked out
-      # initContainers:
-      #  # initialize-traefik-forward-auth deploys credentials for use by the proxy
-      #  - name: initialize-traefik-forward-auth
-      #    image: mesosphere/kubeaddons-addon-initializer:v0.0.4
-      #    args: ["traefikForwardAuth"]
-      #    env:
-      #    - name: "TRAEFIK_FORWARD_AUTH_NAMESPACE"
-      #      value: "kubeaddons"
-      #    - name: "TRAEFIK_FORWARD_AUTH_SECRET_NAME"
-      #      value: "ops-portal-credentials"
+      initContainers:
+      # initialize-traefik-forward-auth deploys credentials for use by the proxy
+      - name: initialize-traefik-forward-auth
+        image: mesosphere/kubeaddons-addon-initializer:v0.0.9
+        args: ["traefikforwardauth"]
+        env:
+        - name: "TFA_CONFIGMAP_NAME"
+          value: "traefik-forward-auth-kubeaddons-configmap"
+        - name: "TFA_NAMESPACE"
+          value: "kubeaddons"
+        - name: "TFA_INGRESS_NAMESPACE"
+          value: "kubeaddons"
+        - name: "TFA_INGRESS_SERVICE_NAME"
+          value: "traefik-kubeaddons"
