@@ -12,7 +12,7 @@ metadata:
   annotations:
     appversion.kubeaddons.mesosphere.io/kommander: "1.114.5"
     endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal/kommander
-    values.chart.helm.kubeaddons.mesosphere.io/kommander: "https://raw.githubusercontent.com/mesosphere/charts/dev/stable/kommander/values.yaml"
+    values.chart.helm.kubeaddons.mesosphere.io/kommander: "https://raw.githubusercontent.com/mesosphere/charts/20ee06ea58cd741b325307b63d8082b6fbe12199/stable/kommander/values.yaml"
 spec:
   namespace: kommander
   kubernetes:
