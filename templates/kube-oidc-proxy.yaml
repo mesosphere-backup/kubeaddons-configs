@@ -23,8 +23,10 @@ spec:
       kubeaddons.mesosphere.io/provides: ingresscontroller
   chartReference:
     chart: kube-oidc-proxy
-    repo: https://mesosphere.github.io/charts/staging
-    version: 0.1.2
+    # TODO(mh): Point to main mesosphere repo once charts PR gets merged
+    # repo: https://mesosphere.github.io/charts/staging
+    repo: https://timaa2k.github.io/charts
+    version: 0.1.3
     values: |
       ---
       image:

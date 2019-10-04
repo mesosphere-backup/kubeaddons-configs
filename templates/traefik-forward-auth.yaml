@@ -11,8 +11,10 @@ spec:
       kubeaddons.mesosphere.io/name: dex
   chartReference:
     chart: traefik-forward-auth
-    repo: https://mesosphere.github.io/charts/staging
-    version: 0.2.2
+    # TODO(mh): Point to main mesosphere repo once charts PR gets merged
+    # repo: https://mesosphere.github.io/charts/staging
+    repo: https://timaa2k.github.io/charts
+    version: 0.2.3
     values: |
       ---
       replicaCount: 1
