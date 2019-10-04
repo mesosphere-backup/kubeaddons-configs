@@ -28,7 +28,7 @@ spec:
     values: |
       ---
       image:
-        repository: jaredrodriguez/dex-k8s-authenticator
+        repository: mesosphere/dex-k8s-authenticator
         tag: v1.1.1-5e9e952-mesosphere
       ingress:
         enabled: true
