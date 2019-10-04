@@ -35,6 +35,3 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
-      ingress:
-        extraAnnotations:
-          traefik.ingress.kubernetes.io/priority: "2"
