@@ -21,6 +21,8 @@ spec:
       enabled: true
     - name: none
       enabled: true
+    - name: azure
+      enabled: true      
   chartReference:
     chart: cert-manager-setup
     repo: https://mesosphere.github.io/charts/staging

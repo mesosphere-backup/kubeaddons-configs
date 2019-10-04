@@ -14,6 +14,8 @@ spec:
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:
+    - name: azure
+      enabled: false
     - name: docker
       enabled: true
       values: |

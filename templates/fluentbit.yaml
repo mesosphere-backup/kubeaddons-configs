@@ -18,6 +18,8 @@ spec:
       enabled: true
     - name: docker
       enabled: false
+    - name: azure
+      enabled: true      
     - name: none
       enabled: true
   chartReference:

@@ -34,6 +34,8 @@ spec:
             volumeBindingMode: WaitForFirstConsumer
     - name: docker
       enabled: true
+    - name: azure
+      enabled: true
     - name: none
       enabled: true
   chartReference:
