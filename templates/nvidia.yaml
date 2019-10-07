@@ -17,6 +17,8 @@ spec:
   cloudProvider:
     - name: aws
       enabled: false
+    - name: none
+      enabled: false      
   chartReference:
     chart: nvidia
     repo: https://mesosphere.github.io/charts/staging
