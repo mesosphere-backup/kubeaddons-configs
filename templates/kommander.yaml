@@ -10,7 +10,7 @@ metadata:
     # on the cluster, this hack will trigger re-queue on Addons until one exists.
     kubeaddons.mesosphere.io/hack-requires-defaultstorageclass: "true"
   annotations:
-    appversion.kubeaddons.mesosphere.io/kommander: "1.114.5"
+    appversion.kubeaddons.mesosphere.io/kommander: "1.116.17"
     endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal/kommander
     values.chart.helm.kubeaddons.mesosphere.io/kommander: "https://raw.githubusercontent.com/mesosphere/charts/master/stable/kommander/values.yaml"
 spec:
@@ -29,7 +29,7 @@ spec:
   chartReference:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.34
+    version: 0.1.35
     values: |
       ---
       ingress:
