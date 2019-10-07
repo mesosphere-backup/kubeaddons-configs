@@ -24,7 +24,7 @@ apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
   name: velero
-  namespace: kubeaddons
+  namespace: velero
   labels:
     kubeaddons.mesosphere.io/name: velero
     # TODO: we're temporarily supporting dependency on an existing default storage class
@@ -33,7 +33,6 @@ metadata:
   annotations:
     values.chart.helm.kubeaddons.mesosphere.io/velero: "https://raw.githubusercontent.com/helm/charts/39524419882dcf3d1a053711ac242c280923a094/stable/velero/values.yaml"
 spec:
-  namespace: velero
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:
