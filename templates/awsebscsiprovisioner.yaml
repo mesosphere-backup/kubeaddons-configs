@@ -3,7 +3,7 @@ apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
   name: awsebscsiprovisioner
-  namespace: kube-system
+  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: awsebscsiprovisioner
     kubeaddons.mesosphere.io/provides: storageclass
@@ -13,6 +13,7 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
+  namespace: kube-system
   cloudProvider:
     - name: aws
       enabled: true
