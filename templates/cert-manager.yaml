@@ -2,7 +2,7 @@ apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
   name: cert-manager
-  namespace: cert-manager
+  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: cert-manager
   annotations:
@@ -10,6 +10,7 @@ metadata:
     docs.kubeaddons.mesosphere.io/cert-manager: "https://docs.cert-manager.io/en/release-0.10/"
     values.chart.helm.kubeaddons.mesosphere.io/cert-manager: "https://raw.githubusercontent.com/mesosphere/charts/1b68b80a4384946575952fe095ce46510e5badad/staging/cert-manager-setup/values.yaml"
 spec:
+  namespace: cert-manager
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:

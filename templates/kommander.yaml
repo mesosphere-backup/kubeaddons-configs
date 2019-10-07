@@ -3,7 +3,7 @@ apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
   name: kommander
-  namespace: kommander
+  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: kommander
     # TODO: we're temporarily supporting dependency on an existing default storage class
@@ -14,6 +14,7 @@ metadata:
     endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal/kommander
     values.chart.helm.kubeaddons.mesosphere.io/kommander: "https://raw.githubusercontent.com/mesosphere/charts/master/stable/kommander/values.yaml"
 spec:
+  namespace: kommander
   kubernetes:
     minSupportedVersion: v1.15.0
   requires:
