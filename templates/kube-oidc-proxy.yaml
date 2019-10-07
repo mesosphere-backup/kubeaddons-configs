@@ -20,7 +20,7 @@ spec:
       enabled: true
   requires:
     matchLabels:
-      kubeaddons.mesosphere.io/provides: ingresscontroller
+      kubeaddons.mesosphere.io/name: dex
   chartReference:
     chart: kube-oidc-proxy
     repo: https://mesosphere.github.io/charts/staging
