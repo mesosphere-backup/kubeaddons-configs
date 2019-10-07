@@ -3,7 +3,7 @@ apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
   name: nvidia
-  namespace: kubeaddons
+  namespace: kube-system
   labels:
     kubeaddons.mesosphere.io/name: nvidia
     kubeaddons.mesosphere.io/provides: nvidia
@@ -12,7 +12,6 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
-  namespace: kube-system
   cloudProvider:
     - name: aws
       enabled: false
