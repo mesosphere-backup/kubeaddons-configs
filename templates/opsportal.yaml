@@ -12,13 +12,6 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
-  cloudProvider:
-    - name: aws
-      enabled: true
-    - name: docker
-      enabled: true
-    - name: none
-      enabled: true
   chartReference:
     chart: opsportal
     repo: https://mesosphere.github.io/charts/stable
