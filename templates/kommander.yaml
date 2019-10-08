@@ -10,13 +10,16 @@ metadata:
     # on the cluster, this hack will trigger re-queue on Addons until one exists.
     kubeaddons.mesosphere.io/hack-requires-defaultstorageclass: "true"
   annotations:
-    appversion.kubeaddons.mesosphere.io/kommander: "1.50.0"
+    appversion.kubeaddons.mesosphere.io/kommander: "1.116.17"
     endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal/kommander
-    values.chart.helm.kubeaddons.mesosphere.io/kommander: "https://raw.githubusercontent.com/mesosphere/charts/6c43b8ab10108fb1adba5c6dd10e800e5f1abdd0/stable/kommander/values.yaml"
+    values.chart.helm.kubeaddons.mesosphere.io/kommander: "https://raw.githubusercontent.com/mesosphere/charts/master/stable/kommander/values.yaml"
 spec:
   namespace: kommander
   kubernetes:
     minSupportedVersion: v1.15.0
+  requires:
+    matchLabels:
+      kubeaddons.mesosphere.io/name: cert-manager
   cloudProvider:
     - name: aws
       enabled: true
@@ -27,4 +30,15 @@ spec:
   chartReference:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.21
+    version: 0.1.35
+    values: |
+      ---
+      ingress:
+        extraAnnotations:
+          traefik.ingress.kubernetes.io/priority: "2"
+
+      kommander-cluster-lifecycle:
+        certificates:
+          issuer:
+            name: kubernetes-ca
+            kind: ClusterIssuer
