@@ -58,4 +58,4 @@ spec:
         # See: https://jira.mesosphere.com/browse/DCOS-56033
         insecureSkipVerify: true
 
-      initCertJobImage: mesosphere/kubeaddons-addon-initializer:v0.0.9
+      initCertJobImage: mesosphere/kubeaddons-addon-initializer:v0.0.11
