@@ -1,0 +1,24 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1alpha1
+kind: Addon
+metadata:
+  name: azurediskprovisioner
+  namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/name: azurediskprovisioner
+    kubeaddons.mesosphere.io/provides: storageclass
+  annotations:
+    appversion.kubeaddons.mesosphere.io/azurediskprovisioner: "1.0"
+    values.chart.helm.kubeaddons.mesosphere.io/azurediskprovisioner: "https://raw.githubusercontent.com/mesosphere/charts/efef983665c5bb1bef0901c4db26e90a32018cc8/stable/azurediskprovisioner/values.yaml"
+spec:
+  kubernetes:
+    minSupportedVersion: v1.15.0
+  cloudProvider:
+    - name: azure
+      enabled: true
+    - name: aws
+      enabled: false
+  chartReference:
+    chart: azurediskprovisioner
+    repo: https://mesosphere.github.io/charts/stable
+    version: 0.1.0
