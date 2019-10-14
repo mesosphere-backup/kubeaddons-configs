@@ -17,11 +17,11 @@ spec:
       kubeaddons.mesosphere.io/name: cert-manager
   cloudProvider:
     - name: aws
-      enabled: false
+      enabled: true
     - name: docker
-      enabled: false
+      enabled: true
     - name: none
-      enabled: false
+      enabled: true
   chartReference:
     chart: gatekeeper
     repo: https://mesosphere.github.io/charts/staging
