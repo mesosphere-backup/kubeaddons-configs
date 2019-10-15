@@ -13,7 +13,7 @@ metadata:
 spec:
   requires:
     matchLabels:
-      kubeaddons.mesosphere.io/name: defaultstorageclass
+      kubeaddons.mesosphere.io/name: defaultstorageclass-protection
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:

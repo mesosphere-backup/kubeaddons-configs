@@ -1,12 +1,12 @@
 apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
-  name: defaultstorageclass
+  name: defaultstorageclass-protection
   namespace: kubeaddons
   labels:
-    kubeaddons.mesosphere.io/name: defaultstorageclass
+    kubeaddons.mesosphere.io/name: defaultstorageclass-protection
   annotations:
-    appversion.kubeaddons.mesosphere.io/defaultstorageclass: "0.0.1"
+    appversion.kubeaddons.mesosphere.io/defaultstorageclass-protection: "0.0.1"
 spec:
   requires:
     matchLabels:
