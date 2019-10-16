@@ -13,6 +13,9 @@ spec:
   namespace: cert-manager
   kubernetes:
     minSupportedVersion: v1.15.0
+  requires:
+    matchLabels:
+      kubeaddons.mesosphere.io/name: konvoyconfig    
   cloudProvider:
     - name: aws
       enabled: true
