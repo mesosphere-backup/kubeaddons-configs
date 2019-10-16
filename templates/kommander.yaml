@@ -6,6 +6,7 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: kommander
+    kubeaddons.mesosphere.io/cluster-scoped: true
   annotations:
     appversion.kubeaddons.mesosphere.io/kommander: "1.116.17"
     endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal/kommander

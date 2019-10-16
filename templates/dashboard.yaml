@@ -6,6 +6,7 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: dashboard
+    kubeaddons.mesosphere.io/cluster-scoped: true
   annotations:
     appversion.kubeaddons.mesosphere.io/dashboard: "1.10.1"
     endpoint.kubeaddons.mesosphere.io/dashboard: "/ops/portal/kubernetes/"
