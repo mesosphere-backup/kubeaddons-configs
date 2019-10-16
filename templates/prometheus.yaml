@@ -19,7 +19,7 @@ metadata:
     docs.kubeaddons.mesosphere.io/prometheus: "https://prometheus.io/docs/introduction/overview/"
     docs.kubeaddons.mesosphere.io/grafana: "https://grafana.com/docs/"
     docs.kubeaddons.mesosphere.io/alertmanager: "https://prometheus.io/docs/alerting/alertmanager/"
-    values.chart.helm.kubeaddons.mesosphere.io/prometheus: "https://raw.githubusercontent.com/mesosphere/charts/6e22a56951dbe295c64f83b06f7c059fe4d612ce/staging/prometheus-operator/values.yaml"
+    values.chart.helm.kubeaddons.mesosphere.io/prometheus: "https://raw.githubusercontent.com/mesosphere/charts/3bc311e3fae9d608c528433963bf67ca6827513c/staging/prometheus-operator/values.yaml"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
@@ -33,7 +33,7 @@ spec:
   chartReference:
     chart: prometheus-operator
     repo: https://mesosphere.github.io/charts/staging
-    version: 5.19.1
+    version: 5.19.2
     values: |
       ---
       defaultRules:
@@ -46,6 +46,10 @@ spec:
           # addon alert rules are defaulted to false to prevent potential misfires if addons
           # are disabled.
           velero: false
+        # This option grants the Prometheus pod the necessary permissions that the
+        # "get-cluster-id" container defined in prometheus.prometheusSpec.containers requires.
+        # see: https://github.com/mesosphere/kubeaddons-extrasteps/tree/master/pkg/prometheus/prometheus.go
+        enableAdditionalPrometheusRBACRules: true
       prometheus:
         service:
           additionalPorts:
@@ -96,6 +100,25 @@ spec:
           thanos:
             baseImage: thanosio/thanos
             version: v0.4.0
+          externalLabels:
+            cluster: $(CLUSTER_ID)
+          containers:
+            # note: in order to run this container, mesosphereResources.enableAdditionalPrometheusRBACRules
+            # needs to be set to true
+            - name: get-cluster-id
+              image: mesosphere/kubeaddons-addon-initializer:v0.0.12
+              command: ["/bin/bash", "-c", "addon-initializer prometheus && while true; do sleep 86400; done"]
+              env:
+              - name: "PROMETHEUS_NAMESPACE"
+                value: "kubeaddons"
+              - name: "CLUSTER_ID_CONFIGMAP_NAME"
+                value: "cluster-info-configmap"
+              - name: "KUBESYSTEM_NAMESPACE"
+                value: "kube-system"
+            - name: prometheus-config-reloader
+              envFrom:
+              - configMapRef:
+                  name: cluster-info-configmap
           additionalScrapeConfigs:
             - job_name: 'kubernetes-nodes-containerd'
               metrics_path: /v1/metrics
