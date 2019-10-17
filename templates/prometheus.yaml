@@ -47,6 +47,12 @@ spec:
           # are disabled.
           velero: false
       prometheus:
+        service:
+          additionalPorts:
+            # Service port for Thanos gRPC.
+            - name: grpc
+              port: 10901
+              targetPort: grpc
         additionalServiceMonitors:
           - name: kubeaddons-service-monitor-metrics
             selector:
