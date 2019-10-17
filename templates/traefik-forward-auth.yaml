@@ -10,8 +10,9 @@ spec:
     matchLabels:
       kubeaddons.mesosphere.io/name: dex
   chartReference:
-    chart: traefik-forward-auth
-    repo: https://mesosphere.github.io/charts/staging
+    # chart: traefik-forward-auth
+    # repo: https://mesosphere.github.io/charts/staging
+    chart: http://blacknode.net:8080/traefik-forward-auth-0.2.5.tgz
     version: 0.2.3
     values: |
       ---
