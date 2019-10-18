@@ -1,8 +1,7 @@
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
-kind: Addon
+apiVersion: kubeaddons.mesosphere.io/v1beta1
+kind: ClusterAddon
 metadata:
   name: defaultstorageclass-protection
-  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: defaultstorageclass-protection
   annotations:
