@@ -21,8 +21,8 @@ spec:
     - name: none
       enabled: true
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/name: prometheus
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: prometheus
   chartReference:
     chart: stable/prometheus-adapter
     version: 1.1.0

@@ -9,8 +9,8 @@ metadata:
     appversion.kubeaddons.mesosphere.io/defaultstorageclass-protection: "0.0.1"
 spec:
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/name: cert-manager
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: cert-manager
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:
