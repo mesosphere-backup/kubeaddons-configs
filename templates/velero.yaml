@@ -20,11 +20,10 @@
 # WARNING: using the default (fallback) backend is for testing purposes only and should not be used in production.
 # ------------------------------------------------------------------------------
 ---
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
-kind: Addon
+apiVersion: kubeaddons.mesosphere.io/v1beta1
+kind: ClusterAddon
 metadata:
   name: velero
-  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: velero
     # TODO: we're temporarily supporting dependency on an existing default storage class
