@@ -113,8 +113,6 @@ spec:
                 value: "kubeaddons"
               - name: "CLUSTER_ID_CONFIGMAP_NAME"
                 value: "cluster-info-configmap"
-              - name: "KUBESYSTEM_NAMESPACE"
-                value: "kube-system"
             - name: prometheus-config-reloader
               envFrom:
               - configMapRef:
