@@ -10,7 +10,7 @@ metadata:
     kubeaddons.mesosphere.io/hack-requires-defaultstorageclass: "true"
   annotations:
     appversion.kubeaddons.mesosphere.io/prometheus-operator: "0.31.1"
-    appversion.kubeaddons.mesosphere.io/prometheus: "2.9.2"
+    appversion.kubeaddons.mesosphere.io/prometheus: "2.9.1"
     appversion.kubeaddons.mesosphere.io/alertmanager: "0.17.0"
     appversion.kubeaddons.mesosphere.io/grafana: "6.2.5"
     endpoint.kubeaddons.mesosphere.io/prometheus: "/ops/portal/prometheus"
@@ -86,7 +86,7 @@ spec:
                 interval: 30s
         prometheusSpec:
           image:
-            tag: v2.9.2
+            tag: v2.9.1
           thanos:
             baseImage: thanosio/thanos
             version: v0.4.0
