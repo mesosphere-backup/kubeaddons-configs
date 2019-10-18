@@ -1,0 +1,50 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1beta1
+kind: ClusterAddon
+metadata:
+  name: nvidia
+  labels:
+    kubeaddons.mesosphere.io/name: nvidia
+    kubeaddons.mesosphere.io/provides: nvidia
+  annotations:
+    appversion.kubeaddons.mesosphere.io/nvidia: "0.1"
+    values.chart.helm.kubeaddons.mesosphere.io/nvidia: "https://raw.githubusercontent.com/mesosphere/charts/869a26a8d4061d5b407cd260eac2eee9149f2823/staging/nvidia/values.yaml"
+spec:
+  namespace: kube-system
+  kubernetes:
+    minSupportedVersion: v1.15.0
+  cloudProvider:
+    - name: aws
+      enabled: false
+    - name: none
+      enabled: false
+  chartReference:
+    chart: nvidia
+    repo: https://mesosphere.github.io/charts/staging
+    version: 0.1.0
+    values: |
+      ---
+      nvidia-driver:
+        resources:
+          limits:
+             cpu: 2000m
+             memory: 6144Mi
+          requests:
+             cpu: 200m
+             memory: 256Mi
+        nodeSelector:
+          konvoy.mesosphere.com/gpu-provider: NVIDIA
+      nvidia-device-plugin:
+        resources:
+          limits:
+             cpu: 200m
+             memory: 128Mi
+          requests:
+             cpu: 100m
+             memory: 128Mi
+        nodeSelector:
+          konvoy.mesosphere.com/gpu-provider: NVIDIA
+        initContainers:
+        - name: init-wait
+          image: busybox
+          command: ['sh', '-c', 'sleep 90']

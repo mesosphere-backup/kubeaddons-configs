@@ -1,4 +1,4 @@
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
+apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
   name: dex-k8s-authenticator
@@ -24,12 +24,12 @@ spec:
   chartReference:
     chart: dex-k8s-authenticator
     repo: https://mesosphere.github.io/charts/staging
-    version: 1.1.6
+    version: 1.1.8
     values: |
       ---
       image:
         repository: mesosphere/dex-k8s-authenticator
-        tag: v1.1.0-25-gdeba-mesosphere
+        tag: v1.1.1-5e9e952-mesosphere
       ingress:
         enabled: true
         annotations:
@@ -57,5 +57,16 @@ spec:
           memory: 128Mi
       initContainers:
       - name: initialize-dka-config
-        image: mesosphere/kubeaddons-addon-initializer:v0.0.6
+        image: mesosphere/kubeaddons-addon-initializer:v0.0.9
         args: ["dexK8sAuthenticator"]
+        env:
+        - name: "DKA_CONFIGMAP_NAME"
+          value: "dex-k8s-authenticator-kubeaddons"
+        - name: "DKA_NAMESPACE"
+          value: "kubeaddons"
+        - name: "DKA_INGRESS_NAMESPACE"
+          value: "kubeaddons"
+        - name: "DKA_INGRESS_SERVICE_NAME"
+          value: "traefik-kubeaddons"
+        - name: "DKA_WEB_PREFIX_PATH"
+          value: "/token"

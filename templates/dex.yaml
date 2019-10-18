@@ -1,4 +1,4 @@
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
+apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
   name: dex
@@ -24,10 +24,10 @@ spec:
   chartReference:
     chart: dex
     repo: https://mesosphere.github.io/charts/stable
-    version: 1.6.1
+    version: 1.6.6
     values: |
       ---
-      # Temprarily we're going to use our custom built container. Documentation
+      # Temporarily we're going to use our custom built container. Documentation
       # for how to build a new version: https://github.com/mesosphere/dex/blob/v2.17.0-mesosphere/README.mesosphere.md
       image: mesosphere/dex
       imageTag: v2.17.0-21-g4386-mesosphere
@@ -89,7 +89,7 @@ spec:
             - 'https://PUBLIC.URI/_oauth'
       initContainers:
       - name: initialize-dex
-        image: mesosphere/kubeaddons-addon-initializer:v0.0.4
+        image: mesosphere/kubeaddons-addon-initializer:v0.0.9
         args: ["dex"]
         env:
         - name: "DEX_NAMESPACE"

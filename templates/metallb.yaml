@@ -1,8 +1,7 @@
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
-kind: Addon
+apiVersion: kubeaddons.mesosphere.io/v1beta1
+kind: ClusterAddon
 metadata:
   name: metallb
-  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: metallb
     kubeaddons.mesosphere.io/provides: loadbalancer
@@ -10,6 +9,7 @@ metadata:
     appversion.kubeaddons.mesosphere.io/metallb: "0.7.3"
     values.chart.helm.kubeaddons.mesosphere.io/metallb: "https://raw.githubusercontent.com/helm/charts/b0f9cb2d7af822e0031f632f2faa0cbb53167770/stable/metallb/values.yaml"
 spec:
+  namespace: kube-system
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:

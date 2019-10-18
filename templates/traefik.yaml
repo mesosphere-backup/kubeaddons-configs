@@ -1,8 +1,7 @@
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
-kind: Addon
+apiVersion: kubeaddons.mesosphere.io/v1beta1
+kind: ClusterAddon
 metadata:
   name: traefik
-  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: traefik
     kubeaddons.mesosphere.io/provides: ingresscontroller
@@ -15,12 +14,16 @@ metadata:
     docs.kubeaddons.mesosphere.io/traefik: "https://docs.traefik.io/v1.7"
     values.chart.helm.kubeaddons.mesosphere.io/traefik: "https://raw.githubusercontent.com/helm/charts/c7e31361a28a10e30b4143b73439080d5e9f7d8b/stable/traefik/values.yaml"
 spec:
+  namespace: kube-system
   kubernetes:
     minSupportedVersion: v1.15.0
+  requires:
+    matchLabels:
+      kubeaddons.mesosphere.io/name: cert-manager
   chartReference:
     chart: traefik
     repo: https://mesosphere.github.io/charts/staging
-    version: 1.72.1
+    version: 1.72.4
     values: |
       ---
       replicas: 2
@@ -54,3 +57,5 @@ spec:
         # separate issue.
         # See: https://jira.mesosphere.com/browse/DCOS-56033
         insecureSkipVerify: true
+
+      initCertJobImage: mesosphere/kubeaddons-addon-initializer:v0.0.9
