@@ -19,8 +19,8 @@ spec:
     - name: none
       enabled: true
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/provides: ingresscontroller
+    - matchLabels:
+        kubeaddons.mesosphere.io/provides: ingresscontroller
   chartReference:
     chart: kube-oidc-proxy
     repo: https://mesosphere.github.io/charts/staging

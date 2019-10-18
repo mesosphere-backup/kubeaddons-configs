@@ -12,8 +12,8 @@ metadata:
 spec:
   namespace: kube-system
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/name: defaultstorageclass-protection
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: defaultstorageclass-protection
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:
