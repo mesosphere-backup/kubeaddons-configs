@@ -13,8 +13,8 @@ spec:
   kubernetes:
     minSupportedVersion: v1.15.0
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/name: cert-manager
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: cert-manager
   cloudProvider:
     - name: aws
       enabled: true

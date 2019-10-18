@@ -14,12 +14,11 @@ metadata:
     docs.kubeaddons.mesosphere.io/traefik: "https://docs.traefik.io/v1.7"
     values.chart.helm.kubeaddons.mesosphere.io/traefik: "https://raw.githubusercontent.com/helm/charts/c7e31361a28a10e30b4143b73439080d5e9f7d8b/stable/traefik/values.yaml"
 spec:
-  namespace: kube-system
   kubernetes:
     minSupportedVersion: v1.15.0
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/name: cert-manager
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: cert-manager
   chartReference:
     chart: traefik
     repo: https://mesosphere.github.io/charts/staging
