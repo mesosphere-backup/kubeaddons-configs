@@ -7,6 +7,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: prometheusadapter
   annotations:
+    catalog.kubeaddons.mesosphere.io/addon-revision: "0.5.0-1"
     appversion.kubeaddons.mesosphere.io/prometheusadapter: "0.5.0"
     values.chart.helm.kubeaddons.mesosphere.io/prometheusadapter: "https://raw.githubusercontent.com/helm/charts/db62a6c595bbd9904014083edd0faa14de4096b2/stable/prometheus-adapter/values.yaml"
 spec:
