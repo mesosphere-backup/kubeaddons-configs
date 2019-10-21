@@ -7,6 +7,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: elasticsearchexporter
   annotations:
+    catalog.kubeaddons.mesosphere.io/addon-revision: "1.0.2-1"
     appversion.kubeaddons.mesosphere.io/elasticsearchexporter: "1.0.2"
     values.chart.helm.kubeaddons.mesosphere.io/elasticsearchexporter: "https://raw.githubusercontent.com/helm/charts/08fc376647d43169743dcf04f1e88a2aec9e5f3d/stable/elasticsearch-exporter/values.yaml"
 spec:
