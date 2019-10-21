@@ -32,3 +32,8 @@ spec:
         requests:
           cpu: 500m
           memory: 300Mi
+      image:
+        # override the default k8s.gcr.io/kubernetes-dashboard-amd64 repositry
+        # containerd mirror functionality does not support pulling these images
+        # TODO remove once https://github.com/containerd/containerd/issues/3756 is resolved
+        repository: gcr.io/google_containers/kubernetes-dashboard-amd64
