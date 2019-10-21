@@ -28,7 +28,8 @@ The overall workflow for contributing a new Addon is:
 5. test the addon functionality as appropriate for its type
 
 1. Manual testing of the Addon has succeeded against the most recent release of the `kubeaddons` controller
-2. CI must pass
+2. Manual testing of the Addon has succeeded against the most recent release of the `kubeaddons catalog`
+3. CI must pass
 
 ## Customizing Existing Addons
 

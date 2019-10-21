@@ -7,6 +7,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: fluentbit
   annotations:
+    catalog.kubeaddons.mesosphere.io/addon-revision: "1.2.1-1"
     appversion.kubeaddons.mesosphere.io/fluentbit: "1.2.1"
     values.chart.helm.kubeaddons.mesosphere.io/fluentbit: "https://raw.githubusercontent.com/helm/charts/f9efc8de7dcd6f93ebacc4b321d01a5aa819cdaa/stable/fluent-bit/values.yaml"
 spec:
