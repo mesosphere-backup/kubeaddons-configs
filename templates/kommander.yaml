@@ -26,8 +26,8 @@ spec:
       enabled: true
   chartReference:
     chart: kommander
-    repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.35
+    repo: https://branden.github.io/charts/stable
+    version: 0.1.38
     values: |
       ---
       ingress:
