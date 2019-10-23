@@ -11,6 +11,8 @@ spec:
   requires:
     - matchLabels:
         kubeaddons.mesosphere.io/name: dex
+    - matchLabels:
+        kubeaddons.mesosphere.io/provides: ingresscontroller
   chartReference:
     chart: traefik-forward-auth
     repo: https://mesosphere.github.io/charts/staging
