@@ -1,4 +1,4 @@
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
+apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
   name: traefik-forward-auth
@@ -9,8 +9,10 @@ spec:
   kubernetes:
     minSupportedVersion: v1.15.0
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/name: dex
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: dex
+    - matchLabels:
+        kubeaddons.mesosphere.io/provides: ingresscontroller
   chartReference:
     chart: traefik-forward-auth
     repo: https://mesosphere.github.io/charts/staging

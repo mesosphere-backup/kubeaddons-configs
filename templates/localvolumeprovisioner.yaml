@@ -1,9 +1,8 @@
 ---
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
-kind: Addon
+apiVersion: kubeaddons.mesosphere.io/v1beta1
+kind: ClusterAddon
 metadata:
   name: localvolumeprovisioner
-  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: localvolumeprovisioner
     kubeaddons.mesosphere.io/provides: storageclass
@@ -12,12 +11,12 @@ metadata:
     appversion.kubeaddons.mesosphere.io/localvolumeprovisioner: "1.0"
     values.chart.helm.kubeaddons.mesosphere.io/localvolumeprovisioner: "https://raw.githubusercontent.com/mesosphere/charts/6c43b8ab10108fb1adba5c6dd10e800e5f1abdd0/stable/localvolumeprovisioner/values.yaml"
 spec:
+  namespace: kube-system
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/name: defaultstorageclass-protection
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: defaultstorageclass-protection
   kubernetes:
     minSupportedVersion: v1.15.0
-  namespace: kube-system 
   cloudProvider:
     - name: aws
       enabled: false

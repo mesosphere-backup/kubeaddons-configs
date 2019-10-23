@@ -1,4 +1,4 @@
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
+apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
   name: konvoyconfig

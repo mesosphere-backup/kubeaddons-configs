@@ -1,4 +1,4 @@
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
+apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
   name: dex
@@ -20,8 +20,8 @@ spec:
     - name: none
       enabled: true
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/provides: ingresscontroller
+    - matchLabels:
+        kubeaddons.mesosphere.io/provides: ingresscontroller
   chartReference:
     chart: dex
     repo: https://mesosphere.github.io/charts/stable

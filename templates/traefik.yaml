@@ -1,8 +1,7 @@
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
-kind: Addon
+apiVersion: kubeaddons.mesosphere.io/v1beta1
+kind: ClusterAddon
 metadata:
   name: traefik
-  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: traefik
     kubeaddons.mesosphere.io/provides: ingresscontroller
@@ -19,8 +18,8 @@ spec:
   kubernetes:
     minSupportedVersion: v1.15.0
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/name: cert-manager
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: cert-manager
   chartReference:
     chart: traefik
     repo: https://mesosphere.github.io/charts/staging

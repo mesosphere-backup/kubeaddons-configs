@@ -1,4 +1,4 @@
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
+apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
   name: dex-k8s-authenticator
@@ -20,8 +20,10 @@ spec:
     - name: none
       enabled: true
   requires:
-    matchLabels:
-      kubeaddons.mesosphere.io/name: dex
+    - matchLabels:
+        kubeaddons.mesosphere.io/name: dex
+    - matchLabels:
+        kubeaddons.mesosphere.io/provides: ingresscontroller
   chartReference:
     chart: dex-k8s-authenticator
     repo: https://mesosphere.github.io/charts/staging
