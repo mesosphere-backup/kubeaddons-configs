@@ -15,6 +15,13 @@ metadata:
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
+  cloudProvider:
+    - name: aws
+      enabled: true
+    - name: docker
+      enabled: true
+    - name: none
+      enabled: true
   namespace: kube-system
   chartReference:
     chart: stable/kubernetes-dashboard
