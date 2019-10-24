@@ -57,8 +57,8 @@ spec:
           - kibana-prometheus-exporter,6.7.0,https://github.com/pjhampton/kibana-prometheus-exporter/releases/download/6.7.0/kibana-prometheus-exporter-6.7.0.zip
       extraContainers: |
         - name: initialize-kibana-index
-          image: mesosphere/kubeaddons-addon-initializer:v0.0.4
-          command: ["/bin/bash", "-c", "addon-initializer kibana && while true; do sleep 86400; done"]
+          image: mesosphere/kubeaddons-addon-initializer:v0.0.13
+          command: ["/bin/bash", "-c", "addon-initializer kibana && sleep infinity"]
           env:
           - name: "KIBANA_NAMESPACE"
             value: "kubeaddons"
