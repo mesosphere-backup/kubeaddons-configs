@@ -1,9 +1,8 @@
 ---
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
-kind: Addon
+apiVersion: kubeaddons.mesosphere.io/v1beta1
+kind: ClusterAddon
 metadata:
   name: azuredisk-csi-driver
-  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: azuredisk-csi-driver
     kubeaddons.mesosphere.io/provides: csi-driver
