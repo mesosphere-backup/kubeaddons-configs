@@ -3,6 +3,7 @@ apiVersion: kubeaddons.mesosphere.io/v1alpha1
 kind: Addon
 metadata:
   name: azurediskprovisioner
+  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: azurediskprovisioner
     kubeaddons.mesosphere.io/provides: storageclass
