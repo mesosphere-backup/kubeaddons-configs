@@ -23,7 +23,7 @@ spec:
   chartReference:
     chart: opsportal
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.6
+    version: 0.1.9
     values: |
       ---
       bearerproxy:
