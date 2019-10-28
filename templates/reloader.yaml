@@ -8,7 +8,7 @@ metadata:
   annotations:
     appversion.kubeaddons.mesosphere.io/dex: "v0.0.49"
     values.chart.helm.kubeaddons.mesosphere.io/reloader: https://raw.githubusercontent.com/stakater/Reloader/ded923b12a17a0f5c9f37f1c4594331d8d22fa70/deployments/kubernetes/chart/reloader/values.yaml
-    # catalog.kubeaddons.mesosphere.io/addon-revision: "0.0.49-1"
+    catalog.kubeaddons.mesosphere.io/addon-revision: "0.0.49-1"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0
