@@ -18,8 +18,10 @@ spec:
   cloudProvider:
     - name: aws
       enabled: false
+    - name: docker
+      enabled: true
     - name: none
-      enabled: false
+      enabled: true
   chartReference:
     chart: harbor
     #repo: https://mesosphere.github.io/charts/staging
