@@ -51,8 +51,9 @@ spec:
         requests:
           cpu: 100m
       plugins:
-        enabled: true
-        reset: true
+        # to avoid needing to download any plugins at runtime, use a container and a shared volume
+        # do not enable the plugins here, instead rebuild the mesosphere/kibana-plugins image with the new plugins
+        enabled: false
         values:
           - kibana-prometheus-exporter,6.7.0,https://github.com/pjhampton/kibana-prometheus-exporter/releases/download/6.7.0/kibana-prometheus-exporter-6.7.0.zip
       extraContainers: |
@@ -64,3 +65,16 @@ spec:
             value: "kubeaddons"
           - name: "KIBANA_SERVICE_NAME"
             value: "kibana-kubeaddons"
+      initContainers: 
+        - name: kibana-plugins-install
+          image: mesosphere/kibana-plugins:v0.0.1
+          command: ["/bin/sh", "-c", "cp -a /usr/share/kibana/plugins/. /usr/share/kibana/shared-plugins/"]
+          volumeMounts:
+          - name: plugins
+            mountPath: /usr/share/kibana/shared-plugins/
+      extraVolumes:
+        - name: plugins
+          emptyDir: {}
+      extraVolumeMounts:
+        - mountPath: /usr/share/kibana/plugins/
+          name: plugins
