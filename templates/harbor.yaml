@@ -9,7 +9,8 @@ metadata:
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "0.1.0-1"
     appversion.kubeaddons.mesosphere.io/harbor: "0.1"
-    values.chart.helm.kubeaddons.mesosphere.io/harbor: "https://raw.githubusercontent.com/mesosphere/charts/869a26a8d4061d5b407cd260eac2eee9149f2823/staging/harbor/values.yaml"
+    #values.chart.helm.kubeaddons.mesosphere.io/harbor: "https://raw.githubusercontent.com/mesosphere/charts/869a26a8d4061d5b407cd260eac2eee9149f2823/staging/harbor/values.yaml"
+    values.chart.helm.kubeaddons.mesosphere.io/harbor: "https://raw.githubusercontent.com/mesosphere/charts/harbor/dev/staging/harbor/values.yaml"
 spec:
   namespace: kube-system
   kubernetes:
@@ -21,5 +22,6 @@ spec:
       enabled: false
   chartReference:
     chart: harbor
-    repo: https://mesosphere.github.io/charts/staging
+    #repo: https://mesosphere.github.io/charts/staging
+    repo: https://helm.goharbor.io
     version: 1.2.1
