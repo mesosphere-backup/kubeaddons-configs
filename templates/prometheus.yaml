@@ -99,8 +99,8 @@ spec:
           image:
             tag: v2.9.2
           thanos:
-            baseImage: thanosio/thanos
-            version: v0.4.0
+            baseImage: quay.io/thanos/thanos
+            version: v0.8.1
           externalLabels:
             cluster: $(CLUSTER_ID)
           containers:
