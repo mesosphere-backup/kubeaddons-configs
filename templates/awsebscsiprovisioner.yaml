@@ -18,10 +18,10 @@ spec:
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:
-    - name: azure
-      enabled: false    
     - name: aws
       enabled: true
+    - name: azure
+      enabled: false
   chartReference:
     chart: awsebscsiprovisioner
     repo: https://mesosphere.github.io/charts/stable

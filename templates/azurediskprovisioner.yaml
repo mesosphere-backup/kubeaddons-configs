@@ -13,10 +13,10 @@ spec:
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:
-    - name: azure
-      enabled: true
     - name: aws
       enabled: false
+    - name: azure
+      enabled: true
   chartReference:
     chart: azurediskprovisioner
     repo: https://mesosphere.github.io/charts/stable

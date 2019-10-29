@@ -17,7 +17,7 @@ spec:
     - name: aws
       enabled: true
     - name: azure
-      enabled: true      
+      enabled: true
     - name: docker
       enabled: false
     - name: none
