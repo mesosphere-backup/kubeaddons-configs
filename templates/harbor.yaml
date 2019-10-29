@@ -1,0 +1,25 @@
+---
+apiVersion: kubeaddons.mesosphere.io/v1beta1
+kind: ClusterAddon
+metadata:
+  name: harbor
+  labels:
+    kubeaddons.mesosphere.io/name: harbor
+    kubeaddons.mesosphere.io/provides: harbor
+  annotations:
+    catalog.kubeaddons.mesosphere.io/addon-revision: "0.1.0-1"
+    appversion.kubeaddons.mesosphere.io/harbor: "0.1"
+    values.chart.helm.kubeaddons.mesosphere.io/harbor: "https://raw.githubusercontent.com/mesosphere/charts/869a26a8d4061d5b407cd260eac2eee9149f2823/staging/harbor/values.yaml"
+spec:
+  namespace: kube-system
+  kubernetes:
+    minSupportedVersion: v1.15.0
+  cloudProvider:
+    - name: aws
+      enabled: false
+    - name: none
+      enabled: false
+  chartReference:
+    chart: harbor
+    repo: https://mesosphere.github.io/charts/staging
+    version: 1.2.1
