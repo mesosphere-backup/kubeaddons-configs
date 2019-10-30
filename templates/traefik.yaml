@@ -1,3 +1,4 @@
+---
 apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: ClusterAddon
 metadata:
@@ -8,6 +9,8 @@ metadata:
     # TODO: we're temporarily supporting dependency on an existing default storage class
     # on the cluster, this hack will trigger re-queue on Addons until one exists.
     kubeaddons.mesosphere.io/hack-requires-defaultstorageclass: "true"
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
+    kubeaddons.mesosphere.io/repository-ref: master
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "1.68.4-1"
     appversion.kubeaddons.mesosphere.io/traefik: "1.68.4"

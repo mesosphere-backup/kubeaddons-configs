@@ -6,6 +6,8 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: localvolumeprovisioner
     kubeaddons.mesosphere.io/provides: storageclass
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
+    kubeaddons.mesosphere.io/repository-ref: master
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "1.0.0-1"
     appversion.kubeaddons.mesosphere.io/localvolumeprovisioner: "1.0"
