@@ -7,7 +7,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: reloader
     kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
-    kubeaddons.mesosphere.io/repository-ref: master
+    kubeaddons.mesosphere.io/repository-ref: alejandro
   annotations:
     appversion.kubeaddons.mesosphere.io/dex: "v0.0.49"
     values.chart.helm.kubeaddons.mesosphere.io/reloader: https://raw.githubusercontent.com/stakater/Reloader/ded923b12a17a0f5c9f37f1c4594331d8d22fa70/deployments/kubernetes/chart/reloader/values.yaml
