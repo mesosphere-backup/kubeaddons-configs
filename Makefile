@@ -8,17 +8,18 @@ all: create.tag push.tag
 install.python.reqs:
 	$(shell pip install -r ./hacks/requirements.txt)
 
-.PHONY: create.tag
+.PHONY: tag.create
 create.tag:
 ifeq (, $(GIT_TAG))
 	@echo "must define a tag"
 endif
 	@echo "updating addons with tag: $(GIT_TAG)"
 	@python ./hacks/python/repository_ref_labeler.py --ref $(GIT_TAG) --path ./templates/
-# 	git commit -am "changed ref labels to ${GIT_TAG}"
-	git tag -a ${GIT_TAG} -m "${GIT_TAG}"
+	@git commit -am "changed ref labels to ${GIT_TAG}"
+	@git tag -a ${GIT_TAG} -m "${GIT_TAG}"
+	@git reset --hard HEAD^
 
-.PHONY: push.tag
+.PHONY: tag.push
 push.tag:
 ifeq (, $(GIT_TAG))
 	@echo "must define a tag"
