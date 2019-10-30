@@ -9,7 +9,7 @@ install.python.reqs:
 	$(shell pip install -r ./hacks/requirements.txt)
 
 .PHONY: tag.create
-create.tag:
+tag.create:
 ifeq (, $(GIT_TAG))
 	@echo "must define a tag"
 endif
@@ -20,7 +20,7 @@ endif
 	@git reset --hard HEAD^
 
 .PHONY: tag.push
-push.tag:
+tag.push:
 ifeq (, $(GIT_TAG))
 	@echo "must define a tag"
 endif
