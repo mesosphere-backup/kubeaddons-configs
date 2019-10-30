@@ -7,7 +7,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: dex-k8s-authenticator
     kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
-    kubeaddons.mesosphere.io/repository-ref: alejandro
+    kubeaddons.mesosphere.io/repository-ref: master
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "1.1.1-1"
     appversion.kubeaddons.mesosphere.io/dex-k8s-authenticator: "v1.1.1"

@@ -7,7 +7,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: gatekeeper
     kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
-    kubeaddons.mesosphere.io/repository-ref: alejandro
+    kubeaddons.mesosphere.io/repository-ref: master
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "3.0.4-1"
     appversion.kubeaddons.mesosphere.io/gatekeeper: "3.0.4-beta.1"
