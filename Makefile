@@ -15,7 +15,7 @@ ifeq (, $(GIT_TAG))
 endif
 	@echo "updating addons with tag: $(GIT_TAG)"
 	@python ./hacks/python/repository_ref_labeler.py --ref $(GIT_TAG) --path ./templates/
-	git commit -am "changed ref labels to ${GIT_TAG}"
+# 	git commit -am "changed ref labels to ${GIT_TAG}"
 	git tag -a ${GIT_TAG} -m "${GIT_TAG}"
 
 .PHONY: push.tag
@@ -23,5 +23,5 @@ push.tag:
 ifeq (, $(GIT_TAG))
 	@echo "must define a tag"
 endif
-	echo "pushing tag: ${GIT_TAG}"
-	@git push origin ${GIT_TAG}
+	echo "pushing tag: $(GIT_TAG)"
+	git push origin ${GIT_TAG}
