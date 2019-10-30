@@ -15,7 +15,7 @@ ifeq (, $(GIT_TAG))
 endif
 	@echo "updating addons with tag: $(GIT_TAG)"
 	@python ./hacks/python/repository_ref_labeler.py --ref $(GIT_TAG) --path ./templates/
- 	@git commit -a ${GIT_TAG} -m "${GIT_TAG}"
+	@git commit -a ${GIT_TAG} -m "${GIT_TAG}"
 
 .PHONY: push.tag
 push.tag:
