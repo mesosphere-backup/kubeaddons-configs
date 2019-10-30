@@ -23,4 +23,4 @@ ifeq (, $(GIT_TAG))
 	@echo "must define a tag"
 endif
 	echo "pushing tag: ${GIT_TAG}"
- 	@git push origin ${GIT_TAG}
+	@git push origin ${GIT_TAG}
