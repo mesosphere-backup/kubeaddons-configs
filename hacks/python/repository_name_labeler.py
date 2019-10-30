@@ -6,10 +6,10 @@ import argparse
 yaml = YAML()
 yaml.preserve_quotes = True
 
-parser = argparse.ArgumentParser(description='Append Version annotation to addons.')
+parser = argparse.ArgumentParser(description='Place repository-name label to addons.')
 parser.add_argument('-n', '--name', help='name of repository to use')
-parser.add_argument('-p', '--path', required=True, help='path where template files should be found')
-parser.add_argument('--remove', action='store_true', help='remove version from annotations')
+parser.add_argument('-p', '--path', required=True, help='path where addon files should be found')
+parser.add_argument('--remove', action='store_true', help='remove repository-name label from addons')
 args = parser.parse_args()
 
 CONST_METADATA_KEY = "metadata"
@@ -34,5 +34,6 @@ for file in addonFiles:
             addon.seek(0)
             addon.write("---\n")
             yaml.dump(addonyaml, addon)
+            addon.truncate()
         except Exception as Error:
             print("error found in file {}: {}".format(file, Error))

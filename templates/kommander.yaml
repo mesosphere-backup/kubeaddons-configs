@@ -6,6 +6,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: kommander
     kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
+    kubeaddons.mesosphere.io/repository-ref: master
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "1.116.17-1"
     appversion.kubeaddons.mesosphere.io/kommander: "1.116.17"

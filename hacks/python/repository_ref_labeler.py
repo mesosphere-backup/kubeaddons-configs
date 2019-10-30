@@ -6,10 +6,10 @@ import argparse
 yaml = YAML()
 yaml.preserve_quotes = True
 
-parser = argparse.ArgumentParser(description='Place ref value to addon\'s labels.')
+parser = argparse.ArgumentParser(description='Place repository-ref label to addons.')
 parser.add_argument('-r', '--ref', help='ref of repository to use')
 parser.add_argument('-p', '--path', required=True, help='path where addon files should be found')
-parser.add_argument('--remove', action='store_true', help='remove ref label from addons')
+parser.add_argument('--remove', action='store_true', help='remove repository-ref label from addons')
 args = parser.parse_args()
 
 CONST_METADATA_KEY = "metadata"
@@ -34,7 +34,6 @@ for file in addonFiles:
             addon.seek(0)
             addon.write("---\n")
             yaml.dump(addonyaml, addon)
-            addon.trunate()
+            addon.truncate()
         except Exception as Error:
             print("error found in file {}: {}".format(file, Error))
-
