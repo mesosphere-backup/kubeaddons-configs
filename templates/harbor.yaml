@@ -1,4 +1,4 @@
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
+apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
   name: harbor
@@ -23,5 +23,5 @@ spec:
       enabled: true
   chartReference:
     chart: harbor
-    repo: https://mesosphere.github.io/charts/staging
-    version: 1.2.1
+    repo: https://helm.goharbor.io
+    version: v1.2.1
