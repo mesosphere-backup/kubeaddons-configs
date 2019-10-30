@@ -16,16 +16,18 @@ spec:
     minSupportedVersion: v1.15.0
   cloudProvider:
     - name: aws
-      enabled: false
+      enabled: true
     - name: none
-      enabled: false
+      enabled: true
   chartReference:
     chart: nvidia
     repo: https://mesosphere.github.io/charts/staging
-    version: 0.1.0
+    version: 0.1.1
     values: |
       ---
       nvidia-driver:
+        image:
+          tag: "418.87.01-centos7"
         resources:
           limits:
              cpu: 2000m
