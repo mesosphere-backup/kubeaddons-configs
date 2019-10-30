@@ -6,7 +6,7 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
-    kubeaddons.mesosphere.io/repository-ref: master
+    kubeaddons.mesosphere.io/repository-ref: alejandro
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "1.0.4-1"
 spec:

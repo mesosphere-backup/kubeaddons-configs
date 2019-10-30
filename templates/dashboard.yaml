@@ -6,7 +6,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: dashboard
     kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
-    kubeaddons.mesosphere.io/repository-ref: master
+    kubeaddons.mesosphere.io/repository-ref: alejandro
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "1.10.1-1"
     appversion.kubeaddons.mesosphere.io/dashboard: "1.10.1"
