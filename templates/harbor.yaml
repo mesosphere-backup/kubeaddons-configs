@@ -26,4 +26,4 @@ spec:
     chart: harbor
     #repo: https://mesosphere.github.io/charts/staging
     repo: https://helm.goharbor.io
-    version: 1.2.1
+    version: v1.2.1
