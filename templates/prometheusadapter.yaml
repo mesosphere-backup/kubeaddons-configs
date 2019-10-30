@@ -6,6 +6,7 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: prometheusadapter
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "0.5.0-1"
     appversion.kubeaddons.mesosphere.io/prometheusadapter: "0.5.0"

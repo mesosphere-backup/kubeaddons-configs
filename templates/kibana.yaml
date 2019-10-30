@@ -6,6 +6,7 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: kibana
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "6.7.0-1"
     appversion.kubeaddons.mesosphere.io/kibana: "6.7.0"

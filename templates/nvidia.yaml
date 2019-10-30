@@ -6,6 +6,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: nvidia
     kubeaddons.mesosphere.io/provides: nvidia
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "0.1.0-1"
     appversion.kubeaddons.mesosphere.io/nvidia: "0.1"

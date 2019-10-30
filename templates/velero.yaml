@@ -1,3 +1,4 @@
+---
 # ------------------------------------------------------------------------------
 # Velero
 #
@@ -19,7 +20,6 @@
 #
 # WARNING: using the default (fallback) backend is for testing purposes only and should not be used in production.
 # ------------------------------------------------------------------------------
----
 apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: ClusterAddon
 metadata:
@@ -29,6 +29,7 @@ metadata:
     # TODO: we're temporarily supporting dependency on an existing default storage class
     # on the cluster, this hack will trigger re-queue on Addons until one exists.
     kubeaddons.mesosphere.io/hack-requires-defaultstorageclass: "true"
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "1.0.1-1"
     values.chart.helm.kubeaddons.mesosphere.io/velero: "https://raw.githubusercontent.com/helm/charts/39524419882dcf3d1a053711ac242c280923a094/stable/velero/values.yaml"

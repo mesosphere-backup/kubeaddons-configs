@@ -1,9 +1,11 @@
+---
 apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: ClusterAddon
 metadata:
   name: defaultstorageclass-protection
   labels:
     kubeaddons.mesosphere.io/name: defaultstorageclass-protection
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "0.0.1-1"
     appversion.kubeaddons.mesosphere.io/defaultstorageclass-protection: "0.0.1"

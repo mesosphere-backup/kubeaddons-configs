@@ -6,6 +6,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: awsebsprovisioner
     kubeaddons.mesosphere.io/provides: storageclass
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "1.0.0-1"
     appversion.kubeaddons.mesosphere.io/awsebsprovisioner: "1.0"

@@ -1,3 +1,4 @@
+---
 apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: ClusterAddon
 metadata:
@@ -5,6 +6,7 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: metallb
     kubeaddons.mesosphere.io/provides: loadbalancer
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "0.7.3-1"
     appversion.kubeaddons.mesosphere.io/metallb: "0.7.3"

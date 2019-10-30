@@ -1,3 +1,4 @@
+---
 apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
@@ -5,6 +6,7 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: kube-oidc-proxy
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "0.1.1-1"
     appversion.kubeaddons.mesosphere.io/kube-oidc-proxy: "v0.1.1"

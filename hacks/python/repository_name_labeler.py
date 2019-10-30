@@ -1,11 +1,13 @@
 from os import listdir
 from os.path import isfile, join
+from ruamel.yaml import YAML
 import argparse
-import ruamel.yaml.util
 
-yaml = ruamel.yaml.YAML()
+yaml = YAML()
+yaml.preserve_quotes = True
 
 parser = argparse.ArgumentParser(description='Append Version annotation to addons.')
+parser.add_argument('-n', '--name', help='name of repository to use')
 parser.add_argument('-p', '--path', required=True, help='path where template files should be found')
 parser.add_argument('--remove', action='store_true', help='remove version from annotations')
 args = parser.parse_args()
@@ -27,7 +29,10 @@ for file in addonFiles:
         except KeyError:
             print("key not found in file {}, found error {}".format(file, KeyError))
     else:
-        addonyaml[CONST_METADATA_KEY][CONST_LABEL_KEY][CONST_VERSION_LABEL] = "kubeaddons-configs"
-        addon.seek(0)
-        addon.write("---\n")
-        yaml.dump(addonyaml, addon)
+        try:
+            addonyaml[CONST_METADATA_KEY][CONST_LABEL_KEY][CONST_VERSION_LABEL] = args.name
+            addon.seek(0)
+            addon.write("---\n")
+            yaml.dump(addonyaml, addon)
+        except Exception as Error:
+            print("error found in file {}: {}".format(file, Error))

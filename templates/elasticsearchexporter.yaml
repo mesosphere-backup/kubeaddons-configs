@@ -6,6 +6,7 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: elasticsearchexporter
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "1.0.2-1"
     appversion.kubeaddons.mesosphere.io/elasticsearchexporter: "1.0.2"

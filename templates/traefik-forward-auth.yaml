@@ -1,8 +1,11 @@
+---
 apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
   name: traefik-forward-auth
   namespace: kubeaddons
+  labels:
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "1.0.4-1"
 spec:

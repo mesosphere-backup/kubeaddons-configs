@@ -6,6 +6,7 @@ metadata:
   namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: fluentbit
+    kubeaddons.mesosphere.io/repository-name: kubeaddons-configs
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "1.2.1-1"
     appversion.kubeaddons.mesosphere.io/fluentbit: "1.2.1"
