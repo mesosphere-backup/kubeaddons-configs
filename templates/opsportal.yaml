@@ -36,3 +36,41 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
+      opsportal:
+        ingress:
+          paths:
+            # kubernetes-dashboard
+            - backend:
+                serviceName: bearerproxy
+                servicePort: 9091
+              path: /ops/portal/kubernetes
+            # harbor
+            - backend:
+                serviceName: harbor-kubeaddons-harbor-portal
+                servicePort: 80
+              path: /ops/portal/harbor
+            # kibana
+            - backend:
+                serviceName: kibana-kubeaddons
+                servicePort: 5601
+              path: /ops/portal/kibana
+            # grafana
+            - backend:
+                serviceName: prometheus-kubeaddons-grafana
+                servicePort: 3000
+              path: /ops/portal/grafana
+            # prometheus
+            - backend:
+                serviceName: prometheus-kubeaddons-prom-prometheus
+                servicePort: 9090
+              path: /ops/portal/prometheus
+            # alertmanager
+            - backend:
+                serviceName: prometheus-kubeaddons-prom-alertmanager
+                servicePort: 9093
+              path: /ops/portal/alertmanager
+            # traefik
+            - backend:
+                serviceName: traefik-kubeaddons-dashboard
+                servicePort: 80
+              path: /ops/portal/traefik
