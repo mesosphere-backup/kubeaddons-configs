@@ -1,3 +1,4 @@
+---
 # ------------------------------------------------------------------------------
 # Velero
 #
@@ -19,7 +20,6 @@
 #
 # WARNING: using the default (fallback) backend is for testing purposes only and should not be used in production.
 # ------------------------------------------------------------------------------
----
 apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: ClusterAddon
 metadata:
