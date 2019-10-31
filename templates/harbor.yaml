@@ -27,3 +27,11 @@ spec:
     #repo: https://mesosphere.github.io/charts/staging
     repo: https://helm.goharbor.io
     version: v1.2.1
+    values: |
+      ---
+      expose:
+        type: clusterIP
+        tls:
+          commonName: harbor.kube-system
+
+      externalURL: https://harbor.kube-system
