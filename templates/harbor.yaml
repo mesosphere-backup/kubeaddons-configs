@@ -12,6 +12,8 @@ metadata:
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "0.1.0-1"
     appversion.kubeaddons.mesosphere.io/harbor: "0.1"
+    endpoint.kubeaddons.mesosphere.io/harbor: "/ops/portal/harbor"
+    docs.kubeaddons.mesosphere.io/harbor: "https://goharbor.io/docs/"
     #values.chart.helm.kubeaddons.mesosphere.io/harbor: "https://raw.githubusercontent.com/mesosphere/charts/869a26a8d4061d5b407cd260eac2eee9149f2823/staging/harbor/values.yaml"
     values.chart.helm.kubeaddons.mesosphere.io/harbor: "https://raw.githubusercontent.com/mesosphere/charts/harbor/dev/staging/harbor/values.yaml"
 spec:
