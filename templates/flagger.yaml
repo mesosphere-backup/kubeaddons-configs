@@ -23,6 +23,7 @@ spec:
   requires:
     - matchLabels:
         kubeaddons.mesosphere.io/name: istio
+    - matchLabels:
         kubeaddons.mesosphere.io/name: flagger-loadtester
   chartReference:
     chart: staging/flagger
