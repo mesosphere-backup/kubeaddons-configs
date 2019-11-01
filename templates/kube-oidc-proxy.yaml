@@ -62,6 +62,7 @@ spec:
         # updated by initcontainer when working with a remote dex
         issuerUrl: https://dex-kubeaddons.kubeaddons.svc.cluster.local:8080/dex
         usernameClaim: email
+        groupsClaim: groups
         groupsPrefix: "oidc:"
         # placeholder : updated by initcontainer
         caPEM: "placeholder"
