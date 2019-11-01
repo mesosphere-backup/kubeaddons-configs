@@ -3,6 +3,7 @@ apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: ClusterAddon
 metadata:
   name: harbor
+  namespace: kubeaddons
   labels:
     kubeaddons.mesosphere.io/name: harbor
     kubeaddons.mesosphere.io/provides: harbor
@@ -17,7 +18,7 @@ metadata:
     #values.chart.helm.kubeaddons.mesosphere.io/harbor: "https://raw.githubusercontent.com/mesosphere/charts/869a26a8d4061d5b407cd260eac2eee9149f2823/staging/harbor/values.yaml"
     values.chart.helm.kubeaddons.mesosphere.io/harbor: "https://raw.githubusercontent.com/mesosphere/charts/harbor/dev/staging/harbor/values.yaml"
 spec:
-  namespace: kube-system
+  #namespace: kube-system
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:
