@@ -89,6 +89,7 @@ spec:
           name: 'Kubernetes CLI authenticator'
           redirectURIs:
             - 'https://PUBLIC.URI/token/callback/kubernetes-cluster'
+            - 'https://PUBLIC.URI/token/callback'
         - id: traefik-forward-auth
           name: 'Ops Portal authenticator'
           redirectURIs:
