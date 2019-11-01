@@ -46,8 +46,8 @@ spec:
               path: /ops/portal/kubernetes
             # harbor
             - backend:
-                serviceName: harbor-kubeaddons-harbor-portal
-                servicePort: 80
+                serviceName: harbor
+                servicePort: 443
               path: /ops/portal/harbor
             # kibana
             - backend:
