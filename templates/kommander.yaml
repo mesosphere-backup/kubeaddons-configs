@@ -26,8 +26,8 @@ spec:
       enabled: true
   chartReference:
     chart: kommander
-    repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.54
+    repo: https://timaa2k.github.io/charts
+    version: 0.1.55
     values: |
       ---
       ingress:
@@ -39,3 +39,24 @@ spec:
           issuer:
             name: kubernetes-ca
             kind: ClusterIssuer
+
+        controller:
+          containers:
+            manager:
+              image:
+                repository: timaa2k/kommander-cluster-lifecycle-controller-manager
+                tag: dev
+                pullPolicy: Always
+
+        webhook:
+          image:
+            repository: timaa2k/kommander-cluster-lifecycle-webhook
+            tag: dev
+            pullPolicy: Always
+
+        utilityApiserver:
+          allowUnofficialReleases: false
+          image:
+            repository: timaa2k/kommander-cluster-lifecycle-utility-apiserver
+            tag: dev
+            pullPolicy: Always
