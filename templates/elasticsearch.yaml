@@ -23,7 +23,8 @@ spec:
     - name: none
       enabled: true
   chartReference:
-    chart: stable/elasticsearch
+    chart: elasticsearch
+    repo: http://127.0.0.1:8080
     version: 1.26.2
     values: |
       ---

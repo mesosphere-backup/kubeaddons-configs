@@ -11,7 +11,7 @@ spec:
       kubeaddons.mesosphere.io/name: dex
   chartReference:
     chart: traefik-forward-auth
-    repo: https://mesosphere.github.io/charts/staging
+    repo: http://127.0.0.1:8080
     version: 0.2.0
     values: |
       ---

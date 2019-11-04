@@ -25,7 +25,8 @@ spec:
     matchLabels:
       kubeaddons.mesosphere.io/name: elasticsearch
   chartReference:
-    chart: stable/kibana
+    chart: kibana
+    repo: http://127.0.0.1:8080
     version: 3.0.0
     values: |
       ---

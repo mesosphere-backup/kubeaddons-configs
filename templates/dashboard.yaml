@@ -16,7 +16,8 @@ spec:
     minSupportedVersion: v1.15.0
   namespace: kube-system
   chartReference:
-    chart: stable/kubernetes-dashboard
+    chart: kubernetes-dashboard
+    repo: http://127.0.0.1:8080
     version: 1.5.2
     values: |
       ---

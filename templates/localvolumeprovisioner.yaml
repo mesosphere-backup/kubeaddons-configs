@@ -35,5 +35,5 @@ spec:
       enabled: true
   chartReference:
     chart: localvolumeprovisioner
-    repo: https://mesosphere.github.io/charts/stable
+    repo: http://127.0.0.1:8080
     version: 0.5.0

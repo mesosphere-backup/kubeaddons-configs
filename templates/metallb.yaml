@@ -32,7 +32,8 @@ spec:
             # configure addresses for your network
             addresses: []
   chartReference:
-    chart: stable/metallb
+    chart: metallb
+    repo: http://127.0.0.1:8080
     version: 0.9.5
     values: |
       ---
