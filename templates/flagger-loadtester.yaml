@@ -25,6 +25,6 @@ spec:
     - matchLabels:
         kubeaddons.mesosphere.io/name: istio
   chartReference:
-    chart: staging/flagger-loadtester
+    chart: flagger-loadtester
     version: 0.9.0
     repo: https://gpaul.github.io/charts/staging
