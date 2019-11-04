@@ -1,5 +1,5 @@
 ---
-apiVersion: kubeaddons.mesosphere.io/v1alpha1
+apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
   name: flagger-loadtester
@@ -27,3 +27,5 @@ spec:
   chartReference:
     chart: staging/flagger-loadtester
     version: 0.9.0
+    repo: https://mesosphere.github.io/charts/staging
+
