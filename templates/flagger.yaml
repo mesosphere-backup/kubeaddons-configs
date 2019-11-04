@@ -8,6 +8,7 @@ metadata:
     kubeaddons.mesosphere.io/name: flagger
   annotations:
     appversion.kubeaddons.mesosphere.io/flagger: "0.19.0"
+    catalog.kubeaddons.mesosphere.io/addon-revision: "0.19.0"
     docs.kubeaddons.mesosphere.io/flagger: "https://docs.flagger.app/"
     values.chart.helm.kubeaddons.mesosphere.io/flagger: "https://raw.githubusercontent.com/weaveworks/flagger/0.19.0/charts/flagger/values.yaml"
 spec:
