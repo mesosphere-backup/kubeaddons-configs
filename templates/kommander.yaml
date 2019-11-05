@@ -47,16 +47,3 @@ spec:
                 repository: timaa2k/kommander-cluster-lifecycle-controller-manager
                 tag: dev
                 pullPolicy: Always
-
-        webhook:
-          image:
-            repository: timaa2k/kommander-cluster-lifecycle-webhook
-            tag: dev
-            pullPolicy: Always
-
-        utilityApiserver:
-          allowUnofficialReleases: false
-          image:
-            repository: timaa2k/kommander-cluster-lifecycle-utility-apiserver
-            tag: dev
-            pullPolicy: Always
