@@ -27,7 +27,7 @@ spec:
   chartReference:
     chart: kommander
     repo: https://timaa2k.github.io/charts
-    version: 0.1.59
+    version: 0.2.1
     values: |
       ---
       ingress:
@@ -39,3 +39,11 @@ spec:
           issuer:
             name: kubernetes-ca
             kind: ClusterIssuer
+
+        controller:
+          containers:
+            manager:
+              image:
+                repository: timaa2k/kommander-cluster-lifecycle-controller-manager
+                tag: dev
+                pullPolicy: Always
