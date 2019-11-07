@@ -43,8 +43,8 @@ spec:
       enabled: true
   chartReference:
     chart: velero
-    repo: https://mesosphere.github.io/charts/staging
-    version: 2.2.5
+    repo: https://s12chung.github.io/mycharts/staging
+    version: 2.2.7
     values: |
       ---
       configuration:

@@ -6,11 +6,13 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: kommander
   annotations:
-    catalog.kubeaddons.mesosphere.io/addon-revision: "1.149.0-1"
+    catalog.kubeaddons.mesosphere.io/addon-revision: "1.149.0-2"
     appversion.kubeaddons.mesosphere.io/kommander: "1.149.0"
+    # remove this when we patch kommander image to make it configurable, right now it searches for this with an addon named kommander
     endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal/kommander
+    # update this values
     values.chart.helm.kubeaddons.mesosphere.io/kommander: "https://raw.githubusercontent.com/mesosphere/charts/master/stable/kommander/values.yaml"
-    helmv2.kubeaddons.mesosphere.io/upgrade-strategy: "[{\"upgradeFrom\": \"<=0.1.22\", \"strategy\": \"delete\"}]"
+    helmv2.kubeaddons.mesosphere.io/upgrade-strategy: "[{\"upgradeFrom\": \"<=0.2.3\", \"strategy\": \"delete\"}]"
 spec:
   namespace: kommander
   kubernetes:
@@ -27,14 +29,10 @@ spec:
       enabled: true
   chartReference:
     chart: kommander
-    repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.58
+    repo: https://s12chung.github.io/mycharts/staging
+    version: 0.2.4
     values: |
       ---
-      ingress:
-        extraAnnotations:
-          traefik.ingress.kubernetes.io/priority: "2"
-
       kommander-cluster-lifecycle:
         certificates:
           issuer:
