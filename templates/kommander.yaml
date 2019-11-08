@@ -40,3 +40,9 @@ spec:
           issuer:
             name: kubernetes-ca
             kind: ClusterIssuer
+
+      kommander-karma:
+        karma:
+          deployment:
+            annotations:
+              configmap.reloader.stakater.com/reload: kommander-kubeaddons-config
