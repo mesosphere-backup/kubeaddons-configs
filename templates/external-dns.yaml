@@ -19,6 +19,8 @@ spec:
         aws:
           region:
         domainFilters: []
+    - name: azure
+      enabled: false
     - name: docker
       enabled: false
     - name: none
@@ -30,4 +32,4 @@ spec:
       rbac:
         create: true
       sources:
-      - ingress 
+      - ingress

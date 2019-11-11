@@ -18,6 +18,8 @@ spec:
   cloudProvider:
     - name: aws
       enabled: true
+    - name: azure
+      enabled: true
     - name: docker
       enabled: false
     - name: none

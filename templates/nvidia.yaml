@@ -17,6 +17,10 @@ spec:
   cloudProvider:
     - name: aws
       enabled: false
+    - name: azure
+      enabled: false
+    - name: docker
+      enabled: false
     - name: none
       enabled: false
   chartReference:

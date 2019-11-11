@@ -22,6 +22,8 @@ spec:
   cloudProvider:
     - name: aws
       enabled: false
+    - name: azure
+      enabled: false
     - name: docker
       enabled: false
     - name: none
@@ -43,7 +45,7 @@ spec:
          auth:
            strategy: anonymous
        prometheusAddr: http://prometheus-kubeaddons-prom-prometheus.kubeaddons:9090
-       
+
       tracing:
         enabled: true
         contextPath: /ops/portal/jaeger
@@ -52,7 +54,7 @@ spec:
           kubernetes.io/ingress.class: traefik
           hosts:
             - ""
-          
+
       grafana:
         enabled: true
 
