@@ -23,8 +23,6 @@ spec:
       values: |
         storageclass:
           isDefault: false
-    - name: azure
-      enabled: false
   chartReference:
     chart: awsebsprovisioner
     repo: https://mesosphere.github.io/charts/stable

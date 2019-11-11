@@ -13,8 +13,6 @@ spec:
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:
-    - name: aws
-      enabled: false
     - name: azure
       enabled: true
   chartReference:
