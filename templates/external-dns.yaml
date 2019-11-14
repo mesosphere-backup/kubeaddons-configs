@@ -31,5 +31,3 @@ spec:
     values: |
       rbac:
         create: true
-      sources:
-      - ingress
