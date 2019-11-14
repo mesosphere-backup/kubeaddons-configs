@@ -3,10 +3,11 @@ apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: Addon
 metadata:
   name: flagger
-  namespace: kubeaddons
+  namespace: flagger
   labels:
     kubeaddons.mesosphere.io/name: flagger
   annotations:
+    sidecar.istio.io/inject: "false"
     appversion.kubeaddons.mesosphere.io/flagger: "0.19.0"
     catalog.kubeaddons.mesosphere.io/addon-revision: "0.19.0"
     docs.kubeaddons.mesosphere.io/flagger: "https://docs.flagger.app/"
@@ -24,8 +25,6 @@ spec:
   requires:
     - matchLabels:
         kubeaddons.mesosphere.io/name: istio
-    - matchLabels:
-        kubeaddons.mesosphere.io/name: flagger-loadtester
   chartReference:
     chart: flagger
     repo: https://gpaul.github.io/charts/staging
