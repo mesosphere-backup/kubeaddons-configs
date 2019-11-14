@@ -33,12 +33,9 @@ spec:
         image:
           tag: "418.87.01-centos7"
         resources:
-          limits:
-             cpu: 2000m
-             memory: 6144Mi
           requests:
              cpu: 200m
-             memory: 256Mi
+             memory: 512Mi
         nodeSelector:
           konvoy.mesosphere.com/gpu-provider: NVIDIA
       nvidia-device-plugin:
