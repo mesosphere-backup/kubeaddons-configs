@@ -1,9 +1,9 @@
 ---
 apiVersion: kubeaddons.mesosphere.io/v1beta1
-kind: Addon
+kind: ClusterAddon
 metadata:
   name: flagger
-  namespace: flagger
+  namespace: kubeaddons-flagger
   labels:
     kubeaddons.mesosphere.io/name: flagger
   annotations:
@@ -13,6 +13,7 @@ metadata:
     docs.kubeaddons.mesosphere.io/flagger: "https://docs.flagger.app/"
     values.chart.helm.kubeaddons.mesosphere.io/flagger: "https://raw.githubusercontent.com/weaveworks/flagger/0.19.0/charts/flagger/values.yaml"
 spec:
+  namespace: kubeaddons-flagger
   kubernetes:
     minSupportedVersion: v1.15.0
   cloudProvider:
