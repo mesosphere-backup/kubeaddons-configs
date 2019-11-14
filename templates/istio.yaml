@@ -58,6 +58,9 @@ spec:
       grafana:
         enabled: true
 
+      prometheus:
+        serviceName: prometheus-kubeaddons-prom-prometheus.kubeaddons
+
       istiocoredns:
         enabled: true
 
