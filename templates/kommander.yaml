@@ -42,6 +42,10 @@ spec:
           issuer:
             name: kubernetes-ca
             kind: ClusterIssuer
+        webhook:
+          image:
+            repository: mesosphere/kommander-cluster-lifecycle-webhook
+            tag: v0.2.2-dev
 
       kommander-karma:
         karma:
