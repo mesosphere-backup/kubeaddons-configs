@@ -28,7 +28,7 @@ spec:
         kubeaddons.mesosphere.io/name: istio
   chartReference:
     chart: flagger
-    repo: https://gpaul.github.io/charts/staging
+    repo: https://mesosphere.github.io/charts/staging
     version: 0.19.0
     values: |
       ---
