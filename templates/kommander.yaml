@@ -40,3 +40,10 @@ spec:
           issuer:
             name: kubernetes-ca
             kind: ClusterIssuer
+        controller:
+          containers:
+            manager:
+              image:
+                repository: mesosphere/kommander-cluster-lifecycle-controller-manager
+                tag: dev-thanos
+                pullPolicy: Always
