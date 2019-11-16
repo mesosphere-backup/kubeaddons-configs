@@ -42,6 +42,13 @@ spec:
           issuer:
             name: kubernetes-ca
             kind: ClusterIssuer
+        konvoy:
+          allowUnofficialReleases: true
+        kubeaddonsConfigs:
+          versionStrategy: mapped-kubernetes-version
+          versionMap:
+            1.15.4: kommander-beta4
+            1.15.5: kommander-beta5
 
       kommander-karma:
         karma:
