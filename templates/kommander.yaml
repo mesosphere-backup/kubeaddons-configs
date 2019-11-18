@@ -28,7 +28,7 @@ spec:
   chartReference:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.2.8
+    version: 0.2.12
     values: |
       ---
       ingress:
@@ -47,3 +47,13 @@ spec:
                 repository: mesosphere/kommander-cluster-lifecycle-controller-manager
                 tag: dev-thanos
                 pullPolicy: Always
+        webhook:
+          image:
+            repository: mesosphere/kommander-cluster-lifecycle-webhook
+            tag: dev-thanos
+            pullPolicy: Always
+        utilityApiserver:
+          image:
+            repository: mesosphere/kommander-cluster-lifecycle-utility-apiserver
+            tag: dev-thanos
+            pullPolicy: Always
