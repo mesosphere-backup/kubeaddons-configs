@@ -24,7 +24,7 @@ spec:
       enabled: true
   chartReference:
     chart: stable/elasticsearch
-    version: 1.26.2
+    version: 1.32.0
     values: |
       ---
       client:
