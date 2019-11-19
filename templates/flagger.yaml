@@ -18,11 +18,11 @@ spec:
     minSupportedVersion: v1.15.0
   cloudProvider:
     - name: aws
-      enabled: true
+      enabled: false
     - name: docker
-      enabled: true
+      enabled: false
     - name: none
-      enabled: true
+      enabled: false
   requires:
     - matchLabels:
         kubeaddons.mesosphere.io/name: istio
