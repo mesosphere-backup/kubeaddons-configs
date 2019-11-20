@@ -21,11 +21,10 @@ spec:
   chartReference:
     chart: konvoyconfig
     repo: https://mesosphere.github.io/charts/staging
-    version: 0.0.1
+    version: 0.0.2
     values: |
       ---
       config:
         # clusterHostname should be a FQDN that resolves to the cluster's ingress VIP.
         # This value will be used to generate certificates for traefik and configure dex.
         clusterHostname: ""
-

@@ -19,11 +19,11 @@ spec:
     minSupportedVersion: v1.15.0
   requires:
     matchLabels:
-      kubeaddons.mesosphere.io/name: cert-manager    
+        kubeaddons.mesosphere.io/name: cert-manager
   chartReference:
     chart: traefik
     repo: https://mesosphere.github.io/charts/staging
-    version: 1.72.3
+    version: 1.72.8
     values: |
       ---
       replicas: 2
@@ -57,3 +57,31 @@ spec:
         # separate issue.
         # See: https://jira.mesosphere.com/browse/DCOS-56033
         insecureSkipVerify: true
+      deploymentAnnotations:
+        # Watching this CM will trigger traefik init container that updates certificate
+        # object with new DNS names. That will cascade secret update which will trigger
+        # another reload.
+        configmap.reloader.stakater.com/reload: konvoyconfig-kubeaddons
+        secret.reloader.stakater.com/reload: traefik-kubeaddons-certificate
+
+      initContainers:
+      - name: initialize-traefik-certificate
+        image: mesosphere/kubeaddons-addon-initializer:v0.1.2
+        args: ["traefik"]
+        env:
+        - name: "TRAEFIK_INGRESS_NAMESPACE"
+          value: "kubeaddons"
+        - name: "TRAEFIK_INGRESS_SERVICE_NAME"
+          value: "traefik-kubeaddons"
+        - name: "TRAEFIK_INGRESS_CERTIFICATE_NAME"
+          value: "traefik-kubeaddons"
+        - name: "TRAEFIK_INGRESS_CERTIFICATE_ISSUER"
+          value: "kubernetes-ca"
+        - name: "TRAEFIK_INGRESS_CERTIFICATE_SECRET_NAME"
+          value: "traefik-kubeaddons-certificate"
+        - name: "TRAEFIK_KONVOY_ADDONS_CONFIG_MAP"
+          value: "konvoyconfig-kubeaddons"
+        - name: "TRAEFIK_CLUSTER_HOSTNAME_KEY"
+          value: "clusterHostname"
+
+      initCertJobImage: mesosphere/kubeaddons-addon-initializer:v0.1.2

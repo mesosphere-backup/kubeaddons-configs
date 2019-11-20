@@ -33,7 +33,7 @@ spec:
   chartReference:
     chart: prometheus-operator
     repo: https://mesosphere.github.io/charts/staging
-    version: 5.10.9
+    version: 5.19.2
     values: |
       ---
       defaultRules:
@@ -46,7 +46,17 @@ spec:
           # addon alert rules are defaulted to false to prevent potential misfires if addons
           # are disabled.
           velero: false
+        # This option grants the Prometheus pod the necessary permissions that the
+        # "get-cluster-id" container defined in prometheus.prometheusSpec.containers requires.
+        # see: https://github.com/mesosphere/kubeaddons-extrasteps/tree/master/pkg/prometheus/prometheus.go
+        enableAdditionalPrometheusRBACRules: true
       prometheus:
+        service:
+          additionalPorts:
+            # Service port for Thanos gRPC.
+            - name: grpc
+              port: 10901
+              targetPort: grpc
         additionalServiceMonitors:
           - name: kubeaddons-service-monitor-metrics
             selector:
@@ -61,6 +71,12 @@ spec:
               - port: metrics
                 interval: 30s
               - port: monitoring
+                interval: 30s
+              # Service port for Thanos Querier, running in Kommander.
+              # If we ever add a Kommander-specific Prometheus, this
+              # endpoint should be removed and added to that Prometheus's
+              # configuration.
+              - targetPort: 10902
                 interval: 30s
           - name: kubeaddons-service-monitor-api-v1-metrics-prometheus
             selector:
@@ -85,9 +101,28 @@ spec:
                 targetPort: 5601
                 interval: 30s
         prometheusSpec:
+          image:
+            tag: v2.9.2
           thanos:
-            baseImage: thanosio/thanos
-            version: v0.4.0
+            baseImage: quay.io/thanos/thanos
+            version: v0.8.1
+          externalLabels:
+            cluster: $(CLUSTER_ID)
+          containers:
+            # note: in order to run this container, mesosphereResources.enableAdditionalPrometheusRBACRules
+            # needs to be set to true
+            - name: get-cluster-id
+              image: mesosphere/kubeaddons-addon-initializer:v0.0.13
+              command: ["/bin/bash", "-c", "addon-initializer prometheus && sleep infinity"]
+              env:
+              - name: "PROMETHEUS_NAMESPACE"
+                value: "kubeaddons"
+              - name: "CLUSTER_ID_CONFIGMAP_NAME"
+                value: "cluster-info-configmap"
+            - name: prometheus-config-reloader
+              envFrom:
+              - configMapRef:
+                  name: cluster-info-configmap
           additionalScrapeConfigs:
             - job_name: 'kubernetes-nodes-containerd'
               metrics_path: /v1/metrics
