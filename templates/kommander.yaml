@@ -48,7 +48,7 @@ spec:
           versionStrategy: mapped-kubernetes-version
           versionMap:
             1.15.4: kommander-beta4
-            1.15.5: kommander-beta5
+            1.15.5: kommander-beta6
 
       kommander-karma:
         karma:
