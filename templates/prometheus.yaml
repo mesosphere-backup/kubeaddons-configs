@@ -32,7 +32,7 @@ spec:
       enabled: true
   chartReference:
     chart: prometheus-operator
-    repo: http://c4dd3a5e.ngrok.io
+    repo: http://1919f516.ngrok.io
     version: 5.19.6
     values: |
       ---
