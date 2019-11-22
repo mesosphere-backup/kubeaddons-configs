@@ -30,8 +30,6 @@ var temporarilyFilteredAddons = []string{
 	"dex-k8s-authenticator",
 	"dex",
 	"dispatch",
-	"elasticsearchexporter",
-	"elasticsearch",
 	"external-dns",
 	"flagger",
 	"fluentbit",
