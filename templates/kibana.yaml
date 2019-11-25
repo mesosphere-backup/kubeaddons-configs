@@ -29,7 +29,7 @@ spec:
         kubeaddons.mesosphere.io/name: elasticsearch
   chartReference:
     chart: stable/kibana
-    version: 3.0.0
+    version: 3.2.4
     values: |
       ---
       files:
