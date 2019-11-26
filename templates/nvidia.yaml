@@ -34,7 +34,7 @@ spec:
           tag: "418.87.01-centos7"
         resources:
           requests:
-             cpu: 200m
+             cpu: 500m
              memory: 512Mi
         nodeSelector:
           konvoy.mesosphere.com/gpu-provider: NVIDIA
