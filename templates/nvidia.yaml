@@ -53,6 +53,8 @@ spec:
           image: busybox
           command: ['sh', '-c', 'sleep 180']
       nvidia-dcgm-exporter:
+        enabled: true
+        namespace: kubeaddons
         nodeSelector:
           konvoy.mesosphere.com/gpu-provider: NVIDIA
         initContainers:
