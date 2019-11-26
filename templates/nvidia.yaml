@@ -52,3 +52,10 @@ spec:
         - name: init-wait
           image: busybox
           command: ['sh', '-c', 'sleep 180']
+      nvidia-dcgm-exporter:
+        nodeSelector:
+          konvoy.mesosphere.com/gpu-provider: NVIDIA
+        initContainers:
+        - name: init-wait
+          image: busybox
+          command: ['sh', '-c', 'sleep 200']
