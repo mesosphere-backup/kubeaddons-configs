@@ -61,3 +61,6 @@ spec:
         - name: init-wait
           image: busybox
           command: ['sh', '-c', 'sleep 200']
+      grafana:
+        enabled: true
+        namespace: kubeaddons
