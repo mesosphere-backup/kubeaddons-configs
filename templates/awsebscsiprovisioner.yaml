@@ -23,7 +23,7 @@ spec:
   chartReference:
     chart: awsebscsiprovisioner
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.3.1
+    version: 0.3.2
     values: |
       ---
       resizer:
