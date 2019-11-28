@@ -26,4 +26,4 @@ spec:
   chartReference:
     chart: awsebsprovisioner
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.1.3
+    version: 0.1.5
