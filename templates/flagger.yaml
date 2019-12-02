@@ -23,6 +23,8 @@ spec:
       enabled: false
     - name: none
       enabled: false
+    - name: azure
+      enabled: false
   requires:
     - matchLabels:
         kubeaddons.mesosphere.io/name: istio

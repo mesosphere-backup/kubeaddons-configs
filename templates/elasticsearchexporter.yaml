@@ -7,8 +7,8 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: elasticsearchexporter
   annotations:
-    catalog.kubeaddons.mesosphere.io/addon-revision: "1.0.2-1"
-    appversion.kubeaddons.mesosphere.io/elasticsearchexporter: "1.0.2"
+    catalog.kubeaddons.mesosphere.io/addon-revision: "1.1.0-1"
+    appversion.kubeaddons.mesosphere.io/elasticsearchexporter: "1.1.0"
     values.chart.helm.kubeaddons.mesosphere.io/elasticsearchexporter: "https://raw.githubusercontent.com/helm/charts/08fc376647d43169743dcf04f1e88a2aec9e5f3d/stable/elasticsearch-exporter/values.yaml"
 spec:
   kubernetes:
@@ -27,15 +27,11 @@ spec:
         kubeaddons.mesosphere.io/name: elasticsearch
   chartReference:
     chart: stable/elasticsearch-exporter
-    version: 1.3.1
+    version: 2.1.1
     values: |
       ---
       es:
         uri: http://elasticsearch-kubeaddons-client:9200
-      image:
-        repository: justwatch/elasticsearch_exporter
-        tag: 1.0.2
-        pullPolicy: IfNotPresent
       service:
         labels:
           servicemonitor.kubeaddons.mesosphere.io/path: "metrics"

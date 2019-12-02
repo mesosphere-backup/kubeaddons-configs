@@ -6,8 +6,8 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: dispatch
   annotations:
-    catalog.kubeaddons.mesosphere.io/addon-revision: "0.3.0-1"
-    appversion.kubeaddons.mesosphere.io/dispatch: "0.3.0"
+    catalog.kubeaddons.mesosphere.io/addon-revision: "0.3.5-1"
+    appversion.kubeaddons.mesosphere.io/dispatch: "0.3.5"
     endpoint.kubeaddons.mesosphere.io/dispatch: /dispatch/tekton/
     docs.kubeaddons.mesosphere.io/dispatch: "https://beta-dispatch.d2iq.com/"
     appversion.kubeaddons.mesosphere.io/argo-cd: "1.2.0"
@@ -30,7 +30,7 @@ spec:
   chartReference:
     chart: dispatch
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.3.3
+    version: 0.3.5
     values: |
       ---
       global:
