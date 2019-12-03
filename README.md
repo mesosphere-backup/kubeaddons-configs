@@ -1,3 +1,5 @@
+**NOTE**: this repository **is now deprecated** and only serves konvoy versions prior to 1.3. Please see [the new repo](https://github.com/mesosphere/kubernetes-base-addons) to continue maintaining base kubernetes addons for ksphere products.
+
 # Addon Repository
 
 This is a repository for `Addon` resources managed by `Kubeaddons`.
