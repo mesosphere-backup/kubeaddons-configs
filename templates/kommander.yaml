@@ -6,8 +6,8 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: kommander
   annotations:
-    catalog.kubeaddons.mesosphere.io/addon-revision: "1.163.2-1"
-    appversion.kubeaddons.mesosphere.io/kommander: "1.163.2"
+    catalog.kubeaddons.mesosphere.io/addon-revision: "1.150.12-1"
+    appversion.kubeaddons.mesosphere.io/kommander: "1.150.12"
     endpoint.kubeaddons.mesosphere.io/kommander: /ops/portal/kommander
     values.chart.helm.kubeaddons.mesosphere.io/kommander: "https://raw.githubusercontent.com/mesosphere/charts/master/stable/kommander/values.yaml"
     helmv2.kubeaddons.mesosphere.io/upgrade-strategy: "[{\"upgradeFrom\": \"<=0.1.22\", \"strategy\": \"delete\"}]"
@@ -30,7 +30,7 @@ spec:
   chartReference:
     chart: kommander
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.2.22
+    version: 0.2.19
     values: |
       ---
       ingress:
