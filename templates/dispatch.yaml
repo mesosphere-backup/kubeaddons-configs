@@ -17,7 +17,7 @@ metadata:
 spec:
   namespace: dispatch
   kubernetes:
-    minSupportedVersion: v1.15.0
+    minSupportedVersion: v1.15.6
   cloudProvider:
     - name: aws
       enabled: false
@@ -30,10 +30,14 @@ spec:
   chartReference:
     chart: dispatch
     repo: https://mesosphere.github.io/charts/stable
-    version: 0.3.5
+    version: 0.3.7
     values: |
       ---
-      global:
+      argo-cd:
         prometheus:
           enabled: true
           release: prometheus-kubeaddons
+
+      prometheus:
+        enabled: true
+        release: prometheus-kubeaddons
