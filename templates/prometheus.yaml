@@ -141,7 +141,6 @@ spec:
                   replacement: '${1}:1338'
                   target_label: __address__
             - job_name: 'gpu_metrics'
-              scrape_interval: 1s
               metrics_path: /gpu/metrics
               tls_config:
                 ca_file: /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
