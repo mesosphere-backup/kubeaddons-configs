@@ -30,7 +30,7 @@ spec:
   chartReference:
     chart: kommander
     repo: https://gracedo.github.io/charts/stable
-    version: 0.2.29
+    version: 0.2.30
     values: |
       ---
       ingress:
