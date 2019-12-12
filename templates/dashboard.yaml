@@ -46,6 +46,8 @@ spec:
         repository: kubernetesui/dashboard
         tag: v2.0.0-beta6
         pullPolicy: Always
+      extraArgs:
+        - --namespace=kubeaddons
       ingress:
         enabled: true
         annotations:
