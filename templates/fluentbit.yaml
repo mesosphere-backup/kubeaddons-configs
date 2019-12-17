@@ -31,7 +31,7 @@ spec:
         enable: true
         input:
           memBufLimit: 35MB
-          parser: audit
+          parser: kubernetes-audit
           path: /var/log/kubernetes/audit/*.log
           bufferChunkSize: 5MB
           bufferMaxSize: 20MB
@@ -74,7 +74,7 @@ spec:
       parsers:
         enabled: true
         json:
-          - name: audit
+          - name: kubernetes-audit
             timeKey: requestReceivedTimestamp
             timeKeep: On
             timeFormat: "%Y-%m-%dT%H:%M:%S.%L"
