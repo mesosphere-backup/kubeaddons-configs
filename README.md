@@ -1,4 +1,4 @@
-**NOTE**: this repository **is now deprecated** and only serves konvoy versions prior to 1.3. Please see [the new repo](https://github.com/mesosphere/kubernetes-base-addons) to continue maintaining base kubernetes addons for ksphere products.
+**NOTE**: this repository **is now deprecated**. Please only update [kubernetes-base-addons](https://github.com/mesosphere/kubernetes-base-addons) unless a fix from there should also be backported for konvoy <= 1.2.
 
 # Addon Repository
 
